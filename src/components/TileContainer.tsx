@@ -22,6 +22,7 @@ export default function TileContainer({ selectedTile, onTileClick }: TileContain
             number={tile}
             isFirst={tile === 1}
             isLast={tile === 5}
+            isSelected={tile === selectedTile}
             onClick={() => onTileClick(tile)}
           />
         ))}
