@@ -7,7 +7,9 @@ export default function Timeline({ selectedTile, totalTiles }: TimelineProps) {
   return (
     <div className="relative w-full mt-12">
       {/* Horizontal line */}
-      <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-white/20" />
+      <div className={`absolute top-1/2 left-0 right-0 h-[1px] transition-colors duration-150 ${
+        selectedTile ? 'bg-white/20' : 'bg-transparent'
+      }`} />
       
       {/* Animated dot */}
       {selectedTile && (
