@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { useEffect } from 'react';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -124,9 +125,22 @@ const formatContent = (content: string) => {
 };
 
 export default function Sidebar({ isOpen, selectedTile, onClose }: SidebarProps) {
-  if (!isOpen) return null;
-
   const content = selectedTile ? tileContent[selectedTile as keyof typeof tileContent] : null;
+
+  // Reset scroll position after fade out
+  useEffect(() => {
+    if (selectedTile) {
+      const timer = setTimeout(() => {
+        const sidebar = document.querySelector('.sidebar-content');
+        if (sidebar) {
+          sidebar.scrollTop = 0;
+        }
+      }, 150); // Match the fade duration
+      return () => clearTimeout(timer);
+    }
+  }, [selectedTile]);
+
+  if (!isOpen) return null;
 
   return (
     <>
@@ -154,7 +168,7 @@ export default function Sidebar({ isOpen, selectedTile, onClose }: SidebarProps)
         transition={{ duration: 0.15, ease: "easeOut" }}
         className="fixed right-0 top-0 h-full w-[50vw] bg-gray-100/95 backdrop-blur-sm border-l border-gray-200/20 shadow-xl"
       >
-        <div className="h-full overflow-y-auto">
+        <div className="h-full overflow-y-auto sidebar-content">
           <div className="p-8">
             {/* Header */}
             <div className="flex items-center justify-between mb-8">
