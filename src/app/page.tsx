@@ -48,7 +48,7 @@ export default function Home() {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
-          <h1 className="text-6xl font-bold font-['Boldonse']">Hello.</h1>
+          <h1 className="text-7xl font-black tracking-tight">Hey!</h1>
         </motion.div>
         <motion.div 
           className="w-full flex items-center justify-center"

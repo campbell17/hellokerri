@@ -180,7 +180,7 @@ export default function Sidebar({ isOpen, selectedTile, onClose }: SidebarProps)
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.15, ease: "easeOut" }}
-                    className="text-2xl font-bold text-gray-900"
+                    className="text-4xl font-black text-gray-900 tracking-tight"
                   >
                     {content?.title}
                   </motion.h1>
