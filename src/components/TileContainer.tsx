@@ -18,7 +18,7 @@ const Tile = ({ number, isFirst, isLast, isSelected, onClick, onMouseEnter, onMo
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
-    transition={{ duration: 0.3, delay: initialDelay, ease: "easeOut" }}
+    transition={{ duration: 0.15, delay: initialDelay, ease: "easeOut" }}
     style={{ backgroundColor: '#e5e7eb' }}
     onClick={onClick}
     onMouseEnter={onMouseEnter}
@@ -57,7 +57,7 @@ export default function TileContainer({ selectedTile, onTileClick }: TileContain
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.3, delay: 1.5, ease: "easeOut" }}
+        transition={{ duration: 0.15, delay: 0.5, ease: "easeOut" }}
         className={`absolute -top-12 -left-12 z-20 transition-all duration-150 ease-out transform-gpu ${
           shouldMovePortrait ? '-translate-x-2 -translate-y-2' : ''
         } ${
@@ -87,7 +87,7 @@ export default function TileContainer({ selectedTile, onTileClick }: TileContain
             onClick={() => onTileClick(tile)}
             onMouseEnter={() => tile === 1 && setIsFirstTileHovered(true)}
             onMouseLeave={() => tile === 1 && setIsFirstTileHovered(false)}
-            initialDelay={tile * 0.2}
+            initialDelay={tile * 0.1}
           />
         ))}
       </div>
