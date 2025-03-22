@@ -27,13 +27,14 @@ export default function TileContainer({ selectedTile, onTileClick }: TileContain
       } ${
         isFirstTileSelected ? 'scale-110 translate-z-10' : ''
       }`}>
-        <div className="relative w-32 h-32">
+        <div className="relative w-32 h-32 rounded-full overflow-hidden">
           <Image
             src="/images/tim-hat-forest.png"
-            alt="Tim in forest"
-            fill
-            className="object-cover rounded-full"
-            priority
+            alt="Tim in the forest"
+            width={128}
+            height={128}
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
       </div>

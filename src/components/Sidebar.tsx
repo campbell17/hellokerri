@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -155,40 +156,48 @@ export default function Sidebar({ isOpen, selectedTile, onClose }: SidebarProps)
       >
         <div className="h-full overflow-y-auto">
           <div className="p-8">
-            <div className="mb-8">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-8">
               <AnimatePresence mode="wait">
-                <motion.h2
-                  key={selectedTile}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.15, ease: "easeOut" }}
-                  className="text-2xl font-bold text-gray-900"
-                >
-                  {content?.title}
-                </motion.h2>
+                {selectedTile && (
+                  <motion.h1 
+                    key={selectedTile}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    className="text-2xl font-bold text-gray-900"
+                  >
+                    {content?.title}
+                  </motion.h1>
+                )}
               </AnimatePresence>
             </div>
 
+            {/* Content */}
             <AnimatePresence mode="wait">
-              <motion.div
-                key={selectedTile}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.15, ease: "easeOut" }}
-              >
-                <div className="relative w-full h-64 mb-8 rounded-lg overflow-hidden">
-                  <img
-                    src={content?.image}
-                    alt={content?.title}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <div className="space-y-2">
-                  {content?.content && formatContent(content.content)}
-                </div>
-              </motion.div>
+              {selectedTile && (
+                <motion.div
+                  key={selectedTile}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.15, ease: "easeOut" }}
+                >
+                  <div className="relative w-full h-64 mb-8 rounded-lg overflow-hidden">
+                    <Image
+                      src={content?.image || ''}
+                      alt={content?.title || ''}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    {content?.content && formatContent(content.content)}
+                  </div>
+                </motion.div>
+              )}
             </AnimatePresence>
           </div>
         </div>
