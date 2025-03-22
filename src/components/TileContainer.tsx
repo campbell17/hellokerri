@@ -1,5 +1,6 @@
 import Tile from './Tile';
 import Timeline from './Timeline';
+import Image from 'next/image';
 
 interface TileContainerProps {
   selectedTile: number | null;
@@ -14,7 +15,20 @@ export default function TileContainer({ selectedTile, onTileClick }: TileContain
     : 'w-[1000px]';
 
   return (
-    <div className={`flex flex-col items-center ${containerWidth} transition-all duration-150`}>
+    <div className={`flex flex-col items-center ${containerWidth} transition-all duration-150 relative`}>
+      {/* Portrait */}
+      <div className="absolute -top-12 -left-12 z-20">
+        <div className="relative w-32 h-32">
+          <Image
+            src="/images/tim-hat-forest.png"
+            alt="Tim in forest"
+            fill
+            className="object-cover rounded-full"
+            priority
+          />
+        </div>
+      </div>
+
       <div className={`flex gap-0 w-full h-[60vh]`}>
         {[1, 2, 3, 4, 5].map((tile) => (
           <Tile
