@@ -128,60 +128,71 @@ export default function Sidebar({ isOpen, selectedTile, onClose }: SidebarProps)
   const content = selectedTile ? tileContent[selectedTile as keyof typeof tileContent] : null;
 
   return (
-    <motion.div
-      initial={{ x: 640 }}
-      animate={{ x: 0 }}
-      exit={{ x: 640 }}
-      transition={{ duration: 0.15, ease: "easeOut" }}
-      className="fixed right-0 top-0 h-full w-[640px] bg-gray-900/95 backdrop-blur-sm border-l border-white/10 shadow-xl"
-    >
-      <div className="h-full overflow-y-auto">
-        <div className="p-8">
-          <div className="flex justify-between items-center mb-8">
-            <AnimatePresence mode="wait">
-              <motion.h2
-                key={selectedTile}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.15, ease: "easeOut" }}
-                className="text-2xl font-bold text-white"
-              >
-                {content?.title}
-              </motion.h2>
-            </AnimatePresence>
-            <button
-              onClick={onClose}
-              className="text-white/60 hover:text-white transition-colors"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
+    <>
+      {/* Close Button */}
+      <AnimatePresence>
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.15, delay: 0.15, ease: "easeOut" }}
+          onClick={onClose}
+          className="fixed right-[620px] top-8 text-white/60 hover:text-white transition-colors z-50 w-10 h-10 flex items-center justify-center rounded-full bg-gray-900/50 hover:bg-gray-900/80 backdrop-blur-sm border border-white/10"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </motion.button>
+      </AnimatePresence>
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={selectedTile}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.15, ease: "easeOut" }}
-            >
-              <div className="relative w-full h-64 mb-8 rounded-lg overflow-hidden">
-                <img
-                  src={content?.image}
-                  alt={content?.title}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="space-y-2">
-                {content?.content && formatContent(content.content)}
-              </div>
-            </motion.div>
-          </AnimatePresence>
+      {/* Sidebar */}
+      <motion.div
+        initial={{ x: 640 }}
+        animate={{ x: 0 }}
+        exit={{ x: 640 }}
+        transition={{ duration: 0.15, ease: "easeOut" }}
+        className="fixed right-0 top-0 h-full w-[640px] bg-gray-900/95 backdrop-blur-sm border-l border-white/10 shadow-xl"
+      >
+        <div className="h-full overflow-y-auto">
+          <div className="p-8">
+            <div className="mb-8">
+              <AnimatePresence mode="wait">
+                <motion.h2
+                  key={selectedTile}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.15, ease: "easeOut" }}
+                  className="text-2xl font-bold text-white"
+                >
+                  {content?.title}
+                </motion.h2>
+              </AnimatePresence>
+            </div>
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selectedTile}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.15, ease: "easeOut" }}
+              >
+                <div className="relative w-full h-64 mb-8 rounded-lg overflow-hidden">
+                  <img
+                    src={content?.image}
+                    alt={content?.title}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="space-y-2">
+                  {content?.content && formatContent(content.content)}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </>
   );
 } 
