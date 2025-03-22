@@ -135,31 +135,31 @@ export default function Sidebar({ isOpen, selectedTile, onClose }: SidebarProps)
       transition={{ duration: 0.15, ease: "easeOut" }}
       className="fixed right-0 top-0 h-full w-[640px] bg-gray-900/95 backdrop-blur-sm border-l border-white/10 shadow-xl"
     >
-      <div className="p-8 h-full flex flex-col">
-        <div className="flex justify-between items-center mb-8">
-          <AnimatePresence mode="wait">
-            <motion.h2
-              key={selectedTile}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.15, ease: "easeOut" }}
-              className="text-2xl font-bold text-white"
+      <div className="h-full overflow-y-auto">
+        <div className="p-8">
+          <div className="flex justify-between items-center mb-8">
+            <AnimatePresence mode="wait">
+              <motion.h2
+                key={selectedTile}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.15, ease: "easeOut" }}
+                className="text-2xl font-bold text-white"
+              >
+                {content?.title}
+              </motion.h2>
+            </AnimatePresence>
+            <button
+              onClick={onClose}
+              className="text-white/60 hover:text-white transition-colors"
             >
-              {content?.title}
-            </motion.h2>
-          </AnimatePresence>
-          <button
-            onClick={onClose}
-            className="text-white/60 hover:text-white transition-colors"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
 
-        <div className="flex-1 overflow-y-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedTile}
