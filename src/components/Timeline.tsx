@@ -9,7 +9,7 @@ export default function Timeline({ selectedTile, totalTiles }: TimelineProps) {
       {/* Line with gradient mask */}
       <div 
         className={`absolute top-1/2 left-0 right-0 h-[1px] transition-colors duration-150 ${
-          selectedTile ? 'bg-gradient-to-r from-transparent via-white/20 to-transparent' : 'bg-transparent'
+          selectedTile ? 'bg-gradient-to-r from-transparent via-white/50 to-transparent' : 'bg-transparent'
         }`} 
       />
       
