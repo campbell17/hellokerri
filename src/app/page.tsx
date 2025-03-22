@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import TileContainer from '@/components/TileContainer';
 import Sidebar from '@/components/Sidebar';
+import Image from 'next/image';
 
 export default function Home() {
   const [selectedTile, setSelectedTile] = useState<number | null>(null);
@@ -31,7 +32,18 @@ export default function Home() {
       <main className={`flex-1 flex flex-col items-center justify-center p-4 perspective-1000 transition-all duration-300 ease-in-out ${
         selectedTile ? 'w-full' : 'w-full'
       }`}>
-        <h1 className="text-6xl font-bold mb-8 font-['Boldonse']">Hello.</h1>
+        <div className="flex items-center gap-8 mb-8">
+          <div className="relative w-32 h-32 rounded-full overflow-hidden">
+            <Image
+              src="/images/tim-hat-forest.png"
+              alt="Tim in the forest"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </div>
+          <h1 className="text-6xl font-bold font-['Boldonse']">Hello.</h1>
+        </div>
         <div className="w-full flex items-center justify-center">
           <TileContainer 
             selectedTile={selectedTile}
