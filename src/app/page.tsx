@@ -26,18 +26,11 @@ export default function Home() {
   return (
     <div className={`flex min-h-screen transition-all duration-300 ease-in-out ${
       selectedTile ? 'w-[50%]' : 'w-full'
-    }`} style={{
-      backgroundImage: 'url("/images/substack-remember-compliments.jpg")',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      position: 'relative'
-    }}>
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-white/90"></div>
-      
+    }`}>
       {/* Main Content */}
-      <main className="flex-1 flex flex-col items-center justify-center p-4 perspective-1000 relative z-10">
+      <main className={`flex-1 flex flex-col items-center justify-center p-4 perspective-1000 transition-all duration-300 ease-in-out ${
+        selectedTile ? 'w-full' : 'w-full'
+      }`}>
         <div className="w-full flex items-center justify-center">
           <TileContainer 
             selectedTile={selectedTile}
