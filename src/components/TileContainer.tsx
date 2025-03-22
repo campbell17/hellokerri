@@ -1,6 +1,7 @@
 import Tile from './Tile';
 import Timeline from './Timeline';
 import Image from 'next/image';
+import { useState } from 'react';
 
 interface TileContainerProps {
   selectedTile: number | null;
@@ -10,14 +11,22 @@ interface TileContainerProps {
 const TOTAL_TILES = 5;
 
 export default function TileContainer({ selectedTile, onTileClick }: TileContainerProps) {
+  const [isFirstTileHovered, setIsFirstTileHovered] = useState(false);
   const containerWidth = selectedTile 
     ? 'w-[800px]' 
     : 'w-[1000px]';
 
+  const shouldMovePortrait = isFirstTileHovered || selectedTile === 1;
+  const isFirstTileSelected = selectedTile === 1;
+
   return (
     <div className={`flex flex-col items-center ${containerWidth} transition-all duration-150 relative`}>
       {/* Portrait */}
-      <div className="absolute -top-12 -left-12 z-20">
+      <div className={`absolute -top-12 -left-12 z-20 transition-all duration-150 ease-out transform-gpu ${
+        shouldMovePortrait ? '-translate-x-2 -translate-y-2' : ''
+      } ${
+        isFirstTileSelected ? 'scale-110 translate-z-10' : ''
+      }`}>
         <div className="relative w-32 h-32">
           <Image
             src="/images/tim-hat-forest.png"
@@ -38,6 +47,8 @@ export default function TileContainer({ selectedTile, onTileClick }: TileContain
             isLast={tile === 5}
             isSelected={tile === selectedTile}
             onClick={() => onTileClick(tile)}
+            onMouseEnter={() => tile === 1 && setIsFirstTileHovered(true)}
+            onMouseLeave={() => tile === 1 && setIsFirstTileHovered(false)}
           />
         ))}
       </div>
