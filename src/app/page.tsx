@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import TileContainer from '@/components/TileContainer';
 import Sidebar from '@/components/Sidebar';
 import Image from 'next/image';
@@ -32,7 +33,12 @@ export default function Home() {
       <main className={`flex-1 flex flex-col items-center justify-center p-4 perspective-1000 transition-all duration-300 ease-in-out ${
         selectedTile ? 'w-full' : 'w-full'
       }`}>
-        <div className="flex items-center gap-8 mb-8">
+        <motion.div 
+          className="flex items-center gap-8 mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <div className="relative w-32 h-32 rounded-full overflow-hidden">
             <Image
               src="/images/tim-hat-forest.png"
@@ -43,13 +49,18 @@ export default function Home() {
             />
           </div>
           <h1 className="text-6xl font-bold font-['Boldonse']">Hello.</h1>
-        </div>
-        <div className="w-full flex items-center justify-center">
+        </motion.div>
+        <motion.div 
+          className="w-full flex items-center justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+        >
           <TileContainer 
             selectedTile={selectedTile}
             onTileClick={handleTileClick}
           />
-        </div>
+        </motion.div>
       </main>
 
       {/* Sidebar */}
