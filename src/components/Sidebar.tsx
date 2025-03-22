@@ -152,7 +152,7 @@ export default function Sidebar({ isOpen, selectedTile, onClose }: SidebarProps)
           exit={{ opacity: 0 }}
           transition={{ duration: 0.15, delay: 0.15, ease: "easeOut" }}
           onClick={onClose}
-          className="fixed right-[49vw] top-7 text-white/60 hover:text-white transition-colors z-50 w-10 h-10 flex items-center justify-center rounded-full bg-gray-900/50 hover:bg-gray-900/80 backdrop-blur-sm border border-white/10"
+          className="fixed right-[49%] top-7 text-white/60 hover:text-white transition-colors z-50 w-10 h-10 flex items-center justify-center rounded-full bg-gray-900/50 hover:bg-gray-900/80 backdrop-blur-sm border border-white/10"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -166,7 +166,7 @@ export default function Sidebar({ isOpen, selectedTile, onClose }: SidebarProps)
         animate={{ x: 0 }}
         exit={{ x: "100%" }}
         transition={{ duration: 0.15, ease: "easeOut" }}
-        className="fixed right-0 top-0 h-full w-[50vw] bg-gray-100/95 backdrop-blur-sm border-l border-gray-200/20 shadow-xl"
+        className="fixed right-0 top-0 h-full w-[50%] bg-gray-100/95 backdrop-blur-sm border-l border-gray-200/20 shadow-xl"
       >
         <div className="h-full overflow-y-auto sidebar-content">
           <div className="p-8">
