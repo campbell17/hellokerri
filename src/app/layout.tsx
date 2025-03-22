@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Lato } from "next/font/google";
-import "./globals.css";
+import { Geist, Geist_Mono } from 'next/font/google';
+import { Lato } from 'next/font/google';
+import './globals.css';
+import type { Metadata } from 'next';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,28 +13,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const lato = Lato({
-  weight: '900',
+const lato = Lato({ 
+  weight: ['400', '700', '900'],
   subsets: ['latin'],
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: "Hello Kerri",
-  description: "Hello Kerri",
+  title: "Tim Kerri",
+  description: "Personal website of Tim Kerri",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap"
           rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap"
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${lato.className} antialiased`}>
