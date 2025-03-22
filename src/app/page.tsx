@@ -28,7 +28,9 @@ export default function Home() {
       selectedTile ? 'w-[50%]' : 'w-full'
     }`}>
       {/* Main Content */}
-      <main className="flex-1 flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 p-4 perspective-1000">
+      <main className={`flex-1 flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 p-4 perspective-1000 transition-all duration-300 ease-in-out ${
+        selectedTile ? 'w-full' : 'w-full'
+      }`}>
         <div className="w-full flex items-center justify-center">
           <TileContainer 
             selectedTile={selectedTile}
