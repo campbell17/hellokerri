@@ -110,15 +110,15 @@ const formatContent = (content: string) => {
   return content.split('\n').map((line, i) => {
     const trimmedLine = line.trim();
     if (trimmedLine.startsWith('### ')) {
-      return <h3 key={i} className="text-xl font-semibold text-white mt-6 mb-4">{trimmedLine.replace('### ', '')}</h3>;
+      return <h3 key={i} className="text-xl font-semibold text-gray-800 mt-6 mb-4">{trimmedLine.replace('### ', '')}</h3>;
     }
     if (trimmedLine.startsWith('## ')) {
-      return <h2 key={i} className="text-2xl font-bold text-white mt-8 mb-4">{trimmedLine.replace('## ', '')}</h2>;
+      return <h2 key={i} className="text-2xl font-bold text-gray-900 mt-8 mb-4">{trimmedLine.replace('## ', '')}</h2>;
     }
     if (trimmedLine === '') {
       return <br key={i} />;
     }
-    return <p key={i} className="text-white/80 leading-relaxed mb-4">{trimmedLine}</p>;
+    return <p key={i} className="text-gray-600 leading-relaxed mb-4">{trimmedLine}</p>;
   });
 };
 
@@ -137,7 +137,7 @@ export default function Sidebar({ isOpen, selectedTile, onClose }: SidebarProps)
           exit={{ opacity: 0 }}
           transition={{ duration: 0.15, delay: 0.15, ease: "easeOut" }}
           onClick={onClose}
-          className="fixed right-[620px] top-8 text-white/60 hover:text-white transition-colors z-50 w-10 h-10 flex items-center justify-center rounded-full bg-gray-900/50 hover:bg-gray-900/80 backdrop-blur-sm border border-white/10"
+          className="fixed right-[622px] top-7 text-white/60 hover:text-white transition-colors z-50 w-10 h-10 flex items-center justify-center rounded-full bg-gray-900/50 hover:bg-gray-900/80 backdrop-blur-sm border border-white/10"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -151,7 +151,7 @@ export default function Sidebar({ isOpen, selectedTile, onClose }: SidebarProps)
         animate={{ x: 0 }}
         exit={{ x: 640 }}
         transition={{ duration: 0.15, ease: "easeOut" }}
-        className="fixed right-0 top-0 h-full w-[640px] bg-gray-900/95 backdrop-blur-sm border-l border-white/10 shadow-xl"
+        className="fixed right-0 top-0 h-full w-[640px] bg-gray-100/95 backdrop-blur-sm border-l border-gray-200/20 shadow-xl"
       >
         <div className="h-full overflow-y-auto">
           <div className="p-8">
@@ -163,7 +163,7 @@ export default function Sidebar({ isOpen, selectedTile, onClose }: SidebarProps)
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.15, ease: "easeOut" }}
-                  className="text-2xl font-bold text-white"
+                  className="text-2xl font-bold text-gray-900"
                 >
                   {content?.title}
                 </motion.h2>
