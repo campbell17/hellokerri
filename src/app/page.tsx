@@ -6,7 +6,6 @@ import Sidebar from '@/components/Sidebar';
 
 export default function Home() {
   const [selectedTile, setSelectedTile] = useState<number | null>(null);
-  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -21,12 +20,7 @@ export default function Home() {
 
   const handleTileClick = (tile: number) => {
     if (selectedTile === tile) return;
-    
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setSelectedTile(tile);
-      setIsTransitioning(false);
-    }, 150); // Match the transition duration
+    setSelectedTile(tile);
   };
 
   return (
@@ -47,7 +41,6 @@ export default function Home() {
       <Sidebar
         isOpen={selectedTile !== null}
         selectedTile={selectedTile}
-        isTransitioning={isTransitioning}
         onClose={() => setSelectedTile(null)}
       />
     </div>
