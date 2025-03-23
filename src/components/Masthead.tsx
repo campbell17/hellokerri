@@ -11,7 +11,6 @@ interface SubItem {
   id: number;
   text: string;
   portraits: Portrait[];
-  content: string;
 }
 
 interface MastheadProps {
@@ -25,7 +24,7 @@ function StackedPortraits({ portraits }: { portraits: Portrait[] }) {
       {portraits.map((portrait, index) => (
         <div 
           key={index}
-          className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-gray-900"
+          className="relative w-10 h-10 rounded-full overflow-hidden"
           style={{ 
             marginLeft: index > 0 ? '-0.75rem' : '0',
             zIndex: portraits.length - index 
@@ -51,8 +50,7 @@ const Masthead: FC<MastheadProps> = ({ onSubItemClick, isVertical = false }) => 
       text: "For Jason Z.",
       portraits: [
         { src: "/images/jasonz.jpeg", alt: "Jason Z., Principal Designer at 37signals" },
-      ],
-      content: 'With over a decade of experience in software development, I&apos;ve had the privilege of working on diverse projects that have shaped my expertise in creating intuitive and impactful digital solutions.'
+      ]
     },
     {
       id: 7,
@@ -60,16 +58,14 @@ const Masthead: FC<MastheadProps> = ({ onSubItemClick, isVertical = false }) => 
       portraits: [
         { src: "/images/jasonf.jpeg", alt: "Jason Fried, Started and runs 37signals" },
         { src: "/images/dhh.jpeg", alt: "David Heinemeier Hansson, Co-owner & CTO of 37signals" }
-      ],
-      content: 'Each project in my portfolio represents a unique challenge overcome and a creative solution delivered. From mobile applications to web platforms, I bring ideas to life with precision and passion.'
+      ]
     },
     {
       id: 8,
       text: "For The Team",
       portraits: [
         { src: "/images/37signals_logo.jpeg", alt: "37signals logo" }
-      ],
-      content: 'I&apos;m always excited to discuss new opportunities and collaborations. Whether you have a project in mind or just want to connect, I&apos;d love to hear from you.'
+      ]
     }
   ];
 
