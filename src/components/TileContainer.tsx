@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import Timeline from './Timeline';
 
 interface TileProps {
   number: number;
@@ -28,8 +27,7 @@ const Tile = ({ number, isFirst, isLast, isSelected, onClick, initialDelay }: Ti
         {number === 1 ? "What I Am" :
          number === 2 ? "What I Do" :
          number === 3 ? "Why Now?" :
-         number === 4 ? "Why Design?" :
-         "Why The Web?"}
+         ""}
       </span>
     </div>
   </motion.div>
@@ -40,8 +38,6 @@ interface TileContainerProps {
   onTileClick: (tile: number) => void;
 }
 
-const TOTAL_TILES = 3;
-
 export default function TileContainer({ selectedTile, onTileClick }: TileContainerProps) {
   const containerWidth = selectedTile 
     ? 'w-[800px]' 
@@ -50,23 +46,17 @@ export default function TileContainer({ selectedTile, onTileClick }: TileContain
   return (
     <div className={`flex flex-col items-center ${containerWidth} transition-all duration-150 relative`}>
       <div className={`flex gap-0 w-full h-[60vh]`}>
-        {[1, 3, 4].map((tile) => (
+        {[1, 2, 3].map((tile) => (
           <Tile
             key={tile}
             number={tile}
             isFirst={tile === 1}
-            isLast={tile === 4}
+            isLast={tile === 3}
             isSelected={tile === selectedTile}
             onClick={() => onTileClick(tile)}
             initialDelay={tile * 0.1}
           />
         ))}
-      </div>
-      <div className="w-full">
-        <Timeline 
-          selectedTile={selectedTile}
-          totalTiles={TOTAL_TILES}
-        />
       </div>
     </div>
   );
