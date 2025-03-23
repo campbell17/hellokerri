@@ -1,40 +1,23 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-
-interface MastheadProps {
-  onSubItemClick: (tileNumber: number) => void;
-  isVertical?: boolean;
-}
+import { FC } from 'react';
 
 interface Portrait {
   src: string;
   alt: string;
 }
 
-const subItems = [
-  { 
-    id: 6, 
-    text: "For Jason Z.",
-    portraits: [
-      { src: "/images/jasonz.jpeg", alt: "Jason Z., Principal Designer at 37signals" },
-    ]
-  },
-  { 
-    id: 7, 
-    text: "For Jason & David",
-    portraits: [
-      { src: "/images/jasonf.jpeg", alt: "Jason Fried, Started and runs 37signals" },
-      { src: "/images/dhh.jpeg", alt: "David Heinemeier Hansson, Co-owner & CTO of 37signals" }
-    ]
-  },
-  { 
-    id: 8, 
-    text: "For The Team",
-    portraits: [
-      { src: "/images/37signals_logo.jpeg", alt: "37signals logo" }
-    ]
-  }
-];
+interface SubItem {
+  id: number;
+  text: string;
+  portraits: Portrait[];
+  content: string;
+}
+
+interface MastheadProps {
+  onSubItemClick: (id: number) => void;
+  isVertical?: boolean;
+}
 
 function StackedPortraits({ portraits }: { portraits: Portrait[] }) {
   return (
@@ -61,7 +44,35 @@ function StackedPortraits({ portraits }: { portraits: Portrait[] }) {
   );
 }
 
-export default function Masthead({ onSubItemClick, isVertical = false }: MastheadProps) {
+const Masthead: FC<MastheadProps> = ({ onSubItemClick, isVertical = false }) => {
+  const subItems: SubItem[] = [
+    {
+      id: 6,
+      text: "For Jason Z.",
+      portraits: [
+        { src: "/images/jasonz.jpeg", alt: "Jason Z., Principal Designer at 37signals" },
+      ],
+      content: 'With over a decade of experience in software development, I&apos;ve had the privilege of working on diverse projects that have shaped my expertise in creating intuitive and impactful digital solutions.'
+    },
+    {
+      id: 7,
+      text: "For Jason & David",
+      portraits: [
+        { src: "/images/jasonf.jpeg", alt: "Jason Fried, Started and runs 37signals" },
+        { src: "/images/dhh.jpeg", alt: "David Heinemeier Hansson, Co-owner & CTO of 37signals" }
+      ],
+      content: 'Each project in my portfolio represents a unique challenge overcome and a creative solution delivered. From mobile applications to web platforms, I bring ideas to life with precision and passion.'
+    },
+    {
+      id: 8,
+      text: "For The Team",
+      portraits: [
+        { src: "/images/37signals_logo.jpeg", alt: "37signals logo" }
+      ],
+      content: 'I&apos;m always excited to discuss new opportunities and collaborations. Whether you have a project in mind or just want to connect, I&apos;d love to hear from you.'
+    }
+  ];
+
   return (
     <div className={`flex gap-12 ${isVertical ? 'flex-col items-start justify-start' : 'items-center justify-center'}`}>
       {/* Main heading */}
@@ -105,4 +116,6 @@ export default function Masthead({ onSubItemClick, isVertical = false }: Masthea
       </div>
     </div>
   );
-} 
+};
+
+export default Masthead; 
