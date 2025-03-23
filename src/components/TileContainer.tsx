@@ -24,7 +24,6 @@ const Tile = ({ number, isFirst, isLast, isSelected, onClick, initialDelay }: Ti
     }`}
   >
     <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-      {/* <span className="text-2xl font-bold">{number}</span> */}
       <span className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-150">
         {number === 1 ? "What I Am" :
          number === 2 ? "What I Do" :
@@ -51,7 +50,7 @@ export default function TileContainer({ selectedTile, onTileClick }: TileContain
   return (
     <div className={`flex flex-col items-center ${containerWidth} transition-all duration-150 relative`}>
       <div className={`flex gap-0 w-full h-[60vh]`}>
-        {[1, 2, 3, 4, 5].map((tile) => (
+        {[1, 3, 4].map((tile) => (
           <Tile
             key={tile}
             number={tile}
