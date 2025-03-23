@@ -40,7 +40,7 @@ interface TileContainerProps {
   onTileClick: (tile: number) => void;
 }
 
-const TOTAL_TILES = 5;
+const TOTAL_TILES = 3;
 
 export default function TileContainer({ selectedTile, onTileClick }: TileContainerProps) {
   const containerWidth = selectedTile 
@@ -55,7 +55,7 @@ export default function TileContainer({ selectedTile, onTileClick }: TileContain
             key={tile}
             number={tile}
             isFirst={tile === 1}
-            isLast={tile === 5}
+            isLast={tile === 4}
             isSelected={tile === selectedTile}
             onClick={() => onTileClick(tile)}
             initialDelay={tile * 0.1}

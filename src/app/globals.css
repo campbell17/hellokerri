@@ -58,6 +58,14 @@ body::before {
 
 @layer components {
   .tile {
-    @apply flex-1 rounded-lg transition-all duration-150 ease-out hover:scale-110 hover:translate-z-10 hover:bg-gray-300 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] hover:z-10 border border-gray-300 transform-gpu relative;
+    @apply flex-1 relative transition-all duration-150 ease-out hover:scale-110 hover:translate-z-10 hover:bg-gray-300 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] hover:z-10 border border-gray-300 transform-gpu rounded-none;
+  }
+
+  .tile:first-child {
+    @apply rounded-l-lg;
+  }
+
+  .tile:last-child {
+    @apply rounded-r-lg;
   }
 }
