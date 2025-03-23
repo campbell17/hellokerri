@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { useEffect } from 'react';
 
 interface SidebarProps {
-  isOpen: boolean;
   selectedTile: number | null;
   onClose: () => void;
 }
@@ -183,7 +182,7 @@ const tileContent = {
   }
 };
 
-export default function Sidebar({ isOpen, selectedTile, onClose }: SidebarProps) {
+export default function Sidebar({ selectedTile, onClose }: SidebarProps) {
   const content = selectedTile ? tileContent[selectedTile as keyof typeof tileContent] : null;
 
   // Reset scroll position after fade out
@@ -199,7 +198,7 @@ export default function Sidebar({ isOpen, selectedTile, onClose }: SidebarProps)
     }
   }, [selectedTile]);
 
-  if (!isOpen) return null;
+  if (!selectedTile) return null;
 
   return (
     <>

@@ -1,17 +1,15 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { motion } from 'framer-motion';
 import TileContainer from '@/components/TileContainer';
 import Sidebar from '@/components/Sidebar';
+import VerticalLayout from '@/components/VerticalLayout';
 import Masthead from '@/components/Masthead';
 
 export default function Home() {
   const [selectedTile, setSelectedTile] = useState<number | null>(null);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleCloseSidebar = useCallback(() => {
-    setIsSidebarOpen(false);
     setSelectedTile(null);
   }, []);
 
@@ -26,39 +24,37 @@ export default function Home() {
     return () => window.removeEventListener('keydown', handleEsc);
   }, [handleCloseSidebar]);
 
-  const handleTileClick = useCallback((tileNumber: number) => {
-    setSelectedTile(tileNumber);
-    setIsSidebarOpen(true);
-  }, []);
+  const handleTileClick = (tile: number) => {
+    setSelectedTile(tile === selectedTile ? null : tile);
+  };
 
   return (
-    <div className={`flex min-h-screen transition-all duration-300 ease-in-out ${
-      selectedTile ? 'w-[50%]' : 'w-full'
-    }`}>
-      {/* Main Content */}
-      <main className="flex-1 flex flex-col items-center justify-center p-4 perspective-1000 transition-all duration-300 ease-in-out">
-        <div className="relative z-10 flex flex-col gap-6">
-          <Masthead onSubItemClick={handleTileClick} />
-          <motion.div 
-            className="w-full flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-          >
-            <TileContainer 
-              selectedTile={selectedTile}
-              onTileClick={handleTileClick} 
-            />
-          </motion.div>
+    <main className="min-h-screen relative">
+      {/* Main content - instant fade out, smooth fade in */}
+      <div className={`flex flex-col items-center justify-center p-24 transition-[opacity] duration-300 ${
+        selectedTile ? 'opacity-0 pointer-events-none duration-0' : 'opacity-100'
+      }`}>
+        <Masthead onSubItemClick={handleTileClick} />
+        <div className="mt-12">
+          <TileContainer selectedTile={selectedTile} onTileClick={handleTileClick} />
         </div>
-      </main>
+      </div>
 
-      {/* Sidebar */}
-      <Sidebar 
-        isOpen={isSidebarOpen} 
-        selectedTile={selectedTile} 
-        onClose={handleCloseSidebar} 
-      />
-    </div>
+      {/* Vertical layout + Sidebar when a tile is selected */}
+      {selectedTile && (
+        <div className="fixed inset-0 flex">
+          <div className="w-1/2">
+            <VerticalLayout 
+              selectedTile={selectedTile}
+              onTileClick={handleTileClick}
+              onSubItemClick={handleTileClick}
+            />
+          </div>
+          <div className="w-1/2">
+            <Sidebar selectedTile={selectedTile} onClose={handleCloseSidebar} />
+          </div>
+        </div>
+      )}
+    </main>
   );
 }
