@@ -71,10 +71,6 @@ export default function Home() {
     setSelectedSubItem(item);
   };
 
-  const handleSidebarContentChange = (tile: number) => {
-    setSelectedTile(tile);
-  };
-
   const getModalContent = (id: number) => {
     return subItemsContent.find(item => item.id === id) || {
       title: '',
@@ -102,7 +98,8 @@ export default function Home() {
           <div className="w-1/2">
             <VerticalLayout 
               selectedTile={selectedTile}
-              onSubItemClick={handleSidebarContentChange}
+              onTileClick={handleTileClick}
+              onSubItemClick={handleSubItemClick}
             />
           </div>
           <div className="w-1/2">

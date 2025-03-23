@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 interface VerticalLayoutProps {
   selectedTile: number | null;
+  onTileClick: (tileNumber: number) => void;
   onSubItemClick: (tileNumber: number) => void;
 }
 
@@ -54,7 +55,7 @@ const StackedPortraits = ({ portraits }: { portraits: Array<{ src: string, alt: 
   </div>
 );
 
-export default function VerticalLayout({ selectedTile, onSubItemClick }: VerticalLayoutProps) {
+export default function VerticalLayout({ selectedTile, onTileClick, onSubItemClick }: VerticalLayoutProps) {
   return (
     <motion.div 
       initial={{ opacity: 0, x: -20 }}
@@ -77,7 +78,7 @@ export default function VerticalLayout({ selectedTile, onSubItemClick }: Vertica
               delay: 1 + (index * 0.1),
               ease: "easeOut" 
             }}
-            onClick={() => onSubItemClick(item.id)}
+            onClick={() => onTileClick(item.id)}
             className={`text-gray-500 hover:text-white flex items-center gap-4 hover:bg-gray-800 p-2 pr-4 rounded-full transition-all duration-150 ease-out ${
               selectedTile === item.id ? 'bg-gray-800 text-white' : ''
             }`}
