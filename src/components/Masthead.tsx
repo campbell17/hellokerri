@@ -20,7 +20,7 @@ const subItems = [
   },
   { 
     id: 8, 
-    text: "For People Ops",
+    text: "For The Team",
     image: "/images/tim-hat-forest.png",  // Using placeholder for now
     alt: "Contact portrait"
   }
