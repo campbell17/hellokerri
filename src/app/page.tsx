@@ -26,10 +26,10 @@ export default function Home() {
     return () => window.removeEventListener('keydown', handleEsc);
   }, [handleCloseSidebar]);
 
-  const handleTileClick = (tileNumber: number) => {
+  const handleTileClick = useCallback((tileNumber: number) => {
     setSelectedTile(tileNumber);
     setIsSidebarOpen(true);
-  };
+  }, []);
 
   return (
     <div className={`flex min-h-screen transition-all duration-300 ease-in-out ${
@@ -38,7 +38,7 @@ export default function Home() {
       {/* Main Content */}
       <main className="flex-1 flex flex-col items-center justify-center p-4 perspective-1000 transition-all duration-300 ease-in-out">
         <div className="relative z-10">
-          <Masthead />
+          <Masthead onSubItemClick={handleTileClick} />
           <motion.div 
             className="w-full flex items-center justify-center"
             initial={{ opacity: 0 }}

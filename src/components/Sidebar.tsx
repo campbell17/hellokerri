@@ -17,25 +17,12 @@ const contentStyles = {
 
 const tileContent = {
   1: {
-    title: "What I Am",
+    title: "About Me",
     image: "/images/tim-hat-forest.png",
     content: (
       <>
         <p className={contentStyles.p}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-
-        <h2 className={contentStyles.h2}>Background</h2>
-        <p className={contentStyles.p}>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-        </p>
-
-        <h2 className={contentStyles.h2}>Interests</h2>
-        <p className={contentStyles.p}>
-          Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
-        </p>
-        <p className={contentStyles.p}>
-          Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
       </>
     )
@@ -124,6 +111,72 @@ const tileContent = {
         <h2 className={contentStyles.h2}>Professional Networks</h2>
         <p className={contentStyles.p}>
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+        </p>
+      </>
+    )
+  },
+  6: {
+    title: "Experience",
+    image: "/images/tim-hat-forest.png",
+    content: (
+      <>
+        <h2 className={contentStyles.h2}>Professional Journey</h2>
+        <p className={contentStyles.p}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+
+        <h2 className={contentStyles.h2}>Key Achievements</h2>
+        <p className={contentStyles.p}>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+
+        <h2 className={contentStyles.h2}>Skills & Expertise</h2>
+        <p className={contentStyles.p}>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </>
+    )
+  },
+  7: {
+    title: "Projects",
+    image: "/images/tim-hat-forest.png",
+    content: (
+      <>
+        <h2 className={contentStyles.h2}>Featured Work</h2>
+        <p className={contentStyles.p}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+
+        <h2 className={contentStyles.h2}>Open Source</h2>
+        <p className={contentStyles.p}>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+
+        <h2 className={contentStyles.h2}>Side Projects</h2>
+        <p className={contentStyles.p}>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </>
+    )
+  },
+  8: {
+    title: "Contact",
+    image: "/images/tim-hat-forest.png",
+    content: (
+      <>
+        <h2 className={contentStyles.h2}>Get in Touch</h2>
+        <p className={contentStyles.p}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+
+        <h2 className={contentStyles.h2}>Social Media</h2>
+        <p className={contentStyles.p}>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+
+        <h2 className={contentStyles.h2}>Professional Networks</h2>
+        <p className={contentStyles.p}>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
       </>
     )
