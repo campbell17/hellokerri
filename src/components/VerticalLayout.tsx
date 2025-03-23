@@ -37,7 +37,7 @@ export default function VerticalLayout({ selectedTile, onTileClick, onSubItemCli
   return (
     <div className="flex flex-col w-full max-w-2xl mx-auto px-4 py-8 gap-12">
       <div className="w-full">
-        <Masthead onSubItemClick={onSubItemClick} />
+        <Masthead onSubItemClick={onSubItemClick} isVertical={true} />
       </div>
       
       <div className="w-full space-y-4">

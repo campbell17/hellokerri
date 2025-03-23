@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 interface MastheadProps {
   onSubItemClick: (tileNumber: number) => void;
+  isVertical?: boolean;
 }
 
 interface Portrait {
@@ -60,9 +61,9 @@ function StackedPortraits({ portraits }: { portraits: Portrait[] }) {
   );
 }
 
-export default function Masthead({ onSubItemClick }: MastheadProps) {
+export default function Masthead({ onSubItemClick, isVertical = false }: MastheadProps) {
   return (
-    <div className="flex items-center justify-center gap-12">
+    <div className={`flex items-center justify-center gap-12 ${isVertical ? 'flex-col' : ''}`}>
       {/* Main heading */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
@@ -70,7 +71,7 @@ export default function Masthead({ onSubItemClick }: MastheadProps) {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="flex items-center gap-8"
       >
-        <div className="relative w-32 h-32 rounded-full overflow-hidden">
+        <div className={`relative rounded-full overflow-hidden ${isVertical ? 'w-16 h-16' : 'w-32 h-32'}`}>
           <Image
             src="/images/tim-hat-forest.png"
             alt="Tim in the forest"

@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <main className="min-h-screen relative">
       {/* Main content - instant fade out, smooth fade in */}
-      <div className={`flex flex-col items-center justify-center p-24 transition-[opacity] duration-300 ${
+      <div className={`flex flex-col items-center justify-center p-6 transition-[opacity] duration-300 ${
         selectedTile ? 'opacity-0 pointer-events-none duration-0' : 'opacity-100'
       }`}>
         <Masthead onSubItemClick={handleTileClick} />
