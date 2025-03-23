@@ -28,14 +28,18 @@ export default function Home() {
     setSelectedTile(tile === selectedTile ? null : tile);
   };
 
+  const handleSidebarContentChange = (tile: number) => {
+    setSelectedTile(tile);
+  };
+
   return (
     <main className="min-h-screen relative">
-      {/* Main content - instant fade out, smooth fade in */}
-      <div className={`flex flex-col items-center justify-center p-6 transition-[opacity] duration-300 ${
-        selectedTile ? 'opacity-0 pointer-events-none duration-0' : 'opacity-100'
+      {/* Original layout - hidden when sidebar is open */}
+      <div className={`flex flex-col items-center justify-center p-24 ${
+        selectedTile ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}>
         <Masthead onSubItemClick={handleTileClick} />
-        <div className="mt-6">
+        <div className="mt-12">
           <TileContainer selectedTile={selectedTile} onTileClick={handleTileClick} />
         </div>
       </div>
@@ -43,14 +47,13 @@ export default function Home() {
       {/* Vertical layout + Sidebar when a tile is selected */}
       {selectedTile && (
         <div className="fixed inset-0 flex">
-          <div className="w-1/3">
+          <div className="w-1/2">
             <VerticalLayout 
               selectedTile={selectedTile}
-              onTileClick={handleTileClick}
-              onSubItemClick={handleTileClick}
+              onSubItemClick={handleSidebarContentChange}
             />
           </div>
-          <div className="w-2/3">
+          <div className="w-1/2">
             <Sidebar selectedTile={selectedTile} onClose={handleCloseSidebar} />
           </div>
         </div>
