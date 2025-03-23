@@ -54,14 +54,17 @@ export default function Home() {
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        handleCloseSidebar();
-        handleCloseModal();
+        if (selectedSubItem) {
+          handleCloseModal();
+        } else {
+          handleCloseSidebar();
+        }
       }
     };
 
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
-  }, [handleCloseSidebar, handleCloseModal]);
+  }, [handleCloseSidebar, handleCloseModal, selectedSubItem]);
 
   const handleTileClick = (tile: number) => {
     setSelectedTile(tile === selectedTile ? null : tile);
