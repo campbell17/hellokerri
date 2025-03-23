@@ -43,14 +43,14 @@ export default function Home() {
       {/* Vertical layout + Sidebar when a tile is selected */}
       {selectedTile && (
         <div className="fixed inset-0 flex">
-          <div className="w-1/2">
+          <div className="w-1/3">
             <VerticalLayout 
               selectedTile={selectedTile}
               onTileClick={handleTileClick}
               onSubItemClick={handleTileClick}
             />
           </div>
-          <div className="w-1/2">
+          <div className="w-2/3">
             <Sidebar selectedTile={selectedTile} onClose={handleCloseSidebar} />
           </div>
         </div>

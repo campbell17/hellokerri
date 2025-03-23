@@ -63,7 +63,7 @@ function StackedPortraits({ portraits }: { portraits: Portrait[] }) {
 
 export default function Masthead({ onSubItemClick, isVertical = false }: MastheadProps) {
   return (
-    <div className={`flex items-center justify-center gap-12 ${isVertical ? 'flex-col' : ''}`}>
+    <div className={`flex gap-12 ${isVertical ? 'flex-col items-start justify-start' : 'items-center justify-center'}`}>
       {/* Main heading */}
       <motion.div 
         initial={{ opacity: 0, y: isVertical ? 0 : 20 }}
@@ -71,7 +71,7 @@ export default function Masthead({ onSubItemClick, isVertical = false }: Masthea
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="flex items-center gap-8"
       >
-        <div className="relative w-32 h-32 rounded-full overflow-hidden">
+        <div className={`relative rounded-full overflow-hidden ${isVertical ? 'w-16 h-16' : ' w-32 h-32'}`}>
           <Image
             src="/images/tim-hat-forest.png"
             alt="Tim in the forest"
@@ -80,7 +80,7 @@ export default function Masthead({ onSubItemClick, isVertical = false }: Masthea
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
-        <h1 className="text-7xl font-black tracking-tight">Hey! <span className="font-normal text-gray-500">I&apos;m Tim.</span></h1>
+        <h1 className={`font-black tracking-tight ${isVertical ? 'text-4xl' : 'text-7xl'}`}>Hey! <span className="font-normal text-gray-500">I&apos;m Tim.</span></h1>
       </motion.div>
 
       {/* Secondary row */}
