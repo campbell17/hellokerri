@@ -35,7 +35,7 @@ export default function Home() {
         selectedTile ? 'opacity-0 pointer-events-none duration-0' : 'opacity-100'
       }`}>
         <Masthead onSubItemClick={handleTileClick} />
-        <div className="mt-12">
+        <div className="mt-6">
           <TileContainer selectedTile={selectedTile} onTileClick={handleTileClick} />
         </div>
       </div>

@@ -84,23 +84,25 @@ export default function Masthead({ onSubItemClick, isVertical = false }: Masthea
       </motion.div>
 
       {/* Secondary row */}
-      <motion.div
-        initial={{ opacity: 0, y: isVertical ? 0 : 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-        className="flex items-start gap-2 flex-col justify-center"
-      >
-        {subItems.map((item) => (
-          <button
+      <div className="flex items-start gap-2 flex-col justify-center">
+        {subItems.map((item, index) => (
+          <motion.button
             key={item.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ 
+              duration: 0.30,
+              delay: 0.5 + (index * 0.1),
+              ease: "easeOut" 
+            }}
             onClick={() => onSubItemClick(item.id)}
             className="text-gray-500 hover:text-white flex items-center gap-4 hover:bg-gray-800 p-2 pr-4 rounded-full transition-all duration-20 ease-out"
           >
             <StackedPortraits portraits={item.portraits} />
             <h2 className="text-xl font-black tracking-tight">{item.text}</h2>
-          </button>
+          </motion.button>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 } 
