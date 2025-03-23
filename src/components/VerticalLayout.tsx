@@ -35,7 +35,12 @@ const VerticalTile = ({ number, isSelected, onClick }: {
 
 export default function VerticalLayout({ selectedTile, onTileClick, onSubItemClick }: VerticalLayoutProps) {
   return (
-    <div className="flex flex-col w-full max-w-2xl mx-auto px-4 py-8 gap-12">
+    <motion.div 
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.3, delay: 0.15, ease: "easeOut" }}
+      className="flex flex-col w-full max-w-2xl mx-auto px-4 py-8 gap-12"
+    >
       <div className="w-full">
         <Masthead onSubItemClick={onSubItemClick} isVertical={true} />
       </div>
@@ -50,6 +55,6 @@ export default function VerticalLayout({ selectedTile, onTileClick, onSubItemCli
           />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 } 

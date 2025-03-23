@@ -66,12 +66,12 @@ export default function Masthead({ onSubItemClick, isVertical = false }: Masthea
     <div className={`flex items-center justify-center gap-12 ${isVertical ? 'flex-col' : ''}`}>
       {/* Main heading */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: isVertical ? 0 : 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="flex items-center gap-8"
       >
-        <div className={`relative rounded-full overflow-hidden ${isVertical ? 'w-16 h-16' : 'w-32 h-32'}`}>
+        <div className="relative w-32 h-32 rounded-full overflow-hidden">
           <Image
             src="/images/tim-hat-forest.png"
             alt="Tim in the forest"
@@ -85,7 +85,7 @@ export default function Masthead({ onSubItemClick, isVertical = false }: Masthea
 
       {/* Secondary row */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: isVertical ? 0 : 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
         className="flex items-start gap-2 flex-col justify-center"
