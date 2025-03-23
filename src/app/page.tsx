@@ -86,7 +86,7 @@ export default function Home() {
   return (
     <main className="min-h-screen relative">
       {/* Original layout - hidden when sidebar is open */}
-      <div className={`flex flex-col items-center justify-center p-24 ${
+      <div className={`flex flex-col items-center justify-center p-12 ${
         selectedTile ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}>
         <Masthead onSubItemClick={handleSubItemClick} />

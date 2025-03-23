@@ -61,7 +61,7 @@ export default function VerticalLayout({ selectedTile, onTileClick, onSubItemCli
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="flex flex-col w-full max-w-2xl mx-auto px-4 py-8 gap-12"
+      className="flex flex-col w-full max-w-2xl px-4 py-8 gap-12"
     >
       <div className="w-full">
         <Masthead onSubItemClick={onSubItemClick} isVertical={true} />
