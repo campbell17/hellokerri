@@ -5,6 +5,7 @@
 :root {
   --foreground-rgb: 255, 255, 255;
   --font-lato: var(--font-lato);
+  --font-cormorant: var(--font-cormorant);
 }
 
 body {

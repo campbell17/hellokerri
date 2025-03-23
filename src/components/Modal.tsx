@@ -65,7 +65,7 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose, title, portraits, content, nam
             </div>
 
             {/* Content */}
-            <p className="text-3xl mb-8 leading-normal text-gray-300 font-[var(--font-cormorant)]">
+            <p className="text-3xl mb-8 leading-normal text-gray-300" style={{ fontFamily: 'var(--font-cormorant)' }}>
               {content}
             </p>
 
