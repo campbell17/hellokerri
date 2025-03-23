@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import TileContainer from '@/components/TileContainer';
 import Sidebar from '@/components/Sidebar';
@@ -9,6 +9,17 @@ import Masthead from '@/components/Masthead';
 export default function Home() {
   const [selectedTile, setSelectedTile] = useState<number | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        handleCloseSidebar();
+      }
+    };
+
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, []);
 
   const handleTileClick = (tileNumber: number) => {
     setSelectedTile(tileNumber);
