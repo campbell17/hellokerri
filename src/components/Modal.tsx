@@ -11,12 +11,12 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
-  portraits: Portrait[];
+  modalPortraits: Portrait[];
   content: string;
   name: string;
 }
 
-const Modal: FC<ModalProps> = ({ isOpen, onClose, title, portraits, content, name }) => {
+const Modal: FC<ModalProps> = ({ isOpen, onClose, title, modalPortraits, content, name }) => {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -25,14 +25,14 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose, title, portraits, content, nam
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="fixed bg-black  bg-opacity-90 inset-0 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-gray-800 bg-opacity-90 z-50 flex items-center justify-center p-4"
         >
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
-            className="bg-[#0064E6] rounded-lg w-full max-w-6xl max-h-[90vh] overflow-y-auto p-8 relative"
+            className="bg-black rounded-lg w-[90vw] max-w-6xl max-h-[90vh] overflow-y-auto p-8 relative"
           >
             {/* Close button */}
             <button
@@ -46,9 +46,9 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose, title, portraits, content, nam
 
             {/* Title and Portraits */}
             <div className="flex items-center gap-4 mb-8">
-              <h2 className="text-3xl font-black text-white">{title}</h2>
+              <h2 className="text-xl md:text-3xl font-black text-white">{title}</h2>
               <div className="flex -space-x-4">
-                {portraits.map((portrait, index) => (
+                {modalPortraits.map((portrait, index) => (
                   <div
                     key={index}
                     className="relative w-12 h-12 rounded-full overflow-hidden"
@@ -65,21 +65,25 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose, title, portraits, content, nam
             </div>
 
             {/* Content */}
-            <p className="text-3xl mb-8 leading-normal font-semibold text-white" style={{ fontFamily: 'var(--font-cormorant)' }}>
+            <p className="text-xl md:text-3xl mb-8 leading-normal font-semibold text-white" style={{ fontFamily: 'var(--font-cormorant)' }}>
               {content}
             </p>
+            <p className="text-xl md:text-3xl mb-8 leading-normal font-semibold text-white" style={{ fontFamily: 'var(--font-cormorant)' }}>
+                Thank you,
+            </p>
+
 
             {/* Signature */}
-            <div className="flex flex-col items-center gap-4 mt-12">
+            <div className="flex flex-col items-start gap-4 mt-12">
               <div className="w-48 h-24 relative">
                 <Image
-                  src="/placeholder-signature.png"
+                  src="/images/sig-tc.png"
                   alt="Signature"
                   fill
                   className="object-contain"
                 />
               </div>
-              <p className="text-xl font-black text-white">{name}</p>
+              <p className="text-xl md:text-3xl font-black text-white" style={{ fontFamily: 'var(--font-cormorant)' }}>{name}</p>
             </div>
           </motion.div>
         </motion.div>

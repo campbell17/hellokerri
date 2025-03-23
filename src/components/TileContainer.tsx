@@ -23,8 +23,8 @@ const Tile = ({ number, isFirst, isLast, isSelected, onClick, initialDelay }: Ti
     }`}
   >
     <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-      <span className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-        {number === 1 ? "What I Am" :
+      <span className="text-xl font-black uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-150">
+        {number === 1 ? "About Me" :
          number === 2 ? "What I Do" :
          number === 3 ? "Why Now?" :
          ""}

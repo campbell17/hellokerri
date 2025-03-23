@@ -15,18 +15,25 @@ const subItemsContent = [
     portraits: [
       { src: "/images/jasonz.jpeg", alt: "Jason Z., Principal Designer at 37signals" },
     ],
+    modalPortraits: [
+      { src: "/images/jasonz.jpeg", alt: "Jason Z., Principal Designer at 37signals" },
+    ],
     content: "So avoiding my math homework only makes sense in the context of having a choice in the matter. I thought staring into space or sliding off my chair onto the kitchen floor were viable alternative options. They were not. The first step is to get good at offloading the act of starting to the same parts of your brain that handle basic functions. When faced with a sink full of dishes, for example, if I think \"I should really do these\" I'm already dead. I can't think, I need to act. Instead of taking any time to even form an opinion, I turn on the warm water and open the dishwasher. By the time I realize what's happening, the job is half done and inertia is doing all the heavy lifting. I can even daydream if I want.",
-    name: 'Tim'
+    name: 'Timothy W. Campbell'
   },
   {
     id: 7,
     title: 'For Jason & David',
     portraits: [
       { src: "/images/jasonf.jpeg", alt: "Jason Fried, Started and runs 37signals" },
-      { src: "/images/dhh.jpeg", alt: "David Heinemeier Hansson, Co-owner & CTO of 37signals" }
+      { src: "/images/dhh.jpeg", alt: "David Heinemeier Hansson, Co-owner & CTO of 37signals" },
+    ],
+    modalPortraits: [
+      { src: "/images/jasonf.jpeg", alt: "Jason Fried, Started and runs 37signals" },
+      { src: "/images/dhh.jpeg", alt: "David Heinemeier Hansson, Co-owner & CTO of 37signals" },
     ],
     content: "Each project in my portfolio represents a unique challenge overcome and a creative solution delivered. From mobile applications to web platforms, I bring ideas to life with precision and passion.",
-    name: 'Tim'
+    name: 'Timothy W. Campbell'
   },
   {
     id: 8,
@@ -34,8 +41,13 @@ const subItemsContent = [
     portraits: [
       { src: "/images/37signals_logo.jpeg", alt: "37signals logo" }
     ],
+    modalPortraits: [
+      { src: "/images/37signals_logo.jpeg", alt: "37signals logo" },
+      { src: "/images/jasonf.jpeg", alt: "Jason Fried, Started and runs 37signals" },
+      { src: "/images/dhh.jpeg", alt: "David Heinemeier Hansson, Co-owner & CTO of 37signals" },
+    ],
     content: "I'm always excited to discuss new opportunities and collaborations. Whether you have a project in mind or just want to connect, I'd love to hear from you.",
-    name: 'Tim'
+    name: 'Timothy W. Campbell'
   }
 ];
 
@@ -74,14 +86,7 @@ export default function Home() {
     setSelectedSubItem(item);
   };
 
-  const getModalContent = (id: number) => {
-    return subItemsContent.find(item => item.id === id) || {
-      title: '',
-      portraits: [],
-      content: '',
-      name: 'Tim'
-    };
-  };
+  const modalContent = selectedSubItem ? subItemsContent.find(item => item.id === selectedSubItem) : null;
 
   return (
     <main className="min-h-screen relative">
@@ -112,11 +117,11 @@ export default function Home() {
       )}
 
       {/* Modal for subitem content */}
-      {selectedSubItem && (
+      {modalContent && (
         <Modal
           isOpen={true}
           onClose={handleCloseModal}
-          {...getModalContent(selectedSubItem)}
+          {...modalContent}
         />
       )}
     </main>
