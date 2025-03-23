@@ -37,7 +37,7 @@ export default function Home() {
     }`}>
       {/* Main Content */}
       <main className="flex-1 flex flex-col items-center justify-center p-4 perspective-1000 transition-all duration-300 ease-in-out">
-        <div className="relative z-10">
+        <div className="relative z-10 flex flex-col gap-6">
           <Masthead onSubItemClick={handleTileClick} />
           <motion.div 
             className="w-full flex items-center justify-center"

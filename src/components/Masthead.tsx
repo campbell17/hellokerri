@@ -28,7 +28,7 @@ const subItems = [
 
 export default function Masthead({ onSubItemClick }: MastheadProps) {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex items-center justify-center gap-12">
       {/* Main heading */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
@@ -53,15 +53,15 @@ export default function Masthead({ onSubItemClick }: MastheadProps) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-        className="flex items-center gap-12 justify-center mt-6 mb-4"
+        className="flex items-start gap-2 flex-col justify-center"
       >
         {subItems.map((item) => (
           <button
             key={item.id}
             onClick={() => onSubItemClick(item.id)}
-            className="flex items-center gap-4 hover:bg-gray-800 p-2 pr-4 rounded-full transition-all duration-20 ease-out"
+            className=" text-gray-500 hover:text-white flex items-center gap-4 hover:bg-gray-800 p-2 pr-4 rounded-full transition-all duration-20 ease-out"
           >
-            <div className="relative w-12 h-12 rounded-full overflow-hidden">
+            <div className="relative w-10 h-10 rounded-full overflow-hidden">
               <Image
                 src={item.image}
                 alt={item.alt}
@@ -70,7 +70,7 @@ export default function Masthead({ onSubItemClick }: MastheadProps) {
                 sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 16vw"
               />
             </div>
-            <h2 className="text-2xl font-black tracking-tight">{item.text}</h2>
+            <h2 className="text-xl font-black tracking-tight">{item.text}</h2>
           </button>
         ))}
       </motion.div>
