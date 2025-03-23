@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import TileContainer from '@/components/TileContainer';
 import Sidebar from '@/components/Sidebar';
@@ -9,6 +9,11 @@ import Masthead from '@/components/Masthead';
 export default function Home() {
   const [selectedTile, setSelectedTile] = useState<number | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const handleCloseSidebar = useCallback(() => {
+    setIsSidebarOpen(false);
+    setSelectedTile(null);
+  }, []);
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -19,16 +24,11 @@ export default function Home() {
 
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
-  }, []);
+  }, [handleCloseSidebar]);
 
   const handleTileClick = (tileNumber: number) => {
     setSelectedTile(tileNumber);
     setIsSidebarOpen(true);
-  };
-
-  const handleCloseSidebar = () => {
-    setIsSidebarOpen(false);
-    setSelectedTile(null);
   };
 
   return (
@@ -36,9 +36,7 @@ export default function Home() {
       selectedTile ? 'w-[50%]' : 'w-full'
     }`}>
       {/* Main Content */}
-      <main className={`flex-1 flex flex-col items-center justify-center p-4 perspective-1000 transition-all duration-300 ease-in-out ${
-        selectedTile ? 'w-full' : 'w-full'
-      }`}>
+      <main className="flex-1 flex flex-col items-center justify-center p-4 perspective-1000 transition-all duration-300 ease-in-out">
         <div className="relative z-10">
           <Masthead />
           <motion.div 
