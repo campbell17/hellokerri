@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Masthead from './Masthead';
 import Image from 'next/image';
+import { tiles } from './TileContainer';
 
 interface VerticalLayoutProps {
   selectedTile: number | null;
@@ -8,29 +9,13 @@ interface VerticalLayoutProps {
   onSubItemClick: (tileNumber: number) => void;
 }
 
-const subItems = [
-  { 
-    id: 1, 
-    text: "What I Am",
-    portraits: [
-      { src: "/images/tim-hat-forest.png", alt: "Tim portrait" }
-    ]
-  },
-  { 
-    id: 2, 
-    text: "What I Do",
-    portraits: [
-      { src: "/images/tim-hat-forest.png", alt: "Tim portrait" },
-    ]
-  },
-  { 
-    id: 3, 
-    text: "Why Now?",
-    portraits: [
-      { src: "/images/tim-hat-forest.png", alt: "Tim portrait" },
-    ]
-  }
-];
+const subItems = tiles.map(tile => ({
+  id: tile.id,
+  text: tile.title,
+  portraits: [
+    { src: "/images/tim-hat-forest.png", alt: "Tim portrait" }
+  ]
+}));
 
 const StackedPortraits = ({ portraits }: { portraits: Array<{ src: string, alt: string }> }) => (
   <div className="relative flex items-center">
@@ -83,7 +68,7 @@ export default function VerticalLayout({ selectedTile, onTileClick, onSubItemCli
               selectedTile === item.id ? 'bg-gray-800 text-white' : ''
             }`}
           >
-            <StackedPortraits portraits={item.portraits} />
+            {/* <StackedPortraits portraits={item.portraits} /> */}
             <h2 className="text-xl font-black tracking-tight">{item.text}</h2>
           </motion.button>
         ))}

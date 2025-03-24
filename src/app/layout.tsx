@@ -27,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${lato.className} ${cormorantGaramond.variable}`}>{children}</body>
+      <body className={`max-w-[1240px] mx-auto ${lato.className} ${cormorantGaramond.variable}`}>{children}</body>
     </html>
   );
 }

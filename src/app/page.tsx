@@ -82,6 +82,13 @@ export default function Home() {
     setSelectedTile(tile === selectedTile ? null : tile);
   };
 
+  const handleNextTile = () => {
+    if (selectedTile) {
+      const nextTile = (selectedTile % 3) + 1;
+      setSelectedTile(nextTile);
+    }
+  };
+
   const handleSubItemClick = (item: number) => {
     setSelectedSubItem(item);
   };
@@ -91,7 +98,7 @@ export default function Home() {
   return (
     <main className="min-h-screen relative">
       {/* Original layout - hidden when sidebar is open */}
-      <div className={`flex flex-col items-center justify-center p-12 ${
+      <div className={`flex flex-col items-center justify-center p-12 transition-opacity duration-150 ${
         selectedTile ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}>
         <Masthead onSubItemClick={handleSubItemClick} />
@@ -111,7 +118,11 @@ export default function Home() {
             />
           </div>
           <div className="w-1/2">
-            <Sidebar selectedTile={selectedTile} onClose={handleCloseSidebar} />
+            <Sidebar 
+              selectedTile={selectedTile} 
+              onClose={handleCloseSidebar}
+              onNextTile={handleNextTile}
+            />
           </div>
         </div>
       )}
