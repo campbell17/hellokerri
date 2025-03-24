@@ -23,6 +23,13 @@ interface TileContent {
   content: ((handleImageClick: (index: number) => void) => React.ReactNode) | React.ReactNode;
 }
 
+interface ImageData {
+  src: string;
+  alt: string;
+  lightboxDisabled?: boolean;
+  fullWidth?: boolean;
+}
+
 const tileContent: Record<number, TileContent> = {
   1: {
     title: "My Story",
@@ -97,142 +104,41 @@ const tileContent: Record<number, TileContent> = {
         <p className={contentStyles.p}>
           The following is a collection of some of my work, followed by a few of my favorites by other designers and builders.
         </p>
-        <h2 className={contentStyles.h2}>Work by me:</h2>
-        <div className="grid grid-cols-2 gap-8 justify-center items-center pt-12">
-          <div className="flex flex-col gap-2">
-            <div className="cursor-pointer" onClick={() => handleImageClick(0)}>
+        <h2 className={contentStyles.h2}>Some of my work:</h2>
+        <div className="flex flex-col gap-8 pt-12">
+          {workImages.slice(0, 24).map((image, index) => (
+            <div 
+              key={index} 
+              className={`flex flex-col gap-2 ${!image.fullWidth ? 'lg:w-1/2' : 'w-full'}`}
+            >
+              <div className="cursor-pointer" onClick={() => handleImageClick(index)}>
+                <Image 
+                  src={image.src}
+                  alt={image.alt}
+                  width={1000} 
+                  height={1000}
+                  className="transition-opacity hover:opacity-[90%]" 
+                />
+              </div>
+              <p className="text-sm text-gray-500 mb-4">{image.alt}</p>
+            </div>
+          ))}
+        </div>
+        <h2 className={contentStyles.h2}>Some of my favorite work by others:</h2>
+        {workImages.slice(24).map((image, index) => (
+          <div key={index + 24} className="flex flex-col gap-2">
+            <div>
               <Image 
-                src={workImages[0].src}
-                alt={workImages[0].alt}
+                src={image.src}
+                alt={image.alt}
                 width={1000} 
                 height={1000}
-                className="transition-opacity hover:opacity-[65%]" 
+                className="transition-opacity" 
               />
             </div>
-            <p className="text-sm text-gray-500">Cercana Systems</p>
+            <p className="text-sm text-gray-500 mb-4">{image.alt}</p>
           </div>
-          <div className="flex flex-col gap-2">
-            <div className="cursor-pointer" onClick={() => handleImageClick(1)}>
-              <Image 
-                src={workImages[1].src}
-                alt={workImages[1].alt}
-                width={1000} 
-                height={1000}
-                className="transition-opacity hover:opacity-[65%]" 
-              />
-            </div>
-            <p className="text-sm text-gray-500">Liminal Lab</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <div className="cursor-pointer" onClick={() => handleImageClick(4)}>
-              <Image 
-                src={workImages[4].src}
-                alt={workImages[4].alt}
-                width={1000} 
-                height={1000}
-                className="transition-opacity hover:opacity-[65%]" 
-              />
-            </div>
-            <p className="text-sm text-gray-500">Fulcrum</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <div className="cursor-pointer" onClick={() => handleImageClick(3)}>
-              <Image 
-                src={workImages[3].src}
-                alt={workImages[3].alt}
-                width={1000} 
-                height={1000}
-                className="transition-opacity hover:opacity-[65%]" 
-              />
-            </div>
-            <p className="text-sm text-gray-500">Spatial Networks</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <div className="cursor-pointer" onClick={() => handleImageClick(2)}>
-              <Image 
-                src={workImages[2].src}
-                alt={workImages[2].alt}
-                width={1000} 
-                height={1000}
-                className="transition-opacity hover:opacity-[65%]" 
-              />
-            </div>
-            <p className="text-sm text-gray-500">Fulcrum Alt</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <div className="cursor-pointer" onClick={() => handleImageClick(6)}>
-              <Image 
-                src={workImages[6].src}
-                alt={workImages[6].alt}
-                width={1000} 
-                height={1000}
-                className="transition-opacity hover:opacity-[65%]" 
-              />
-            </div>
-            <p className="text-sm text-gray-500">Divide</p>
-          </div>
-        </div>
-        <div className="flex flex-col gap-2">
-          <div className="cursor-pointer" onClick={() => handleImageClick(5)}>
-            <Image 
-              src={workImages[5].src}
-              alt={workImages[5].alt}
-              width={1000} 
-              height={1000}
-              className="transition-opacity hover:opacity-[65%]" 
-            />
-          </div>
-        </div>
-        <hr className="w-full my-24" />
-        <h2 className={contentStyles.h2}>Work by others:</h2>
-        <div className="flex flex-col gap-2">
-          <div className="cursor-pointer" onClick={() => handleImageClick(7)}>
-            <Image 
-              src={workImages[7].src}
-              alt={workImages[7].alt}
-              width={1000} 
-              height={1000}
-              className="transition-opacity hover:opacity-[65%]" 
-            />
-          </div>
-          <p className="text-sm text-gray-500">For visual balance, color usage, and succulently 3D rendered books: Stripe Press</p>
-        </div>
-        <div className="flex flex-col gap-2">
-          <div className="cursor-pointer" onClick={() => handleImageClick(8)}>
-            <Image 
-              src={workImages[8].src}
-              alt={workImages[8].alt}
-              width={1000} 
-              height={1000}
-              className="transition-opacity hover:opacity-[65%]" 
-            />
-          </div>
-          <p className="text-sm text-gray-500">For impeccable illustration, long-form idea cultivation, and writing that&apos;s tight as a drum: Maggie Appleton</p>
-        </div>
-        <div className="flex flex-col gap-2">
-          <div className="cursor-pointer" onClick={() => handleImageClick(9)}>
-            <Image 
-              src={workImages[9].src}
-              alt={workImages[9].alt}
-              width={1000} 
-              height={1000}
-              className="transition-opacity hover:opacity-[65%]" 
-            />
-          </div>
-          <p className="text-sm text-gray-500">For the three E&apos;s of design (Energy, Enthusiasm, and Effort) and a staggering preponderance of work: Aaron Draplin</p>
-        </div>
-        <div className="flex flex-col gap-2">
-          <div className="cursor-pointer" onClick={() => handleImageClick(10)}>
-            <Image 
-              src={workImages[10].src}
-              alt={workImages[10].alt}
-              width={1000} 
-              height={1000}
-              className="transition-opacity hover:opacity-[65%]" 
-            />
-          </div>
-          <p className="text-sm text-gray-500">For &quot;You can just build things&quot;: Levels.io</p>
-        </div>
+        ))}
       </>
     )
   },
@@ -406,20 +312,34 @@ const tileContent: Record<number, TileContent> = {
 };
 
 const workImages = [
-  { src: "/images/work/branding/logo-cercana2.jpg", alt: "Cercana Systems" },
-  { src: "/images/work/branding/logo-liminallab.jpg", alt: "Liminal Lab" },
-  { src: "/images/work/branding/logo-fulcrum-circle.jpg", alt: "Fulcrum" },
-  { src: "/images/work/branding/logo-sni.jpg", alt: "Spatial Networks, Inc" },
-  { src: "/images/work/branding/logo-fulcrum.jpg", alt: "Fulcrum" },
-  { src: "/images/work/web/fulcrum-social-opt.jpg", alt: "Fulcrum Best" },
-  { src: "/images/work/branding/logo-divide.jpg", alt: "Divide" },
-  { src: "/images/work/others/stripe-press.jpg", alt: "Stripe Press" },
-  { src: "/images/work/others/maggie.jpg", alt: "Maggie Appleton" },
-  { src: "/images/work/others/ddc.jpg", alt: "Aaron Draplin, DDC" },
-  { src: "/images/work/others/levelsio.jpg", alt: "Levels.io" },
-  { src: "/images/work/other/allinspections-ad2.jpg", alt: "Allinspections Ad" },
-  { src: "/images/work/other/allinspections-ad.jpg", alt: "Allinspections Ad" },
-  { src: "/images/work/other/levelsio.jpg", alt: "Levels.io" },
+  { src: "/images/work/branding/logo-cercana2.jpg", alt: "Cercana Systems", fullWidth: true },
+  { src: "/images/work/branding/logo-cercana-full.jpg", alt: "Cercana Systems", fullWidth: true },
+  { src: "/images/work/branding/logo-liminallab.jpg", alt: "Liminal Lab", fullWidth: true },
+  { src: "/images/work/branding/logo-liminallab-full.jpg", alt: "Liminal Lab", fullWidth: true },
+  { src: "/images/work/branding/logo-fulcrum.jpg", alt: "Fulcrum", fullWidth: true },
+  { src: "/images/work/branding/logo-fulcrum-circle.jpg", alt: "Fulcrum", fullWidth: true },
+  // { src: "/images/work/web/logo-fulcrum-web1.jpg", alt: "Fulcrum", fullWidth: true },
+  // { src: "/images/work/web/logo-fulcrum-web2.jpg", alt: "Fulcrum", fullWidth: true },
+  // { src: "/images/work/web/logo-fulcrum-web3.jpg", alt: "Fulcrum", fullWidth: true },
+  // { src: "/images/work/web/logo-fulcrum-web4.jpg", alt: "Fulcrum", fullWidth: true },
+  // { src: "/images/work/web/logo-fulcrum-web5.jpg", alt: "Fulcrum", fullWidth: true },
+  // { src: "/images/work/web/logo-fulcrum-web6.jpg", alt: "Fulcrum", fullWidth: true },
+  { src: "/images/work/web/fulcrum-social-opt.jpg", alt: "A shred of press", fullWidth: true },
+  { src: "/images/work/branding/logo-divide.jpg", alt: "Divide", fullWidth: true },
+  { src: "/images/work/other/asset-divide1.webp", alt: "Divide", fullWidth: true },
+  { src: "/images/work/other/asset-divide2.webp", alt: "Divide", fullWidth: true },
+  { src: "/images/work/other/asset-divide3.webp", alt: "Divide", fullWidth: true },
+  { src: "/images/work/other/asset-divide4.webp", alt: "Divide", fullWidth: true },
+  { src: "/images/work/other/asset-divide5.webp", alt: "Divide", fullWidth: true },
+  { src: "/images/work/other/asset-divide6.webp", alt: "Divide", fullWidth: true },
+  { src: "/images/work/other/asset-divide7.webp", alt: "Divide", fullWidth: true },
+  { src: "/images/work/branding/logo-sni.jpg", alt: "Spatial Networks, Inc", fullWidth: true },
+  { src: "/images/work/other/allinspections-ad2.png", alt: "Allinspections Ad", fullWidth: true },
+  { src: "/images/work/other/allinspections-ad.jpg", alt: "Allinspections Ad", fullWidth: true },
+  { src: "/images/work/others/stripe-press.jpg", alt: "For visual balance, color usage, and succulently 3D rendered books: Stripe Press", lightboxDisabled: true, fullWidth: true  },
+  { src: "/images/work/others/maggie.jpg", alt: "For impeccable illustration, long-form idea cultivation, and writing that's tight as a drum: Maggie Appleton", lightboxDisabled: true, fullWidth: true  },
+  { src: "/images/work/others/ddc.jpg", alt: "For the three E's of design (Energy, Enthusiasm, and Effort) and a staggering preponderance of work: Aaron Draplin", lightboxDisabled: true, fullWidth: true },
+  { src: "/images/work/others/levelsio.jpg", alt: "For \"You can just build things\": Levels.io", lightboxDisabled: true, fullWidth: true },
 ];
 
 export default function Sidebar({ selectedTile, onClose, onNextTile }: SidebarProps) {
