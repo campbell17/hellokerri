@@ -15,12 +15,12 @@ export const tiles: TileConfig[] = [
   {
     id: 2,
     title: "My Work",
-    backgroundImage: "/images/office-pov.jpg"
+    backgroundImage: "/images/my-work.png"
   },
   {
     id: 3,
     title: "Why 37 Signals?",
-    backgroundImage: "/images/office-pov.jpg"
+    backgroundImage: "/images/why37signals3.jpg"
   }
 ];
 
