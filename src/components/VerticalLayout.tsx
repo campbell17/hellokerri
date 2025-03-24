@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import Masthead from './Masthead';
-import Image from 'next/image';
 import { tiles } from './TileContainer';
 
 interface VerticalLayoutProps {
@@ -16,29 +15,6 @@ const subItems = tiles.map(tile => ({
     { src: "/images/tim-hat-forest.png", alt: "Tim portrait" }
   ]
 }));
-
-const StackedPortraits = ({ portraits }: { portraits: Array<{ src: string, alt: string }> }) => (
-  <div className="relative flex items-center">
-    {portraits.map((portrait, index) => (
-      <div 
-        key={index}
-        className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-gray-900"
-        style={{ 
-          marginLeft: index > 0 ? '-0.75rem' : '0',
-          zIndex: portraits.length - index 
-        }}
-      >
-        <Image
-          src={portrait.src}
-          alt={portrait.alt}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 16vw"
-        />
-      </div>
-    ))}
-  </div>
-);
 
 export default function VerticalLayout({ selectedTile, onTileClick, onSubItemClick }: VerticalLayoutProps) {
   return (
@@ -64,11 +40,10 @@ export default function VerticalLayout({ selectedTile, onTileClick, onSubItemCli
               ease: "easeOut" 
             }}
             onClick={() => onTileClick(item.id)}
-            className={`text-gray-500 hover:text-white flex items-center gap-4 hover:bg-gray-800 p-2 pr-4 rounded-full transition-all duration-150 ease-out ${
+            className={`text-gray-500 hover:text-white flex items-center gap-4 hover:bg-gray-800 py-2 px-4 rounded-full transition-all duration-150 ease-out ${
               selectedTile === item.id ? 'bg-gray-800 text-white' : ''
             }`}
           >
-            {/* <StackedPortraits portraits={item.portraits} /> */}
             <h2 className="text-xl font-black tracking-tight">{item.text}</h2>
           </motion.button>
         ))}

@@ -10,7 +10,7 @@ export const tiles: TileConfig[] = [
   {
     id: 1,
     title: "My Story",
-    backgroundImage: "/images/office-pov.jpg"
+    backgroundImage: "/images/my-story.jpg"
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ export const tiles: TileConfig[] = [
   },
   {
     id: 3,
-    title: "Why Now?",
+    title: "Why 37 Signals?",
     backgroundImage: "/images/office-pov.jpg"
   }
 ];
@@ -54,12 +54,12 @@ const Tile = ({ config, isFirst, isLast, isSelected, onClick, initialDelay }: Ti
       {/* Base overlay with gradient */}
       <div className={`absolute inset-0 transition-opacity duration-150 group-hover:block ${
         config.backgroundImage ? 
-          'bg-gradient-to-br from-purple-900/80 via-blue-900/70 to-black/60' : 
+          'bg-gradient-to-br from-sky-900/80 via-slate-900/70 to-black/60' : 
           ''
       }`}></div>
       
       {/* Hover overlay */}
-      <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-150 bg-gradient-to-br from-purple-900/90 via-blue-900/80 to-black/70`}></div>
+      <div className={`absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-150 bg-gradient-to-br from-slate-900/90 via-blue-900/80 to-black/70`}></div>
 
       <span className="text-xl font-black uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-150 text-white relative z-10">
         {config.title}

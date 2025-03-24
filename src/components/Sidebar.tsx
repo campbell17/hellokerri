@@ -46,7 +46,7 @@ const tileContent = {
         </p>
 
         <p className={contentStyles.p}>
-          We took a few cracks at different product ideas. Allinspections, the product I was actually hired to help create, couldn&apos;t find its niche and had to be sunsetted after 18 months. The CEO called me into his office in what I was certain to be my final meeting at Spatial Networks. Instead, he offered me the opportunity to head up something new: Fulcrum.
+          We took a few cracks at different product ideas. Allinspections, the product I was actually hired to help create, couldn&apos;t find its niche and had to be sunsetted after 18 months. The CEO called me into his office in what I was certain would be my final meeting at Spatial Networks. Instead, he offered me the opportunity to head up something new: Fulcrum.
         </p>
 
         <p className={contentStyles.p}>
@@ -62,7 +62,7 @@ const tileContent = {
     content: (
       <>
         <p className={contentStyles.p}>
-          I knew I wanted to be a designer when I realized I wasn&apos;t afraid to be paid for it.
+          I knew I wanted to be a designer when I realized I wasn&apos;t afraid to get paid for it.
         </p>
 
         <p className={contentStyles.p}>
@@ -70,22 +70,26 @@ const tileContent = {
         </p>
 
         <p className={contentStyles.p}>
-          I went to art school where I majored in illustration and photography. Needless to say, after graduation I worked in sporting goods fitting people for running shoes (I was damn good, by the way). I never dug into how to make money with my art because I never felt comfortable with the idea of something so subjective being scrutinized in that way. Like how people who are about to get ripped off scrutinize the gleam in their car salesman&apos;s eye. 
+          I went to art school where I majored in illustration and photography. Needless to say, after graduation I worked in sporting goods fitting people for running shoes (I was damn good, by the way). I never dug into how to make money with my art because I never felt comfortable with the idea of something so subjective being scrutinized in that way. Like how people who know they&apos;re about to get ripped off scrutinize the gleam in their car salesman&apos;s eye. 
         </p>
 
         <p className={contentStyles.p}>
-          But I was always technically sharp and to me, design was more technical. If someone needed a logo, no problem. Logos cost this much. I fell in love with design because it was the perfect combination of drawing a sublime portrait and troubleshooting my neighbor&apos;s Dell. It always starts with logos, but flyers, posters, brochures...so many brochures. When I started, web design was still young. I kept my eye on it and dabbled where I could. Eventually, it&apos;s all I did.
+          But I was always technically sharp and to me, design was more technical. If someone needed a logo, no problem. Logos cost this much. I fell in love with design because it was the perfect combination of drawing a sublime portrait and troubleshooting my neighbor&apos;s Dell. It always starts with logos, flyers, posters, brochures...so many brochures. In the beginning it was mostly print. When I started, web design was still young. But I kept my eye on it and dabbled where I could and eventually, it&apos;s all I did.
         </p>
 
         <p className={contentStyles.p}>
-          If design called to my logical side, the web called to my preternatural lust for improvement. When I sent that file entitled &quot;business_card_CEO_front_FINAL_FINAL2.pdf&quot; to the printer for that run of 10,000, the mouse-up event on the send button to his hotmail.com business address was what the racing instructors used to call a Pampers™ moment. On the web, however, I could fix a typo faster than that same PDF would load in Adobe Acrobat. I&apos;m not condoning sloppiness, of course. But diapers do be expensive.
+          If design called to my logical side, the web called to my preternatural lust for improvement. When I sent that file entitled &quot;business_card_CEO_front_FINAL_FINAL2.pdf&quot; to the printer for that run of 10,000, the mouse-up event on the send button to his hotmail.com business address was what the racing instructors used to call a Pampers™ moment. On the web, however, I could fix a typo faster than that same PDF would load in Adobe Acrobat. I&apos;m not condoning sloppiness, of course. Diapers are expensive.
         </p>
 
         <p className={contentStyles.p}>
-          There&apos;s always too much to show, but somehow still not enough. The following scroll-fest is an attempt to show some of my mine, as well as some of the work that makes me jealous (a.k.a. want to quit and move abroad to raise cattle).
+          There&apos;s always too much to show, but somehow still not enough.
         </p>
-        <h2 className={contentStyles.h2}>Fulcrum</h2>
-        <Image src="/images/app-icons-2.png" alt="Fulcrum" width={1000} height={1000} />
+        <div className="flex flex-col gap-12 justify-center items-center pt-12">
+          <Image src="/images/work/branding/cercana-logo-stacked-primary.svg" alt="Branding" width={600} height={1000} />
+          <Image src="/images/work/branding/divide-logo.png" alt="Branding" width={600} height={1000} />
+          <Image src="/images/work/branding/app-icons-2.png" alt="Branding" width={1000} height={1000} />
+          <Image src="/images/work/branding/liminal-lab-logo-vector.svg" alt="Branding" width={1000} height={1000} />
+        </div>
       </>
     )
   },
