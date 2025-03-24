@@ -23,13 +23,6 @@ interface TileContent {
   content: ((handleImageClick: (index: number) => void) => React.ReactNode) | React.ReactNode;
 }
 
-interface ImageData {
-  src: string;
-  alt: string;
-  lightboxDisabled?: boolean;
-  fullWidth?: boolean;
-}
-
 const tileContent: Record<number, TileContent> = {
   1: {
     title: "My Story",
