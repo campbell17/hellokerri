@@ -81,7 +81,7 @@ const subItemsContent = [
     content: (
       <>
         <p className={contentStyles.p}>
-          Hello, wonderful people making useful software. I&apos;m Tim, and I&apos;m applying to join your design team. This isn&apos;t an opportunity I take lightly, which is why I wanted to thank you, the entire group of potential future colleagues, for being an additive force to the strength of 37 Signals. Culture can&apos;t be mandated. It&apos;s an emergent property of the way you work, and preserving it over the long term is no small achievement. If given the chance, I&apos;ll do my part to add to its already sturdy foundation.
+          Hello, wonderful people making useful software. I&apos;m Tim, and I&apos;m applying to join your design team. This isn&apos;t an opportunity I take lightly, which is why I wanted to thank you, the entire group of potential future colleagues, for adding to the collective strength of 37 Signals. Culture can&apos;t be mandated. It&apos;s an emergent property of the way you work, and preserving it over the long term is no small achievement. If given the chance, I&apos;ll do my part to add to its already sturdy foundation.
         </p>
 
         <p className={contentStyles.p}>

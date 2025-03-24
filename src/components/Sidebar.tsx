@@ -22,7 +22,7 @@ const tileContent = {
     content: (
       <>
         <p className={contentStyles.p}>
-          Fourteen years and seven months ago, I joined Spatial Networks as their 12th employee and first design hire. They needed...everything. My title was UI Designer, but I did it all, online and in print. But we&apos;ll come back to that.
+          Fourteen years and seven months ago, I joined Spatial Networks as their 12th employee and first design hire. They needed... everything. My title was UI Designer, but I did it all, online and in print. But we&apos;ll come back to that.
         </p>
 
         <p className={contentStyles.p}>
