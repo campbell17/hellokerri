@@ -98,34 +98,58 @@ const tileContent: Record<number, TileContent> = {
           The following is a collection of some of my work, followed by a few of my favorites by other designers and builders.
         </p>
         <h2 className={contentStyles.h2}>Work by me:</h2>
-        <div className="flex flex-col gap-12 justify-center items-center pt-12">
-          <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/logo-cercana2.jpg", "Cercana Logo")}>
-            <Image src="/images/work/branding/logo-cercana2.jpg" alt="Cercana Logo" width={1000} height={1000} />
+        <div className="grid grid-cols-2 gap-8 justify-center items-center pt-12">
+          <div className="flex flex-col gap-2">
+            <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/logo-cercana2.jpg", "Cercana Systems")}>
+              <Image src="/images/work/branding/logo-cercana2.jpg" alt="Cercana Systems" width={1000} height={1000} />
+            </div>
+            <p className="text-xs text-gray-500">Cercana Systems</p>
           </div>
-          <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/divide-logo.png", "Divide Logo")}>
-            <Image src="/images/work/branding/divide-logo.png" alt="Divide Logo" width={600} height={1000} />
+          <div className="flex flex-col gap-2">
+            <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/logo-liminallab.jpg", "Liminal Lab")}>
+              <Image src="/images/work/branding/logo-liminallab.jpg" alt="LiminalLab" width={1000} height={1000} />
+            </div>
+            <p className="text-xs text-gray-500">Liminal Lab</p>
           </div>
-          <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/app-icons-2.png", "App Icons")}>
-            <Image src="/images/work/branding/app-icons-2.png" alt="App Icons" width={1000} height={1000} />
+          <div className="flex flex-col gap-2">
+            <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/logo-fulcrum-circle.jpg", "Fulcrum Alt")}>
+              <Image src="/images/work/branding/logo-fulcrum-circle.jpg" alt="Fulcrum Logo Alt" width={1000} height={1000} />
+            </div>
+            <p className="text-xs text-gray-500">Fulcrum</p>
           </div>
-          <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/liminal-lab-logo-vector.svg", "Liminal Lab Logo")}>
-            <Image src="/images/work/branding/liminal-lab-logo-vector.svg" alt="Liminal Lab Logo" width={1000} height={1000} />
+          <div className="flex flex-col gap-2">
+            <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/logo-sni.jpg", "Spatial Networks, Inc")}>
+              <Image src="/images/work/branding/logo-sni.jpg" alt="Spatial Networks, Inc" width={1000} height={1000} />
+            </div>
+            <p className="text-xs text-gray-500">Spatial Networks</p>
           </div>
         </div>
         <hr className="w-full my-24" />
         <h2 className={contentStyles.h2}>Work by others:</h2>
-        <div className="flex flex-col gap-12 justify-center items-center pt-12">
-          <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/cercana-logo-stacked-primary.svg", "Cercana Logo")}>
-            <Image src="/images/work/branding/cercana-logo-stacked-primary.svg" alt="Cercana Logo" width={600} height={1000} />
+        <div className="grid grid-cols-2 gap-8 justify-center items-center pt-12">
+          <div className="flex flex-col gap-2">
+            <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/cercana-logo-stacked-primary.svg", "Cercana Logo")}>
+              <Image src="/images/work/branding/cercana-logo-stacked-primary.svg" alt="Cercana Logo" width={600} height={1000} />
+            </div>
+            <p className="text-xs text-gray-500">Cercana Systems</p>
           </div>
-          <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/divide-logo.png", "Divide Logo")}>
-            <Image src="/images/work/branding/divide-logo.png" alt="Divide Logo" width={600} height={1000} />
+          <div className="flex flex-col gap-2">
+            <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/divide-logo.png", "Divide Logo")}>
+              <Image src="/images/work/branding/divide-logo.png" alt="Divide Logo" width={600} height={1000} />
+            </div>
+            <p className="text-xs text-gray-500">Divide</p>
           </div>
-          <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/app-icons-2.png", "App Icons")}>
-            <Image src="/images/work/branding/app-icons-2.png" alt="App Icons" width={1000} height={1000} />
+          <div className="flex flex-col gap-2">
+            <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/app-icons-2.png", "App Icons")}>
+              <Image src="/images/work/branding/app-icons-2.png" alt="App Icons" width={1000} height={1000} />
+            </div>
+            <p className="text-xs text-gray-500">App Icons</p>
           </div>
-          <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/liminal-lab-logo-vector.svg", "Liminal Lab Logo")}>
-            <Image src="/images/work/branding/liminal-lab-logo-vector.svg" alt="Liminal Lab Logo" width={1000} height={1000} />
+          <div className="flex flex-col gap-2">
+            <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/liminal-lab-logo-vector.svg", "Liminal Lab Logo")}>
+              <Image src="/images/work/branding/liminal-lab-logo-vector.svg" alt="Liminal Lab Logo" width={1000} height={1000} />
+            </div>
+            <p className="text-xs text-gray-500">Liminal Lab</p>
           </div>
         </div>
       </>
