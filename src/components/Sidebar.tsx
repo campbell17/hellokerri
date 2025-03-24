@@ -34,7 +34,7 @@ const tileContent = {
         </p>
 
         <p className={contentStyles.p}>
-          When you&apos;re the only designer for a company with big ambitions, becoming a generalist is a matter of survival. I have sketchbooks with pages chock full of logos, mobile app screens, mobile app icons, trade show pull-up banners for offshoots of ideas that didn&apos;t (and never would) exist.
+          When you&apos;re the only designer for a company with big ambitions, becoming a generalist is a matter of survival. I have sketchbooks with pages chock full of logos, mobile app screens, mobile app icons, and trade show pull-up banners for offshoots of ideas that didn&apos;t (and never would) exist.
         </p>
 
         <p className={contentStyles.p}>
@@ -46,11 +46,16 @@ const tileContent = {
         </p>
 
         <p className={contentStyles.p}>
-          We took a few cracks at different product ideas. Allinspections, the product I was actually hired to help create, couldn&apos;t find its niche and had to be sunsetted after 18 months. The CEO called me into his office in what I was certain would be my final meeting at Spatial Networks. Instead, he offered me the opportunity to head up something new: Fulcrum.
+          We took a few cracks at different product ideas. Allinspections, the product I was actually hired to help create, couldn&apos;t find its niche and had to be sunsetted after 18 months. The CEO called me into his office. I was proud of the work we did, but when he told me we had to shut it down, I worried that would be my final meeting at Spatial Networks. Instead, he offered me the opportunity to head up something new: Fulcrum.
         </p>
 
         <p className={contentStyles.p}>
           Since 2012, this has been the flagship product of Spatial Networks and my number one source of design activity. Unlike prior attempts, Fulcrum struck just the right balance of utility, ease of use, customizability, and extensibility. We were still super lean back then, but now we had people counting on our product. It felt so good to talk to customers about their issues and ideas and be able to mesh them with ours to give their companies leverage just from using our software.
+        </p>
+
+        <p className={contentStyles.p}>
+          Since then, we grew every month, steady as a rock. We found product market fit. Our founders understood the importance of keeping the team tight. People who didn&apos;t perform didn&apos;t last. I was responsible for the marketing website, the web app, and the mobile app design, all while continuing to support the corporate design materials and marketing for our parent company. It&apos;s wild to compare how we operate now with what we achieved back then with so little, but what I learned about simply putting your head down and shipping was invaluable.
+
         </p>
 
       </>
