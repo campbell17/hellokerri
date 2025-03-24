@@ -139,8 +139,8 @@ export default function Home() {
 
   return (
     <main className="min-h-screen relative">
-      {/* Original layout - hidden when sidebar is open */}
-      <div className={`flex flex-col items-center justify-center p-12 transition-opacity duration-150 ${
+      {/* Desktop layout - hidden on mobile */}
+      <div className={`hidden lg:flex flex-col items-center justify-center p-12 transition-opacity duration-150 ${
         selectedTile ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}>
         <Masthead onSubItemClick={handleSubItemClick} />
@@ -149,17 +149,26 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Vertical layout + Sidebar when a tile is selected */}
+      {/* Mobile layout - always visible */}
+      <div className="lg:hidden">
+        <VerticalLayout 
+          selectedTile={selectedTile}
+          onTileClick={handleTileClick}
+          onSubItemClick={handleSubItemClick}
+        />
+      </div>
+
+      {/* Sidebar - different widths for mobile/desktop */}
       {selectedTile && (
         <div className="fixed inset-0 flex">
-          <div className="w-1/2">
+          <div className="hidden lg:block w-1/2">
             <VerticalLayout 
               selectedTile={selectedTile}
               onTileClick={handleTileClick}
               onSubItemClick={handleSubItemClick}
             />
           </div>
-          <div className="w-1/2">
+          <div className="w-full lg:w-1/2">
             <Sidebar 
               selectedTile={selectedTile} 
               onClose={handleCloseSidebar}
