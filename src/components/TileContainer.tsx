@@ -15,7 +15,7 @@ export const tiles: TileConfig[] = [
   {
     id: 2,
     title: "My Work",
-    backgroundImage: "/images/my-work.png"
+    backgroundImage: "/images/my-work2.png"
   },
   {
     id: 3,
