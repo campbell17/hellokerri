@@ -34,7 +34,7 @@ const tileContent = {
         </p>
 
         <p className={contentStyles.p}>
-          When you&apos;re the only designer for the rabid firehose of ideas we called a CEO, becoming a generalist is a matter of survival. I have sketchbooks with pages chock full of logos, mobile app screens, mobile app icons, trade show pull-up banners for offshoots of ideas that didn&apos;t (and never would) exist.
+          When you&apos;re the only designer for a company with big ambitions, becoming a generalist is a matter of survival. I have sketchbooks with pages chock full of logos, mobile app screens, mobile app icons, trade show pull-up banners for offshoots of ideas that didn&apos;t (and never would) exist.
         </p>
 
         <p className={contentStyles.p}>
