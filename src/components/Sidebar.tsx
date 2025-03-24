@@ -99,7 +99,7 @@ const tileContent: Record<number, TileContent> = {
         </p>
         <h2 className={contentStyles.h2}>Some of my work:</h2>
         <div className="flex flex-col gap-8 pt-12">
-          {workImages.slice(0, 24).map((image, index) => (
+          {workImages.slice(0, 18).map((image, index) => (
             <div 
               key={index} 
               className={`flex flex-col gap-2 ${!image.fullWidth ? 'lg:w-1/2' : 'w-full'}`}
@@ -118,8 +118,8 @@ const tileContent: Record<number, TileContent> = {
           ))}
         </div>
         <h2 className={contentStyles.h2}>Some of my favorite work by others:</h2>
-        {workImages.slice(24).map((image, index) => (
-          <div key={index + 24} className="flex flex-col gap-2">
+        {workImages.slice(18).map((image, index) => (
+          <div key={index + 18} className="flex flex-col gap-2">
             <div>
               <Image 
                 src={image.src}
