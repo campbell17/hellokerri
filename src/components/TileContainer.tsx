@@ -44,10 +44,10 @@ const Tile = ({ config, isFirst, isLast, isSelected, onClick, initialDelay }: Ti
       backgroundPosition: 'center'
     } : { backgroundColor: '#e5e7eb' }}
     onClick={onClick}
-    className={`overflow-hidden w-full transition-all duration-150 ease-out hover:scale-110 hover:translate-z-10 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] hover:z-10 hover:rounded-lg active:scale-100 active:translate-z-0 active:shadow-none active:duration-50 transform-style-3d backface-visibility-hidden relative cursor-pointer group ${
+    className={`overflow-hidden w-full transition-all duration-150 ease-out hover:scale-105 hover:translate-z-10 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] hover:z-10 hover:rounded-lg active:scale-100 active:translate-z-0 active:shadow-none active:duration-50 transform-style-3d backface-visibility-hidden relative cursor-pointer group ${
       isFirst ? 'rounded-l-lg' : isLast ? 'rounded-r-lg' : ''
     } ${
-      isSelected ? 'scale-110 translate-z-10 shadow-[0_0_20px_rgba(0,0,0,0.3)] z-10 rounded-lg' : ''
+      isSelected ? 'scale-105 translate-z-10 shadow-[0_0_20px_rgba(0,0,0,0.3)] z-10 rounded-lg' : ''
     }`}
   >
     <div className="absolute inset-0 flex flex-col items-center justify-center">

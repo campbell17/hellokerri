@@ -10,7 +10,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-image: url('/images/substack-remember-compliments.jpg');
+  background-image: url('/images/backgrounds/first-time1.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -30,7 +30,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.85); /* This creates 85% darkness for the image */
+  background-color: rgba(0, 0, 0, 0.75); /* This creates 85% darkness for the image */
   z-index: -1;
 }
 
