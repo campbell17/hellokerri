@@ -20,7 +20,7 @@ const contentStyles = {
 interface TileContent {
   title: string;
   image: string | null;
-  content: ((handleImageClick: (src: string, alt: string) => void) => React.ReactNode) | React.ReactNode;
+  content: ((handleImageClick: (index: number) => void) => React.ReactNode) | React.ReactNode;
 }
 
 const tileContent: Record<number, TileContent> = {
@@ -72,7 +72,7 @@ const tileContent: Record<number, TileContent> = {
   2: {
     title: "My Work",
     image: null,
-    content: (handleImageClick: (src: string, alt: string) => void) => (
+    content: (handleImageClick: (index: number) => void) => (
       <>
         <p className={contentStyles.p}>
           I knew I wanted to be a designer when I realized I wasn&apos;t afraid to get paid.
@@ -100,105 +100,138 @@ const tileContent: Record<number, TileContent> = {
         <h2 className={contentStyles.h2}>Work by me:</h2>
         <div className="grid grid-cols-2 gap-8 justify-center items-center pt-12">
           <div className="flex flex-col gap-2">
-            <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/logo-cercana2.jpg", "Cercana Systems")}>
+            <div className="cursor-pointer" onClick={() => handleImageClick(0)}>
               <Image 
-                src="/images/work/branding/logo-cercana2.jpg" 
-                alt="Cercana Systems" 
+                src={workImages[0].src}
+                alt={workImages[0].alt}
                 width={1000} 
                 height={1000}
                 className="transition-opacity hover:opacity-[65%]" 
               />
             </div>
-            <p className="text-xs text-gray-500">Cercana Systems</p>
+            <p className="text-sm text-gray-500">Cercana Systems</p>
           </div>
           <div className="flex flex-col gap-2">
-            <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/logo-liminallab.jpg", "Liminal Lab")}>
+            <div className="cursor-pointer" onClick={() => handleImageClick(1)}>
               <Image 
-                src="/images/work/branding/logo-liminallab.jpg" 
-                alt="LiminalLab" 
+                src={workImages[1].src}
+                alt={workImages[1].alt}
                 width={1000} 
                 height={1000}
                 className="transition-opacity hover:opacity-[65%]" 
               />
             </div>
-            <p className="text-xs text-gray-500">Liminal Lab</p>
+            <p className="text-sm text-gray-500">Liminal Lab</p>
           </div>
           <div className="flex flex-col gap-2">
-            <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/logo-fulcrum-circle.jpg", "Fulcrum Alt")}>
+            <div className="cursor-pointer" onClick={() => handleImageClick(4)}>
               <Image 
-                src="/images/work/branding/logo-fulcrum-circle.jpg" 
-                alt="Fulcrum Logo Alt" 
+                src={workImages[4].src}
+                alt={workImages[4].alt}
                 width={1000} 
                 height={1000}
                 className="transition-opacity hover:opacity-[65%]" 
               />
             </div>
-            <p className="text-xs text-gray-500">Fulcrum</p>
+            <p className="text-sm text-gray-500">Fulcrum</p>
           </div>
           <div className="flex flex-col gap-2">
-            <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/logo-sni.jpg", "Spatial Networks, Inc")}>
+            <div className="cursor-pointer" onClick={() => handleImageClick(3)}>
               <Image 
-                src="/images/work/branding/logo-sni.jpg" 
-                alt="Spatial Networks, Inc" 
+                src={workImages[3].src}
+                alt={workImages[3].alt}
                 width={1000} 
                 height={1000}
                 className="transition-opacity hover:opacity-[65%]" 
               />
             </div>
-            <p className="text-xs text-gray-500">Spatial Networks</p>
+            <p className="text-sm text-gray-500">Spatial Networks</p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <div className="cursor-pointer" onClick={() => handleImageClick(2)}>
+              <Image 
+                src={workImages[2].src}
+                alt={workImages[2].alt}
+                width={1000} 
+                height={1000}
+                className="transition-opacity hover:opacity-[65%]" 
+              />
+            </div>
+            <p className="text-sm text-gray-500">Fulcrum Alt</p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <div className="cursor-pointer" onClick={() => handleImageClick(6)}>
+              <Image 
+                src={workImages[6].src}
+                alt={workImages[6].alt}
+                width={1000} 
+                height={1000}
+                className="transition-opacity hover:opacity-[65%]" 
+              />
+            </div>
+            <p className="text-sm text-gray-500">Divide</p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <div className="cursor-pointer" onClick={() => handleImageClick(5)}>
+            <Image 
+              src={workImages[5].src}
+              alt={workImages[5].alt}
+              width={1000} 
+              height={1000}
+              className="transition-opacity hover:opacity-[65%]" 
+            />
           </div>
         </div>
         <hr className="w-full my-24" />
         <h2 className={contentStyles.h2}>Work by others:</h2>
-        <div className="grid grid-cols-2 gap-8 justify-center items-center pt-12">
-          <div className="flex flex-col gap-2">
-            <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/cercana-logo-stacked-primary.svg", "Cercana Logo")}>
-              <Image 
-                src="/images/work/branding/cercana-logo-stacked-primary.svg" 
-                alt="Cercana Logo" 
-                width={600} 
-                height={1000}
-                className="transition-opacity hover:opacity-[65%]" 
-              />
-            </div>
-            <p className="text-xs text-gray-500">Cercana Systems</p>
+        <div className="flex flex-col gap-2">
+          <div className="cursor-pointer" onClick={() => handleImageClick(7)}>
+            <Image 
+              src={workImages[7].src}
+              alt={workImages[7].alt}
+              width={1000} 
+              height={1000}
+              className="transition-opacity hover:opacity-[65%]" 
+            />
           </div>
-          <div className="flex flex-col gap-2">
-            <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/divide-logo.png", "Divide Logo")}>
-              <Image 
-                src="/images/work/branding/divide-logo.png" 
-                alt="Divide Logo" 
-                width={600} 
-                height={1000}
-                className="transition-opacity hover:opacity-[65%]" 
-              />
-            </div>
-            <p className="text-xs text-gray-500">Divide</p>
+          <p className="text-sm text-gray-500">For visual balance, color usage, and succulently 3D rendered books: Stripe Press</p>
+        </div>
+        <div className="flex flex-col gap-2">
+          <div className="cursor-pointer" onClick={() => handleImageClick(8)}>
+            <Image 
+              src={workImages[8].src}
+              alt={workImages[8].alt}
+              width={1000} 
+              height={1000}
+              className="transition-opacity hover:opacity-[65%]" 
+            />
           </div>
-          <div className="flex flex-col gap-2">
-            <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/app-icons-2.png", "App Icons")}>
-              <Image 
-                src="/images/work/branding/app-icons-2.png" 
-                alt="App Icons" 
-                width={1000} 
-                height={1000}
-                className="transition-opacity hover:opacity-[65%]" 
-              />
-            </div>
-            <p className="text-xs text-gray-500">App Icons</p>
+          <p className="text-sm text-gray-500">For impeccable illustration, long-form idea cultivation, and writing that&apos;s tight as a drum: Maggie Appleton</p>
+        </div>
+        <div className="flex flex-col gap-2">
+          <div className="cursor-pointer" onClick={() => handleImageClick(9)}>
+            <Image 
+              src={workImages[9].src}
+              alt={workImages[9].alt}
+              width={1000} 
+              height={1000}
+              className="transition-opacity hover:opacity-[65%]" 
+            />
           </div>
-          <div className="flex flex-col gap-2">
-            <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/liminal-lab-logo-vector.svg", "Liminal Lab Logo")}>
-              <Image 
-                src="/images/work/branding/liminal-lab-logo-vector.svg" 
-                alt="Liminal Lab Logo" 
-                width={1000} 
-                height={1000}
-                className="transition-opacity hover:opacity-[65%]" 
-              />
-            </div>
-            <p className="text-xs text-gray-500">Liminal Lab</p>
+          <p className="text-sm text-gray-500">For the three E&apos;s of design (Energy, Enthusiasm, and Effort) and a staggering preponderance of work: Aaron Draplin</p>
+        </div>
+        <div className="flex flex-col gap-2">
+          <div className="cursor-pointer" onClick={() => handleImageClick(10)}>
+            <Image 
+              src={workImages[10].src}
+              alt={workImages[10].alt}
+              width={1000} 
+              height={1000}
+              className="transition-opacity hover:opacity-[65%]" 
+            />
           </div>
+          <p className="text-sm text-gray-500">For &quot;You can just build things&quot;: Levels.io</p>
         </div>
       </>
     )
@@ -372,11 +405,28 @@ const tileContent: Record<number, TileContent> = {
   }
 };
 
+const workImages = [
+  { src: "/images/work/branding/logo-cercana2.jpg", alt: "Cercana Systems" },
+  { src: "/images/work/branding/logo-liminallab.jpg", alt: "Liminal Lab" },
+  { src: "/images/work/branding/logo-fulcrum-circle.jpg", alt: "Fulcrum" },
+  { src: "/images/work/branding/logo-sni.jpg", alt: "Spatial Networks, Inc" },
+  { src: "/images/work/branding/logo-fulcrum.jpg", alt: "Fulcrum" },
+  { src: "/images/work/web/fulcrum-social-opt.jpg", alt: "Fulcrum Best" },
+  { src: "/images/work/branding/logo-divide.jpg", alt: "Divide" },
+  { src: "/images/work/others/stripe-press.jpg", alt: "Stripe Press" },
+  { src: "/images/work/others/maggie.jpg", alt: "Maggie Appleton" },
+  { src: "/images/work/others/ddc.jpg", alt: "Aaron Draplin, DDC" },
+  { src: "/images/work/others/levelsio.jpg", alt: "Levels.io" },
+  { src: "/images/work/other/allinspections-ad2.jpg", alt: "Allinspections Ad" },
+  { src: "/images/work/other/allinspections-ad.jpg", alt: "Allinspections Ad" },
+  { src: "/images/work/other/levelsio.jpg", alt: "Levels.io" },
+];
+
 export default function Sidebar({ selectedTile, onClose, onNextTile }: SidebarProps) {
   const content = selectedTile ? tileContent[selectedTile as keyof typeof tileContent] : null;
   const nextTileId = selectedTile ? (selectedTile % 3) + 1 : null;
   const nextTileContent = nextTileId ? tileContent[nextTileId as keyof typeof tileContent] : null;
-  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
+  const [lightboxImageIndex, setLightboxImageIndex] = useState<number | null>(null);
 
   // Reset scroll position after fade out
   useEffect(() => {
@@ -393,17 +443,17 @@ export default function Sidebar({ selectedTile, onClose, onNextTile }: SidebarPr
 
   if (!selectedTile) return null;
 
-  const handleImageClick = (src: string, alt: string) => {
-    setLightboxImage({ src, alt });
+  const handleImageClick = (index: number) => {
+    setLightboxImageIndex(index);
   };
 
   return (
     <>
       <Lightbox
-        isOpen={!!lightboxImage}
-        onClose={() => setLightboxImage(null)}
-        imageSrc={lightboxImage?.src || ''}
-        imageAlt={lightboxImage?.alt || ''}
+        isOpen={lightboxImageIndex !== null}
+        onClose={() => setLightboxImageIndex(null)}
+        images={workImages}
+        initialImageIndex={lightboxImageIndex || 0}
       />
 
       {/* Close Button */}

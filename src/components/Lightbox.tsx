@@ -2,35 +2,26 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
+interface ImageData {
+  src: string;
+  alt: string;
+}
+
 interface LightboxProps {
   isOpen: boolean;
   onClose: () => void;
-  imageSrc: string;
-  imageAlt: string;
+  images: ImageData[];
+  initialImageIndex: number;
 }
 
-const images = [
-  { src: "/images/work/branding/logo-cercana2.jpg", alt: "Cercana Logo" },
-  { src: "/images/work/branding/divide-logo.png", alt: "Divide Logo" },
-  { src: "/images/work/branding/app-icons-2.png", alt: "App Icons" },
-  { src: "/images/work/branding/liminal-lab-logo-vector.svg", alt: "Liminal Lab Logo" },
-  { src: "/images/work/branding/cercana-logo-stacked-primary.svg", alt: "Cercana Logo" },
-  { src: "/images/work/branding/divide-logo.png", alt: "Divide Logo" },
-  { src: "/images/work/branding/app-icons-2.png", alt: "App Icons" },
-  { src: "/images/work/branding/liminal-lab-logo-vector.svg", alt: "Liminal Lab Logo" },
-];
-
-export default function Lightbox({ isOpen, onClose, imageSrc, imageAlt }: LightboxProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export default function Lightbox({ isOpen, onClose, images, initialImageIndex }: LightboxProps) {
+  const [currentIndex, setCurrentIndex] = useState(initialImageIndex);
 
   useEffect(() => {
     if (isOpen) {
-      const index = images.findIndex(img => img.src === imageSrc);
-      if (index !== -1) {
-        setCurrentIndex(index);
-      }
+      setCurrentIndex(initialImageIndex);
     }
-  }, [isOpen, imageSrc]);
+  }, [isOpen, initialImageIndex]);
 
   useEffect(() => {
     if (!isOpen) return;
