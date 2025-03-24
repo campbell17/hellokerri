@@ -25,7 +25,11 @@ const subItemsContent = [
     content: (
       <>
         <p className={contentStyles.p}>
-          I don&apos;t envy the number of portfolios and bios you&apos;re sifting through right now, so I&apos;ll keep this short. The longevity you&apos;ve achieved at 37 Signals is rare in software. I&apos;m happy to say I know the feeling. But at this point in my career, I&apos;m looking for the last place I&apos;m going to work. Don&apos;t get me wrong, I have decades left, but I want those decades to be stable, energetic, and productive.
+          I don&apos;t envy the number of portfolios and bios you&apos;re sifting through right now, so I&apos;ll keep this short. The longevity you&apos;ve achieved at 37 Signals is rare in software. I&apos;m happy to say I know the feeling. But at this point in my career, I&apos;m looking for the last place I&apos;m going to work.
+        </p>
+
+        <p className={contentStyles.p}>
+          Don&apos;t get me wrong, I have decades left. But I want those decades to be stable, energetic, and productive. And I want them to be on your team.
         </p>
 
         <p className={contentStyles.p}>

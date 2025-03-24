@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import React from 'react';
+import Lightbox from './Lightbox';
 
 interface SidebarProps {
   selectedTile: number | null;
@@ -15,11 +17,17 @@ const contentStyles = {
   p: "text-2xl text-gray-600 leading-relaxed mb-4 font-[400] font-serif"
 } as const;
 
-const tileContent = {
+interface TileContent {
+  title: string;
+  image: string | null;
+  content: ((handleImageClick: (src: string, alt: string) => void) => React.ReactNode) | React.ReactNode;
+}
+
+const tileContent: Record<number, TileContent> = {
   1: {
     title: "My Story",
     image: null,
-    content: (
+    content: (handleImageClick: (src: string, alt: string) => void) => (
       <>
         <p className={contentStyles.p}>
           Fourteen years and seven months ago, I joined Spatial Networks as their 12th employee and first design hire. They needed... everything. My title was UI Designer, but I did it all, online and in print. But we&apos;ll come back to that.
@@ -64,7 +72,7 @@ const tileContent = {
   2: {
     title: "My Work",
     image: null,
-    content: (
+    content: (handleImageClick: (src: string, alt: string) => void) => (
       <>
         <p className={contentStyles.p}>
           I knew I wanted to be a designer when I realized I wasn&apos;t afraid to get paid.
@@ -87,13 +95,38 @@ const tileContent = {
         </p>
 
         <p className={contentStyles.p}>
-          There&apos;s always too much to show, but somehow still not enough.
+          The following is a collection of some of my work, followed by a few of my favorites by other designers and builders.
         </p>
+        <h2 className={contentStyles.h2}>Work by me:</h2>
         <div className="flex flex-col gap-12 justify-center items-center pt-12">
-          <Image src="/images/work/branding/cercana-logo-stacked-primary.svg" alt="Branding" width={600} height={1000} />
-          <Image src="/images/work/branding/divide-logo.png" alt="Branding" width={600} height={1000} />
-          <Image src="/images/work/branding/app-icons-2.png" alt="Branding" width={1000} height={1000} />
-          <Image src="/images/work/branding/liminal-lab-logo-vector.svg" alt="Branding" width={1000} height={1000} />
+          <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/logo-cercana2.jpg", "Cercana Logo")}>
+            <Image src="/images/work/branding/logo-cercana2.jpg" alt="Cercana Logo" width={1000} height={1000} />
+          </div>
+          <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/divide-logo.png", "Divide Logo")}>
+            <Image src="/images/work/branding/divide-logo.png" alt="Divide Logo" width={600} height={1000} />
+          </div>
+          <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/app-icons-2.png", "App Icons")}>
+            <Image src="/images/work/branding/app-icons-2.png" alt="App Icons" width={1000} height={1000} />
+          </div>
+          <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/liminal-lab-logo-vector.svg", "Liminal Lab Logo")}>
+            <Image src="/images/work/branding/liminal-lab-logo-vector.svg" alt="Liminal Lab Logo" width={1000} height={1000} />
+          </div>
+        </div>
+        <hr className="w-full my-24" />
+        <h2 className={contentStyles.h2}>Work by others:</h2>
+        <div className="flex flex-col gap-12 justify-center items-center pt-12">
+          <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/cercana-logo-stacked-primary.svg", "Cercana Logo")}>
+            <Image src="/images/work/branding/cercana-logo-stacked-primary.svg" alt="Cercana Logo" width={600} height={1000} />
+          </div>
+          <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/divide-logo.png", "Divide Logo")}>
+            <Image src="/images/work/branding/divide-logo.png" alt="Divide Logo" width={600} height={1000} />
+          </div>
+          <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/app-icons-2.png", "App Icons")}>
+            <Image src="/images/work/branding/app-icons-2.png" alt="App Icons" width={1000} height={1000} />
+          </div>
+          <div className="cursor-pointer" onClick={() => handleImageClick("/images/work/branding/liminal-lab-logo-vector.svg", "Liminal Lab Logo")}>
+            <Image src="/images/work/branding/liminal-lab-logo-vector.svg" alt="Liminal Lab Logo" width={1000} height={1000} />
+          </div>
         </div>
       </>
     )
@@ -271,6 +304,7 @@ export default function Sidebar({ selectedTile, onClose, onNextTile }: SidebarPr
   const content = selectedTile ? tileContent[selectedTile as keyof typeof tileContent] : null;
   const nextTileId = selectedTile ? (selectedTile % 3) + 1 : null;
   const nextTileContent = nextTileId ? tileContent[nextTileId as keyof typeof tileContent] : null;
+  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
 
   // Reset scroll position after fade out
   useEffect(() => {
@@ -287,8 +321,19 @@ export default function Sidebar({ selectedTile, onClose, onNextTile }: SidebarPr
 
   if (!selectedTile) return null;
 
+  const handleImageClick = (src: string, alt: string) => {
+    setLightboxImage({ src, alt });
+  };
+
   return (
     <>
+      <Lightbox
+        isOpen={!!lightboxImage}
+        onClose={() => setLightboxImage(null)}
+        imageSrc={lightboxImage?.src || ''}
+        imageAlt={lightboxImage?.alt || ''}
+      />
+
       {/* Close Button */}
       <AnimatePresence>
         <motion.button
@@ -355,7 +400,9 @@ export default function Sidebar({ selectedTile, onClose, onNextTile }: SidebarPr
                     </div>
                   )}
                   <div className="space-y-2 flex flex-col gap-4">
-                    {content?.content}
+                    {typeof content?.content === 'function' 
+                      ? content.content(handleImageClick)
+                      : content?.content}
                   </div>
                   
                   {/* Navigation Button */}

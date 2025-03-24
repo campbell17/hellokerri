@@ -76,8 +76,7 @@ const Masthead: FC<MastheadProps> = ({ onSubItemClick, isVertical = false }) => 
         initial={{ opacity: 0, y: isVertical ? 0 : 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="flex items-center gap-8"
-      >
+        className={`flex items-center ${isVertical ? 'gap-4' : 'gap-8'}`}>
         <div className={`relative rounded-full overflow-hidden ${isVertical ? 'w-16 h-16' : ' w-32 h-32'}`}>
           <Image
             src="/images/tim-hat-forest.png"
