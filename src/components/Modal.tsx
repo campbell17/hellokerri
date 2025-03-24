@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -12,7 +12,7 @@ interface ModalProps {
   onClose: () => void;
   title: string;
   modalPortraits: Portrait[];
-  content: string;
+  content: ReactNode;
   name: string;
 }
 
@@ -65,13 +65,7 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose, title, modalPortraits, content
             </div>
 
             {/* Content */}
-            <p className="text-xl md:text-3xl mb-8 leading-normal font-semibold text-white" style={{ fontFamily: 'var(--font-cormorant)' }}>
-              {content}
-            </p>
-            <p className="text-xl md:text-3xl mb-8 leading-normal font-semibold text-white" style={{ fontFamily: 'var(--font-cormorant)' }}>
-                Thank you,
-            </p>
-
+            {content}
 
             {/* Signature */}
             <div className="flex flex-col items-start gap-4 mt-12">
@@ -83,7 +77,7 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose, title, modalPortraits, content
                   className="object-contain"
                 />
               </div>
-              <p className="text-xl md:text-3xl font-black text-white" style={{ fontFamily: 'var(--font-cormorant)' }}>{name}</p>
+              <p className="text-xl md:text-2xl text-white font-serif">{name}</p>
             </div>
           </motion.div>
         </motion.div>

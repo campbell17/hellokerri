@@ -10,6 +10,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  background-color: #00041b;
   background-image: url('/images/backgrounds/first-time1.png');
   background-size: cover;
   background-position: center;

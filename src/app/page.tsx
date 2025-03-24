@@ -7,6 +7,10 @@ import VerticalLayout from '@/components/VerticalLayout';
 import Masthead from '@/components/Masthead';
 import Modal from '@/components/Modal';
 
+const contentStyles = {
+  p: "text-xl leading-relaxed md:text-2xl mb-8 md:leading-relaxed text-white font-serif"
+} as const;
+
 // Define the content for each subitem
 const subItemsContent = [
   {
@@ -18,7 +22,21 @@ const subItemsContent = [
     modalPortraits: [
       { src: "/images/jasonz.jpeg", alt: "Jason Z., Principal Designer at 37signals" },
     ],
-    content: "So avoiding my math homework only makes sense in the context of having a choice in the matter. I thought staring into space or sliding off my chair onto the kitchen floor were viable alternative options. They were not. The first step is to get good at offloading the act of starting to the same parts of your brain that handle basic functions. When faced with a sink full of dishes, for example, if I think \"I should really do these\" I'm already dead. I can't think, I need to act. Instead of taking any time to even form an opinion, I turn on the warm water and open the dishwasher. By the time I realize what's happening, the job is half done and inertia is doing all the heavy lifting. I can even daydream if I want.",
+    content: (
+      <>
+        <p className={contentStyles.p}>
+          I don&apos;t envy the number of portfolios and bios you&apos;re sifting through right now, so I&apos;ll keep this short. The longevity you&apos;ve achieved at 37 Signals is rare in software. I&apos;m happy to say I know the feeling. But at this point in my career, I&apos;m looking for the last place I&apos;m going to work. Don&apos;t get me wrong, I have decades left, but I want those decades to be stable, energetic, and productive.
+        </p>
+
+        <p className={contentStyles.p}>
+          So take a look around, learn a bit about me, and hopefully our gears will mesh.
+        </p>
+
+        <p className={contentStyles.p}>
+          All the best,
+        </p>
+      </>
+    ),
     name: 'Timothy W. Campbell'
   },
   {
@@ -32,7 +50,21 @@ const subItemsContent = [
       { src: "/images/jasonf.jpeg", alt: "Jason Fried, Started and runs 37signals" },
       { src: "/images/dhh.jpeg", alt: "David Heinemeier Hansson, Co-owner & CTO of 37signals" },
     ],
-    content: "Each project in my portfolio represents a unique challenge overcome and a creative solution delivered. From mobile applications to web platforms, I bring ideas to life with precision and passion.",
+    content: (
+      <>
+        <p className={contentStyles.p}>
+          It&apos;s the honesty that gets me. Nothing is impossible when everyone knows what the score is. And despite the all the great software, books, innovations, and ideas that make 37 Signals incredible, honesty is the thread that ties it all together.
+        </p>
+
+        <p className={contentStyles.p}>
+          If I make it far enough along for us to meet, I&apos;ll say it to your face, but in the meantime...
+        </p>
+
+        <p className={contentStyles.p}>
+          Thank you for always doing what&apos;s right.
+        </p>
+      </>
+    ),
     name: 'Timothy W. Campbell'
   },
   {
@@ -46,7 +78,17 @@ const subItemsContent = [
       { src: "/images/jasonf.jpeg", alt: "Jason Fried, Started and runs 37signals" },
       { src: "/images/dhh.jpeg", alt: "David Heinemeier Hansson, Co-owner & CTO of 37signals" },
     ],
-    content: "I'm always excited to discuss new opportunities and collaborations. Whether you have a project in mind or just want to connect, I'd love to hear from you.",
+    content: (
+      <>
+        <p className={contentStyles.p}>
+          Hello, wonderful people making useful software. I&apos;m Tim, and I&apos;m applying to join your design team. This isn&apos;t an opportunity I take lightly, which is why I wanted to thank you, the entire group of potential future colleagues, for being an additive force to the strength of 37 Signals. Culture can&apos;t be mandated. It&apos;s an emergent property of the way you work, and preserving it over the long term is no small achievement. If given the chance, I&apos;ll do my part to add to its already sturdy foundation.
+        </p>
+
+        <p className={contentStyles.p}>
+          Sincerely,
+        </p>
+      </>
+    ),    
     name: 'Timothy W. Campbell'
   }
 ];

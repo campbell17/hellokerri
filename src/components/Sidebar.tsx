@@ -62,7 +62,7 @@ const tileContent = {
     content: (
       <>
         <p className={contentStyles.p}>
-          I knew I wanted to be a designer when I realized I wasn&apos;t afraid to get paid for it.
+          I knew I wanted to be a designer when I realized I wasn&apos;t afraid to get paid.
         </p>
 
         <p className={contentStyles.p}>
@@ -95,23 +95,58 @@ const tileContent = {
   },
   3: {
     title: "Why 37 Signals? Why Now?",
-    image: "/images/tim-hat-forest.png",
+    image: null,
     content: (
       <>
-        <h2 className={contentStyles.h2}>Featured Work</h2>
+        <Image src="/images/carpe-diem.png" alt="Branding" width={1000} height={1000} />
         <p className={contentStyles.p}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Software company culture is often misrepresented. People think culture can be manufactured with the right perks or free lunches or weekly challenges in Slack. &quot;What&apos;s your favorite summer song? The one with the most heart reactions wins an Amazon gift card!&quot;
         </p>
 
-        <h3 className={contentStyles.h3}>Project Alpha</h3>
         <p className={contentStyles.p}>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          These companies are unserious.
         </p>
 
-        <h3 className={contentStyles.h3}>Project Beta</h3>
         <p className={contentStyles.p}>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+          It&apos;s not all their fault. It takes bravery to break out of the inertia of the status quo, and it&apos;s been said that most people don&apos;t want to succeed - they just want to not fail. And when you fill your company with people like that, that&apos;s the culture that will emerge. People start turning a blind eye to obvious problems. Stagnation sets in, leading to major celebrations for effort instead of outcome because the outcomes fewer and farther between.
         </p>
+
+        <p className={contentStyles.p}>
+          It&apos;s no wonder it&apos;s impossible to tell what a company is like until you work there.
+        </p>
+
+        <p className={contentStyles.p}>
+          But I don&apos;t want to know about your flag football league. I want to know how you work. Does the way you translate ideas into something a person can click in a web browser make sense?
+        </p>
+
+        <p className={contentStyles.p}>
+          Which leads me to why I&apos;m applying to work at 37 Signals.
+        </p>
+
+        <p className={contentStyles.p}>
+          Over the years as the public faces of the company, Jason, David, and Ryan were always fearless pillars of transparency to me, which by itself was enough to know I wanted to be a part of whatever they were doing. Intellectual honesty like that is unconscionably rare. But when I read Shape Up in 2019, something else happened. A part of my brain I didn&apos;t know existed woke up. I felt like my eyes had been closed this whole time and now I could see what we were up against. I knew 37 Signals was lean by design, so the odds of a design position opening up at the right time were slim. So if I couldn&apos;t work <em>at</em> 37 Signals, at least we could work <em>like</em> 37 Signals. I read it on Saturday, wrote the pitch to implement it on Sunday, and presented it to product leadership on Monday. If I had anything to do with it, this was the only way I wanted to work.
+        </p>
+
+        <p className={contentStyles.p}>
+          As for the position you&apos;re hiring for now, a Web App Product Designer: this was the most on-the-nose job description I&apos;ve ever read. While my design career covers the entire range of roles, the last half-decade was exclusively dedicated to enhancing and improving our web app. My energy comes from seeing the feature spun up on a git branch, not in Figma. My most rewarding recent work, and the thing that kept me going through some difficult changes, was working hand-in-hand with 1 developer, workshopping ideas about our feature, and finding the best way to ship something under the constraints we were given.
+        </p>
+
+        <p className={contentStyles.p}>
+          Also, as if it wasn&apos;t obvious already, I love to write.
+        </p>
+
+        <p className={contentStyles.p}>
+          I have a story to tell about the arc of my 14 year-long stint with Fulcrum, but that&apos;s best shared in person over a meal. In my mind I had a plan. End my career here. But if the opportunity ever arose to work at 37 Signals...end my career there instead.
+        </p>
+
+        <p className={contentStyles.p}>
+          I&apos;ve got a few decades of great work left.
+        </p>
+
+        <p className={contentStyles.p}>
+          Let&apos;s do it together.
+        </p>
+
       </>
     )
   },
@@ -327,7 +362,9 @@ export default function Sidebar({ selectedTile, onClose, onNextTile }: SidebarPr
                       onClick={onNextTile}
                       className="w-full bg-gray-900 text-white hover:text-white flex justify-center items-center gap-4 hover:bg-gray-800 p-8 rounded-full transition-all duration-150 ease-out"
                     >
-                      <h2 className="text-xl font-black tracking-tight">{nextTileContent?.title}</h2>
+                      <h2 className="text-xl font-black tracking-tight">
+                        {nextTileId === 1 ? `back to ${nextTileContent?.title}` : nextTileContent?.title}
+                      </h2>
                     </motion.button>
                   </div>
                 </motion.div>
