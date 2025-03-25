@@ -177,7 +177,7 @@ function HomeContent() {
   return (
     <main className="min-h-screen relative">
       {/* Desktop layout - hidden on mobile */}
-      <div className={`hidden lg:flex flex-col items-center justify-center p-12 transition-opacity duration-150 ${
+      <div className={`hidden lg:flex flex-col items-center justify-center p-12 transition-all duration-300 ease-in-out ${
         selectedTile ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}>
         <Masthead onSubItemClick={handleSubItemClick} />
@@ -187,7 +187,7 @@ function HomeContent() {
       </div>
 
       {/* Mobile layout - always visible */}
-      <div className="lg:hidden">
+      <div className="lg:hidden transition-all duration-300 ease-in-out">
         <VerticalLayout 
           selectedTile={selectedTile}
           onTileClick={handleTileClick}
@@ -197,7 +197,7 @@ function HomeContent() {
 
       {/* Sidebar - different widths for mobile/desktop */}
       {selectedTile && (
-        <div className="fixed inset-0 flex">
+        <div className="fixed inset-0 flex transition-all duration-300 ease-in-out">
           <div className="hidden lg:block w-1/2">
             <VerticalLayout 
               selectedTile={selectedTile}
