@@ -185,7 +185,7 @@ const tileContent: Record<number, TileContent> = {
         </p>
 
         <p className={contentStyles.p}>
-          It&apos;s not all their fault. It takes bravery to break out of the inertia of the status quo, and it&apos;s been said that most people don&apos;t want to succeed - they just want to not fail. And when you fill your company with people like that, that&apos;s the culture that will emerge. People start turning a blind eye to obvious problems. Stagnation sets in, leading to major celebrations for effort instead of outcome because the outcomes fewer and farther between.
+          It&apos;s not all their fault. It takes bravery to break out of the inertia of the status quo, and it&apos;s been said that most people don&apos;t want to succeed - they just want to not fail. And when you fill your company with people like that, that&apos;s the culture that will emerge. People start turning a blind eye to obvious problems. Stagnation sets in, leading to major celebrations for effort instead of outcome because the outcomes are fewer and farther between.
         </p>
 
         <p className={contentStyles.p}>
