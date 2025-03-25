@@ -6,6 +6,7 @@ import Sidebar from '@/components/Sidebar';
 import VerticalLayout from '@/components/VerticalLayout';
 import Masthead from '@/components/Masthead';
 import Modal from '@/components/Modal';
+import { useSearchParams, useRouter } from 'next/navigation';
 
 const contentStyles = {
   p: "text-xl leading-relaxed md:text-2xl mb-8 md:leading-relaxed text-white font-serif"
@@ -15,6 +16,7 @@ const contentStyles = {
 const subItemsContent = [
   {
     id: 6,
+    alias: 'forjasonz',
     title: 'For Jason Z.',
     portraits: [
       { src: "/images/jasonz.jpeg", alt: "Jason Z., Principal Designer at 37signals" },
@@ -45,6 +47,7 @@ const subItemsContent = [
   },
   {
     id: 7,
+    alias: 'forjason_dhh',
     title: 'For Jason & David',
     portraits: [
       { src: "/images/jasonf.jpeg", alt: "Jason Fried, Started and runs 37signals" },
@@ -73,6 +76,7 @@ const subItemsContent = [
   },
   {
     id: 8,
+    alias: 'fortheteam',
     title: 'For The Team',
     portraits: [
       { src: "/images/37signals_logo.jpeg", alt: "37signals logo" }
@@ -105,6 +109,19 @@ const subItemsContent = [
 export default function Home() {
   const [selectedTile, setSelectedTile] = useState<number | null>(null);
   const [selectedSubItem, setSelectedSubItem] = useState<number | null>(null);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  // Handle URL parameters on initial load
+  useEffect(() => {
+    const alias = searchParams.get('letter');
+    if (alias) {
+      const item = subItemsContent.find(item => item.alias === alias);
+      if (item) {
+        setSelectedSubItem(item.id);
+      }
+    }
+  }, [searchParams]);
 
   const handleCloseSidebar = useCallback(() => {
     setSelectedTile(null);
@@ -112,7 +129,11 @@ export default function Home() {
 
   const handleCloseModal = useCallback(() => {
     setSelectedSubItem(null);
-  }, []);
+    // Remove the letter parameter from URL when closing modal
+    const params = new URLSearchParams(searchParams.toString());
+    params.delete('letter');
+    router.replace(`?${params.toString()}`);
+  }, [router, searchParams]);
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -142,6 +163,13 @@ export default function Home() {
 
   const handleSubItemClick = (item: number) => {
     setSelectedSubItem(item);
+    // Add the letter parameter to URL when opening modal
+    const params = new URLSearchParams(searchParams.toString());
+    const alias = subItemsContent.find(content => content.id === item)?.alias;
+    if (alias) {
+      params.set('letter', alias);
+      router.replace(`?${params.toString()}`);
+    }
   };
 
   const modalContent = selectedSubItem ? subItemsContent.find(item => item.id === selectedSubItem) : null;
