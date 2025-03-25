@@ -33,7 +33,7 @@ const tileContent: Record<number, TileContent> = {
         <h2 className={contentStyles.h2}>Here&apos;s What You Need to Know</h2>
         <ul className="space-y-4 list-disc list-outside ml-5">
           <li className={contentStyles.p}>
-            I was the sole designer on Fulcrum for its first 10 years while it grew from a simple idea to $12M+ ARR with 2,000+ customers.
+            I was the sole designer on <a href="https://www.fulcrumapp.com" target="_blank" rel="noopener noreferrer" className={contentStyles.a}>Fulcrum</a> for its first 10 years while it grew from a simple idea to $12M+ ARR with 2,000+ customers.
           </li>
           <li className={contentStyles.p}>
             This included web app, mobile Apps, branding, marketing website, print materials.
@@ -51,6 +51,10 @@ const tileContent: Record<number, TileContent> = {
             I enjoy sports and I love Formula 1. I haven&apos;t missed a race in 25 years.
           </li>
         </ul>
+        <p className={contentStyles.p}>
+          To dig a little deeper, read on...
+        </p>
+
       </>
     )
   },
