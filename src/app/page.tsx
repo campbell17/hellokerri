@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, Suspense } from 'react';
 import TileContainer from '@/components/TileContainer';
 import Sidebar from '@/components/Sidebar';
 import VerticalLayout from '@/components/VerticalLayout';
@@ -106,7 +106,7 @@ const subItemsContent = [
   }
 ];
 
-export default function Home() {
+function HomeContent() {
   const [selectedTile, setSelectedTile] = useState<number | null>(null);
   const [selectedSubItem, setSelectedSubItem] = useState<number | null>(null);
   const searchParams = useSearchParams();
@@ -224,5 +224,13 @@ export default function Home() {
         />
       )}
     </main>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HomeContent />
+    </Suspense>
   );
 }
