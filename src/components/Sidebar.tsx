@@ -42,7 +42,7 @@ const tileContent: Record<number, TileContent> = {
             I&apos;m used to working with Rails, HTML, CSS, as well as React. They didn&apos;t ask me to learn how to code. I did it to speed us up. 
           </li>
           <li className={contentStyles.p}>
-            At addition to working on Fulcrum, I was also solely responsible for designing and shipping the branding, website, and print / trade show materials for our parent company, Spatial Networks.
+            In addition to working on Fulcrum, I was also solely responsible for designing and shipping the branding, website, and print / trade show materials for our parent company, Spatial Networks.
           </li>
           <li className={contentStyles.p}>
             I write a lot and I write for fun. You can read what I publish on <a href="https://campbellseventeen.substack.com" target="_blank" rel="noopener noreferrer" className={contentStyles.a}>Substack</a>.
