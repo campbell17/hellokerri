@@ -78,9 +78,14 @@ const subItemsContent = [
       { src: "/images/37signals_logo.jpeg", alt: "37signals logo" }
     ],
     modalPortraits: [
-      { src: "/images/37signals_logo.jpeg", alt: "37signals logo" },
       { src: "/images/jasonf.jpeg", alt: "Jason Fried, Started and runs 37signals" },
       { src: "/images/dhh.jpeg", alt: "David Heinemeier Hansson, Co-owner & CTO of 37signals" },
+      { src: "/images/jasonz.jpeg", alt: "Jason Z., Principal Designer at 37signals" },
+      { src: "/images/37signals_logo.jpeg", alt: "37signals logo" },
+      // { src: "/images/michelleh.jpeg", alt: "Michelle H" },
+      // { src: "/images/seanm.jpeg", alt: "Sean M" },
+      // { src: "/images/adrienm.jpeg", alt: "Adrien M" },
+      // { src: "/images/team.png", alt: "...and Co." },
     ],
     content: (
       <>
@@ -130,7 +135,7 @@ export default function Home() {
 
   const handleNextTile = () => {
     if (selectedTile) {
-      const nextTile = (selectedTile % 3) + 1;
+      const nextTile = (selectedTile % 4) + 1;
       setSelectedTile(nextTile);
     }
   };

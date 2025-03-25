@@ -14,7 +14,8 @@ interface SidebarProps {
 const contentStyles = {
   h2: "text-2xl font-[900] text-gray-900 mt-8 mb-4",
   h3: "text-xl font-[900] text-gray-800 mt-6 mb-4",
-  p: "text-2xl text-gray-600 leading-relaxed mb-4 font-[400] font-serif"
+  p: "text-2xl text-gray-600 leading-relaxed mb-4 font-[400] font-serif",
+  a: "text-sky-600 hover:text-sky-800 transition-colors"
 } as const;
 
 interface TileContent {
@@ -25,6 +26,36 @@ interface TileContent {
 
 const tileContent: Record<number, TileContent> = {
   1: {
+    title: "The Short Version",
+    image: null,
+    content: (
+      <>
+        <h2 className={contentStyles.h2}>Here&apos;s What You Need to Know</h2>
+        <ul className="space-y-4 list-disc list-outside ml-5">
+          <li className={contentStyles.p}>
+            I was the sole designer on Fulcrum for its first 10 years while it grew from a simple idea to $12M+ ARR with 2,000+ customers.
+          </li>
+          <li className={contentStyles.p}>
+            This included web app, mobile Apps, branding, marketing website, print materials.
+          </li>
+          <li className={contentStyles.p}>
+            I&apos;m used to working with Rails, HTML, CSS, as well as React. They didn&apos;t ask me to learn how to code. I did it to speed us up. 
+          </li>
+          <li className={contentStyles.p}>
+            At addition to working on Fulcrum, I was also solely responsible for designing and shipping the branding, website, and print / trade show materials for our parent company, Spatial Networks.
+          </li>
+          <li className={contentStyles.p}>
+            I write a lot and I write for fun. You can read what I publish at <a href="https://campbellseventeen.substack.com" target="_blank" rel="noopener noreferrer" className={contentStyles.a}>https://campbellseventeen.substack.com</a>
+          </li>
+          <li className={contentStyles.p}>
+            I enjoy sports and I love Formula 1. I haven&apos;t missed a race in 25 years.
+          </li>
+        </ul>
+      </>
+    )
+  },
+  
+  2: {
     title: "My Story",
     image: null,
     content: (
@@ -69,7 +100,7 @@ const tileContent: Record<number, TileContent> = {
       </>
     )
   },
-  2: {
+  3: {
     title: "My Work",
     image: null,
     content: (handleImageClick: (index: number) => void) => (
@@ -97,7 +128,7 @@ const tileContent: Record<number, TileContent> = {
         <p className={contentStyles.p}>
           The following is a collection of some of my work, followed by a few of my favorites by other designers and builders.
         </p>
-        <h2 className={contentStyles.h2}>Some of my work:</h2>
+        <h2 className={contentStyles.h2}>Some of my work (I&apos;m adding/curating as we speak - pardon the dust):</h2>
         <div className="flex flex-col gap-8 pt-12">
           {workImages.slice(0, 18).map((image, index) => (
             <div 
@@ -135,7 +166,7 @@ const tileContent: Record<number, TileContent> = {
       </>
     )
   },
-  3: {
+  4: {
     title: "Why 37 Signals? Why Now?",
     image: null,
     content: (
@@ -192,7 +223,7 @@ const tileContent: Record<number, TileContent> = {
       </>
     )
   },
-  4: {
+  5: {
     title: "Why Design?",
     image: "/images/tim-hat-forest.png",
     content: (
@@ -214,7 +245,7 @@ const tileContent: Record<number, TileContent> = {
       </>
     )
   },
-  5: {
+  6: {
     title: "Why the Web?",
     image: "/images/tim-hat-forest.png",
     content: (
@@ -236,7 +267,7 @@ const tileContent: Record<number, TileContent> = {
       </>
     )
   },
-  6: {
+  7: {
     title: "Experience",
     image: "/images/tim-hat-forest.png",
     content: (
@@ -258,7 +289,7 @@ const tileContent: Record<number, TileContent> = {
       </>
     )
   },
-  7: {
+  8: {
     title: "Projects",
     image: "/images/tim-hat-forest.png",
     content: (
@@ -274,28 +305,6 @@ const tileContent: Record<number, TileContent> = {
         </p>
 
         <h2 className={contentStyles.h2}>Side Projects</h2>
-        <p className={contentStyles.p}>
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-      </>
-    )
-  },
-  8: {
-    title: "Contact",
-    image: "/images/tim-hat-forest.png",
-    content: (
-      <>
-        <h2 className={contentStyles.h2}>Get in Touch</h2>
-        <p className={contentStyles.p}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-
-        <h2 className={contentStyles.h2}>Social Media</h2>
-        <p className={contentStyles.p}>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </p>
-
-        <h2 className={contentStyles.h2}>Professional Networks</h2>
         <p className={contentStyles.p}>
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
@@ -337,7 +346,7 @@ const workImages = [
 
 export default function Sidebar({ selectedTile, onClose, onNextTile }: SidebarProps) {
   const content = selectedTile ? tileContent[selectedTile as keyof typeof tileContent] : null;
-  const nextTileId = selectedTile ? (selectedTile % 3) + 1 : null;
+  const nextTileId = selectedTile ? (selectedTile === 4 ? 1 : selectedTile + 1) : null;
   const nextTileContent = nextTileId ? tileContent[nextTileId as keyof typeof tileContent] : null;
   const [lightboxImageIndex, setLightboxImageIndex] = useState<number | null>(null);
 
