@@ -45,7 +45,7 @@ const tileContent: Record<number, TileContent> = {
             At addition to working on Fulcrum, I was also solely responsible for designing and shipping the branding, website, and print / trade show materials for our parent company, Spatial Networks.
           </li>
           <li className={contentStyles.p}>
-            I write a lot and I write for fun. You can read what I publish at <a href="https://campbellseventeen.substack.com" target="_blank" rel="noopener noreferrer" className={contentStyles.a}>https://campbellseventeen.substack.com</a>
+            I write a lot and I write for fun. You can read what I publish on <a href="https://campbellseventeen.substack.com" target="_blank" rel="noopener noreferrer" className={contentStyles.a}>Substack</a>.
           </li>
           <li className={contentStyles.p}>
             I enjoy sports and I love Formula 1. I haven&apos;t missed a race in 25 years.
