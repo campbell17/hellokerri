@@ -64,7 +64,7 @@ const subItemsContent = [
         </p>
 
         <p className={contentStyles.p}>
-          If I make it far enough along for us to meet, I&apos;ll say it to your face, but in the meantime...
+          If I make it far enough along for us to meet, I&apos;ll say it face to face, but in the meantime...
         </p>
 
         <p className={contentStyles.p}>
