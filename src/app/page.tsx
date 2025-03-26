@@ -109,6 +109,7 @@ const subItemsContent = [
 function HomeContent() {
   const [selectedTile, setSelectedTile] = useState<number | null>(null);
   const [selectedSubItem, setSelectedSubItem] = useState<number | null>(null);
+  const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -151,6 +152,9 @@ function HomeContent() {
   }, [handleCloseSidebar, handleCloseModal, selectedSubItem]);
 
   const handleTileClick = (tile: number) => {
+    if (selectedProject) {
+      setSelectedProject(null);
+    }
     setSelectedTile(tile === selectedTile ? null : tile);
   };
 
@@ -192,6 +196,8 @@ function HomeContent() {
           selectedTile={selectedTile}
           onTileClick={handleTileClick}
           onSubItemClick={handleSubItemClick}
+          selectedProject={selectedProject}
+          setSelectedProject={setSelectedProject}
         />
       </div>
 
@@ -203,14 +209,20 @@ function HomeContent() {
               selectedTile={selectedTile}
               onTileClick={handleTileClick}
               onSubItemClick={handleSubItemClick}
+              selectedProject={selectedProject}
+              setSelectedProject={setSelectedProject}
             />
           </div>
           <div className="w-full lg:w-1/2">
-            <Sidebar 
-              selectedTile={selectedTile} 
-              onClose={handleCloseSidebar}
-              onNextTile={handleNextTile}
-            />
+            <Suspense>
+              <Sidebar 
+                selectedTile={selectedTile} 
+                onClose={handleCloseSidebar}
+                onNextTile={handleNextTile}
+                selectedProject={selectedProject}
+                setSelectedProject={setSelectedProject}
+              />
+            </Suspense>
           </div>
         </div>
       )}

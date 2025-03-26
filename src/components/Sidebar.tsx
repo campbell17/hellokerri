@@ -8,6 +8,8 @@ interface SidebarProps {
   selectedTile: number | null;
   onClose: () => void;
   onNextTile: () => void;
+  selectedProject: string | null;
+  setSelectedProject: (project: string | null) => void;
 }
 
 // Reusable content styles
@@ -344,7 +346,45 @@ const workImages = [
   { src: "/images/work/others/levelsio.jpg", alt: "For \"You can just build things\": Levels.io", fullWidth: true, gallery: 2 },
 ];
 
-export default function Sidebar({ selectedTile, onClose, onNextTile }: SidebarProps) {
+interface ProjectDetails {
+  title: string;
+  description: string;
+  images: Array<{
+    src: string;
+    alt: string;
+    caption?: string;
+  }>;
+}
+
+const projectDetails: Record<string, ProjectDetails> = {
+  "Cercana Systems": {
+    title: "Cercana Systems",
+    description: "A comprehensive branding project for Cercana Systems, including logo design, brand guidelines, and marketing materials. The project focused on creating a modern, professional identity that reflected their position in the technology sector.",
+    images: [
+      { src: "/images/work/branding/logo-cercana2.jpg", alt: "Cercana Systems Logo", caption: "Primary logo design" },
+      { src: "/images/work/branding/logo-cercana-full.jpg", alt: "Cercana Systems Full Brand", caption: "Extended brand elements" },
+      // Add more images as needed
+    ]
+  },
+  "Liminal Lab": {
+    title: "Liminal Lab",
+    description: "Brand identity design for Liminal Lab, focusing on creating a distinctive visual language that represents their innovative approach to research and development.",
+    images: [
+      { src: "/images/work/branding/logo-liminallab.jpg", alt: "Liminal Lab Logo", caption: "Primary logo design" },
+      { src: "/images/work/branding/logo-liminallab-full.jpg", alt: "Liminal Lab Full Brand", caption: "Extended brand elements" },
+      // Add more images as needed
+    ]
+  },
+  // Add more projects as needed
+};
+
+export default function Sidebar({ 
+  selectedTile, 
+  onClose, 
+  onNextTile,
+  selectedProject,
+  setSelectedProject 
+}: SidebarProps) {
   const content = selectedTile ? tileContent[selectedTile as keyof typeof tileContent] : null;
   const nextTileId = selectedTile ? (selectedTile === 4 ? 1 : selectedTile + 1) : null;
   const nextTileContent = nextTileId ? tileContent[nextTileId as keyof typeof tileContent] : null;
@@ -359,17 +399,48 @@ export default function Sidebar({ selectedTile, onClose, onNextTile }: SidebarPr
         if (sidebar) {
           sidebar.scrollTop = 0;
         }
-      }, 150); // Match the fade duration
+      }, 150);
       return () => clearTimeout(timer);
     }
   }, [selectedTile]);
+
+  // Handle ESC key
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (lightboxImageIndex !== null) {
+          setLightboxImageIndex(null);
+          setCurrentGallery(null);
+        } else if (selectedProject) {
+          setSelectedProject(null);
+        } else {
+          onClose();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [lightboxImageIndex, selectedProject, setSelectedProject, onClose]);
 
   if (!selectedTile) return null;
 
   const handleImageClick = (index: number) => {
     const clickedImage = workImages[index];
-    setCurrentGallery(clickedImage.gallery);
-    setLightboxImageIndex(index);
+    if (clickedImage.gallery === 1) { // Only handle clicks on work images
+      // Check if we have project details for this image
+      if (projectDetails[clickedImage.alt]) {
+        setSelectedProject(clickedImage.alt);
+      } else {
+        // If no project details, show lightbox
+        setCurrentGallery(clickedImage.gallery);
+        setLightboxImageIndex(index);
+      }
+    }
+  };
+
+  const handleCloseProject = () => {
+    setSelectedProject(null);
   };
 
   // Filter images for the current gallery
@@ -394,24 +465,32 @@ export default function Sidebar({ selectedTile, onClose, onNextTile }: SidebarPr
 
       {/* Close Button */}
       <AnimatePresence>
-        <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.15, delay: 0.15, ease: "easeOut" }}
-          onClick={onClose}
-          className="fixed right-4 lg:right-[49%] top-7 text-white/60 hover:text-white transition-colors z-[60] w-10 h-10 flex items-center justify-center rounded-full bg-gray-900/50 hover:bg-gray-900/80 backdrop-blur-sm border border-white/10"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </motion.button>
+        {!selectedProject && (
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.15, delay: 0.15, ease: "easeOut" }}
+            exit={{ 
+              opacity: 0,
+              transition: {
+                duration: 0, 
+                delay: 0, 
+              }
+            }}
+            onClick={onClose}
+            className="fixed right-4 lg:right-[49%] top-7 text-white/60 hover:text-white transition-colors z-[60] w-10 h-10 flex items-center justify-center rounded-full bg-gray-900/50 hover:bg-gray-900/80 backdrop-blur-sm border border-white/10"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </motion.button>
+        )}
       </AnimatePresence>
 
-      {/* Sidebar */}
+      {/* Main Sidebar */}
       <motion.div
         initial={{ x: "100%" }}
-        animate={{ x: 0 }}
+        animate={{ x: selectedProject ? "-10%" : 0 }}
         exit={{ x: "100%" }}
         transition={{ duration: 0.15, ease: "easeOut" }}
         className="fixed right-0 top-0 h-full w-[98vw] lg:w-[50%] bg-gray-100/95 lg:bg-gray-100/95 backdrop-blur-md border-l border-gray-200/20 shadow-xl z-50"
@@ -469,7 +548,12 @@ export default function Sidebar({ selectedTile, onClose, onNextTile }: SidebarPr
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.15, delay: 0.3, ease: "easeOut" }}
-                      onClick={onNextTile}
+                      onClick={() => {
+                        if (selectedProject) {
+                          setSelectedProject(null);
+                        }
+                        onNextTile();
+                      }}
                       className="w-full bg-gray-900 text-white hover:text-white flex justify-center items-center gap-4 hover:bg-gray-800 p-8 rounded-full transition-all duration-150 ease-out"
                     >
                       <h2 className="text-xl font-black tracking-tight">
@@ -483,6 +567,68 @@ export default function Sidebar({ selectedTile, onClose, onNextTile }: SidebarPr
           </div>
         </div>
       </motion.div>
+
+      {/* Project Details Sidebar */}
+      <AnimatePresence>
+        {selectedProject && projectDetails[selectedProject] && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
+            className="fixed right-0 top-0 h-full w-[98vw] lg:w-[50%] bg-white shadow-xl z-[60]"
+          >
+            <div className="h-full overflow-y-auto">
+              <div className="p-12">
+                {/* Close Button */}
+                <AnimatePresence>
+                  <motion.button
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15, delay: 0.3, ease: "easeOut" }}
+                    onClick={handleCloseProject}
+                    className="fixed right-[98vw] lg:right-[50%] top-0 h-full w-[5%] transition-colors hover:bg-gray-100/95 flex items-center justify-center group back-button"
+                  >
+                    <span className="writing-mode-vertical rotate-[-90deg] top-[5%] text-[1.5rem] font-[900] border-2 border-slate-300/20 bg-gray-100/95 text-gray-500 group-hover:text-black tracking-tight rounded-full px-4 py-2 transition-colors">
+                      BACK
+                    </span>
+                  </motion.button>
+                </AnimatePresence>
+
+                {/* Project Title */}
+                <h2 className="text-3xl font-black text-gray-900 mb-6">
+                  {projectDetails[selectedProject].title}
+                </h2>
+
+                {/* Project Description */}
+                <p className="text-xl text-gray-600 mb-12">
+                  {projectDetails[selectedProject].description}
+                </p>
+
+                {/* Project Images */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {projectDetails[selectedProject].images.map((image, index) => (
+                    <div key={index} className="flex flex-col gap-2">
+                      <div className="relative aspect-video">
+                        <Image
+                          src={image.src}
+                          alt={image.alt}
+                          fill
+                          className="object-cover rounded-lg"
+                        />
+                      </div>
+                      {image.caption && (
+                        <p className="text-sm text-gray-500">{image.caption}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 } 

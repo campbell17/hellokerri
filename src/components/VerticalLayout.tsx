@@ -6,6 +6,8 @@ interface VerticalLayoutProps {
   selectedTile: number | null;
   onTileClick: (tileNumber: number) => void;
   onSubItemClick: (tileNumber: number) => void;
+  selectedProject: string | null;
+  setSelectedProject: (project: string | null) => void;
 }
 
 const subItems = tiles.map(tile => ({
@@ -16,7 +18,20 @@ const subItems = tiles.map(tile => ({
   ]
 }));
 
-export default function VerticalLayout({ selectedTile, onTileClick, onSubItemClick }: VerticalLayoutProps) {
+export default function VerticalLayout({ 
+  selectedTile, 
+  onTileClick, 
+  onSubItemClick,
+  selectedProject,
+  setSelectedProject 
+}: VerticalLayoutProps) {
+  const handleTileClick = (tileNumber: number) => {
+    if (selectedProject) {
+      setSelectedProject(null);
+    }
+    onTileClick(tileNumber);
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0, x: -20 }}
@@ -39,7 +54,7 @@ export default function VerticalLayout({ selectedTile, onTileClick, onSubItemCli
               delay: 1 + (index * 0.1),
               ease: "easeOut" 
             }}
-            onClick={() => onTileClick(item.id)}
+            onClick={() => handleTileClick(item.id)}
             className={`text-gray-500 hover:text-white flex items-center gap-4 hover:bg-gray-800 py-2 px-4 rounded-full transition-all duration-150 ease-out ${
               selectedTile === item.id ? 'bg-gray-800 text-white' : ''
             }`}
