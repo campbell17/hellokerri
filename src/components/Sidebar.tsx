@@ -153,9 +153,9 @@ const tileContent: Record<number, TileContent> = {
           ))}
         </div>
         <h2 className={contentStyles.h2}>Some of my favorite work by others:</h2>
-        {workImages.slice(18).map((image, index) => (
+        {workImages.slice(18, 22).map((image, index) => (
           <div key={index + 18} className="flex flex-col gap-2">
-            <div>
+            <div className="cursor-pointer" onClick={() => handleImageClick(index + 18)}>
               <Image 
                 src={image.src}
                 alt={image.alt}
@@ -318,34 +318,30 @@ const tileContent: Record<number, TileContent> = {
 };
 
 const workImages = [
-  { src: "/images/work/branding/logo-cercana2.jpg", alt: "Cercana Systems", fullWidth: true },
-  { src: "/images/work/branding/logo-cercana-full.jpg", alt: "Cercana Systems", fullWidth: true },
-  { src: "/images/work/branding/logo-liminallab.jpg", alt: "Liminal Lab", fullWidth: true },
-  { src: "/images/work/branding/logo-liminallab-full.jpg", alt: "Liminal Lab", fullWidth: true },
-  { src: "/images/work/branding/logo-fulcrum.jpg", alt: "Fulcrum", fullWidth: true },
-  { src: "/images/work/branding/logo-fulcrum-circle.jpg", alt: "Fulcrum", fullWidth: true },
-  // { src: "/images/work/web/logo-fulcrum-web1.jpg", alt: "Fulcrum", fullWidth: true },
-  // { src: "/images/work/web/logo-fulcrum-web2.jpg", alt: "Fulcrum", fullWidth: true },
-  // { src: "/images/work/web/logo-fulcrum-web3.jpg", alt: "Fulcrum", fullWidth: true },
-  // { src: "/images/work/web/logo-fulcrum-web4.jpg", alt: "Fulcrum", fullWidth: true },
-  // { src: "/images/work/web/logo-fulcrum-web5.jpg", alt: "Fulcrum", fullWidth: true },
-  // { src: "/images/work/web/logo-fulcrum-web6.jpg", alt: "Fulcrum", fullWidth: true },
-  { src: "/images/work/web/fulcrum-social-opt.jpg", alt: "A shred of press", fullWidth: true },
-  { src: "/images/work/branding/logo-divide.jpg", alt: "Divide", fullWidth: true },
-  { src: "/images/work/other/asset-divide1.webp", alt: "Divide", fullWidth: true },
-  { src: "/images/work/other/asset-divide2.webp", alt: "Divide", fullWidth: true },
-  { src: "/images/work/other/asset-divide3.webp", alt: "Divide", fullWidth: true },
-  { src: "/images/work/other/asset-divide4.webp", alt: "Divide", fullWidth: true },
-  { src: "/images/work/other/asset-divide5.webp", alt: "Divide", fullWidth: true },
-  { src: "/images/work/other/asset-divide6.webp", alt: "Divide", fullWidth: true },
-  { src: "/images/work/other/asset-divide7.webp", alt: "Divide", fullWidth: true },
-  { src: "/images/work/branding/logo-sni.jpg", alt: "Spatial Networks, Inc", fullWidth: true },
-  { src: "/images/work/other/allinspections-ad2.png", alt: "Allinspections Ad", fullWidth: true },
-  { src: "/images/work/other/allinspections-ad.jpg", alt: "Allinspections Ad", fullWidth: true },
-  { src: "/images/work/others/stripe-press.jpg", alt: "For visual balance, color usage, and succulently 3D rendered books: Stripe Press", lightboxDisabled: true, fullWidth: true  },
-  { src: "/images/work/others/maggie.jpg", alt: "For impeccable illustration, long-form idea cultivation, and writing that's tight as a drum: Maggie Appleton", lightboxDisabled: true, fullWidth: true  },
-  { src: "/images/work/others/ddc.jpg", alt: "For the three E's of design (Energy, Enthusiasm, and Effort) and a staggering preponderance of work: Aaron Draplin", lightboxDisabled: true, fullWidth: true },
-  { src: "/images/work/others/levelsio.jpg", alt: "For \"You can just build things\": Levels.io", lightboxDisabled: true, fullWidth: true },
+  // Gallery 1: My Work
+  { src: "/images/work/branding/logo-cercana2.jpg", alt: "Cercana Systems", fullWidth: true, gallery: 1 },
+  { src: "/images/work/branding/logo-cercana-full.jpg", alt: "Cercana Systems", fullWidth: true, gallery: 1 },
+  { src: "/images/work/branding/logo-liminallab.jpg", alt: "Liminal Lab", fullWidth: true, gallery: 1 },
+  { src: "/images/work/branding/logo-liminallab-full.jpg", alt: "Liminal Lab", fullWidth: true, gallery: 1 },
+  { src: "/images/work/branding/logo-fulcrum.jpg", alt: "Fulcrum", fullWidth: true, gallery: 1 },
+  { src: "/images/work/branding/logo-fulcrum-circle.jpg", alt: "Fulcrum", fullWidth: true, gallery: 1 },
+  { src: "/images/work/web/fulcrum-social-opt.jpg", alt: "A shred of press", fullWidth: true, gallery: 1 },
+  { src: "/images/work/branding/logo-divide.jpg", alt: "Divide", fullWidth: true, gallery: 1 },
+  { src: "/images/work/other/asset-divide1.webp", alt: "Divide", fullWidth: true, gallery: 1 },
+  { src: "/images/work/other/asset-divide2.webp", alt: "Divide", fullWidth: true, gallery: 1 },
+  { src: "/images/work/other/asset-divide3.webp", alt: "Divide", fullWidth: true, gallery: 1 },
+  { src: "/images/work/other/asset-divide4.webp", alt: "Divide", fullWidth: true, gallery: 1 },
+  { src: "/images/work/other/asset-divide5.webp", alt: "Divide", fullWidth: true, gallery: 1 },
+  { src: "/images/work/other/asset-divide6.webp", alt: "Divide", fullWidth: true, gallery: 1 },
+  { src: "/images/work/other/asset-divide7.webp", alt: "Divide", fullWidth: true, gallery: 1 },
+  { src: "/images/work/branding/logo-sni.jpg", alt: "Spatial Networks, Inc", fullWidth: true, gallery: 1 },
+  { src: "/images/work/other/allinspections-ad2.png", alt: "Allinspections Ad", fullWidth: true, gallery: 1 },
+  { src: "/images/work/other/allinspections-ad.jpg", alt: "Allinspections Ad", fullWidth: true, gallery: 1 },
+  // Gallery 2: Others' Work
+  { src: "/images/work/others/stripe-press.jpg", alt: "For visual balance, color usage, and succulently 3D rendered books: Stripe Press", fullWidth: true, gallery: 2 },
+  { src: "/images/work/others/maggie.jpg", alt: "For impeccable illustration, long-form idea cultivation, and writing that's tight as a drum: Maggie Appleton", fullWidth: true, gallery: 2 },
+  { src: "/images/work/others/ddc.jpg", alt: "For the three E's of design (Energy, Enthusiasm, and Effort) and a staggering preponderance of work: Aaron Draplin", fullWidth: true, gallery: 2 },
+  { src: "/images/work/others/levelsio.jpg", alt: "For \"You can just build things\": Levels.io", fullWidth: true, gallery: 2 },
 ];
 
 export default function Sidebar({ selectedTile, onClose, onNextTile }: SidebarProps) {
@@ -353,6 +349,7 @@ export default function Sidebar({ selectedTile, onClose, onNextTile }: SidebarPr
   const nextTileId = selectedTile ? (selectedTile === 4 ? 1 : selectedTile + 1) : null;
   const nextTileContent = nextTileId ? tileContent[nextTileId as keyof typeof tileContent] : null;
   const [lightboxImageIndex, setLightboxImageIndex] = useState<number | null>(null);
+  const [currentGallery, setCurrentGallery] = useState<number | null>(null);
 
   // Reset scroll position after fade out
   useEffect(() => {
@@ -370,16 +367,29 @@ export default function Sidebar({ selectedTile, onClose, onNextTile }: SidebarPr
   if (!selectedTile) return null;
 
   const handleImageClick = (index: number) => {
+    const clickedImage = workImages[index];
+    setCurrentGallery(clickedImage.gallery);
     setLightboxImageIndex(index);
   };
+
+  // Filter images for the current gallery
+  const currentGalleryImages = currentGallery 
+    ? workImages.filter(img => img.gallery === currentGallery)
+    : [];
 
   return (
     <>
       <Lightbox
         isOpen={lightboxImageIndex !== null}
-        onClose={() => setLightboxImageIndex(null)}
-        images={workImages}
-        initialImageIndex={lightboxImageIndex || 0}
+        onClose={() => {
+          setLightboxImageIndex(null);
+          setCurrentGallery(null);
+        }}
+        images={currentGalleryImages}
+        initialImageIndex={lightboxImageIndex !== null 
+          ? currentGalleryImages.findIndex(img => img === workImages[lightboxImageIndex])
+          : 0
+        }
       />
 
       {/* Close Button */}
