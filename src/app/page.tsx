@@ -141,7 +141,9 @@ function HomeContent() {
       if (e.key === 'Escape') {
         if (selectedSubItem) {
           handleCloseModal();
-        } else {
+        } else if (selectedProject) {
+          setSelectedProject(null);
+        } else if (selectedTile) {
           handleCloseSidebar();
         }
       }
@@ -149,7 +151,7 @@ function HomeContent() {
 
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
-  }, [handleCloseSidebar, handleCloseModal, selectedSubItem]);
+  }, [handleCloseSidebar, handleCloseModal, selectedSubItem, selectedProject, setSelectedProject, selectedTile]);
 
   const handleTileClick = (tile: number) => {
     if (selectedProject) {
