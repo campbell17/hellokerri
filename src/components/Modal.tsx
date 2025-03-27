@@ -25,14 +25,14 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose, title, modalPortraits, content
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="fixed inset-0 bg-gray-800 bg-opacity-90 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-gray-800 bg-opacity-90 z-50 flex items-center justify-center"
         >
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
-            className="bg-black rounded-lg w-[90vw] max-w-6xl max-h-[90vh] overflow-y-auto p-8 relative"
+            className="bg-black w-full h-full md:w-[90vw] md:max-w-6xl md:h-auto md:max-h-[90vh] md:rounded-lg overflow-y-auto p-6 md:p-8 relative"
           >
             {/* Close button */}
             <button

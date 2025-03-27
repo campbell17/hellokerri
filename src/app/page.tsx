@@ -110,6 +110,8 @@ function HomeContent() {
   const [selectedTile, setSelectedTile] = useState<number | null>(null);
   const [selectedSubItem, setSelectedSubItem] = useState<number | null>(null);
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
+  const [lightboxImageIndex, setLightboxImageIndex] = useState<number | null>(null);
+  const [currentGallery, setCurrentGallery] = useState<number | null>(null);
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -139,11 +141,27 @@ function HomeContent() {
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
+        // First check if lightbox is open (handled by Sidebar component)
+        if (lightboxImageIndex !== null) {
+          setLightboxImageIndex(null);
+          setCurrentGallery(null);
+          return;
+        }
+        
+        // Then check if project details sidebar is open
+        if (selectedProject) {
+          setSelectedProject(null);
+          return;
+        }
+        
+        // Then check if modal is open
         if (selectedSubItem) {
           handleCloseModal();
-        } else if (selectedProject) {
-          setSelectedProject(null);
-        } else if (selectedTile) {
+          return;
+        }
+        
+        // Finally, check if main sidebar is open
+        if (selectedTile) {
           handleCloseSidebar();
         }
       }
@@ -151,7 +169,7 @@ function HomeContent() {
 
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
-  }, [handleCloseSidebar, handleCloseModal, selectedSubItem, selectedProject, setSelectedProject, selectedTile]);
+  }, [handleCloseSidebar, handleCloseModal, selectedSubItem, selectedProject, selectedTile, lightboxImageIndex, setLightboxImageIndex, setCurrentGallery]);
 
   const handleTileClick = (tile: number) => {
     if (selectedProject) {
@@ -223,6 +241,10 @@ function HomeContent() {
                 onNextTile={handleNextTile}
                 selectedProject={selectedProject}
                 setSelectedProject={setSelectedProject}
+                lightboxImageIndex={lightboxImageIndex}
+                setLightboxImageIndex={setLightboxImageIndex}
+                currentGallery={currentGallery}
+                setCurrentGallery={setCurrentGallery}
               />
             </Suspense>
           </div>

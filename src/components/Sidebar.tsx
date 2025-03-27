@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import React from 'react';
 import Lightbox from './Lightbox';
 
@@ -10,6 +10,10 @@ interface SidebarProps {
   onNextTile: () => void;
   selectedProject: string | null;
   setSelectedProject: (project: string | null) => void;
+  lightboxImageIndex: number | null;
+  setLightboxImageIndex: (index: number | null) => void;
+  currentGallery: number | null;
+  setCurrentGallery: (gallery: number | null) => void;
 }
 
 // Reusable content styles
@@ -383,13 +387,15 @@ export default function Sidebar({
   onClose, 
   onNextTile,
   selectedProject,
-  setSelectedProject 
+  setSelectedProject,
+  lightboxImageIndex,
+  setLightboxImageIndex,
+  currentGallery,
+  setCurrentGallery
 }: SidebarProps) {
   const content = selectedTile ? tileContent[selectedTile as keyof typeof tileContent] : null;
   const nextTileId = selectedTile ? (selectedTile === 4 ? 1 : selectedTile + 1) : null;
   const nextTileContent = nextTileId ? tileContent[nextTileId as keyof typeof tileContent] : null;
-  const [lightboxImageIndex, setLightboxImageIndex] = useState<number | null>(null);
-  const [currentGallery, setCurrentGallery] = useState<number | null>(null);
 
   // Reset scroll position after fade out
   useEffect(() => {
@@ -403,25 +409,6 @@ export default function Sidebar({
       return () => clearTimeout(timer);
     }
   }, [selectedTile]);
-
-  // Handle ESC key
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        if (lightboxImageIndex !== null) {
-          setLightboxImageIndex(null);
-          setCurrentGallery(null);
-        } else if (selectedProject) {
-          setSelectedProject(null);
-        } else {
-          onClose();
-        }
-      }
-    };
-
-    window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
-  }, [lightboxImageIndex, selectedProject, setSelectedProject, onClose]);
 
   if (!selectedTile) return null;
 
