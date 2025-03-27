@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { useState } from 'react';
 
 interface InfoModalProps {
   isOpen: boolean;
@@ -16,6 +17,12 @@ const contentStyles = {
 } as const;
 
 export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+
+  const handleImageLoad = (src: string) => {
+    setLoadedImages(prev => new Set([...prev, src]));
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -222,7 +229,12 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     width={1200}
                     height={800}
                     className="w-full h-auto rounded-lg"
+                    loading="lazy"
+                    onLoad={() => handleImageLoad('/images/about-this-site/fridge-kernel.jpg')}
                   />
+                  {!loadedImages.has('/images/about-this-site/fridge-kernel.jpg') && (
+                    <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
+                  )}
                 </div>
                 <p className="text-sm text-gray-500 text-center">Trust me, it made sense in my head.</p>
 
@@ -242,7 +254,12 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     width={1200}
                     height={800}
                     className="w-full h-auto rounded-lg"
+                    loading="lazy"
+                    onLoad={() => handleImageLoad('/images/about-this-site/about-level-1.gif')}
                   />
+                  {!loadedImages.has('/images/about-this-site/about-level-1.gif') && (
+                    <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
+                  )}
                 </div>
 
                 <p className={contentStyles.p}>
@@ -257,7 +274,12 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     width={1200}
                     height={800}
                     className="w-full h-auto rounded-lg"
+                    loading="lazy"
+                    onLoad={() => handleImageLoad('/images/about-this-site/about-level-2.gif')}
                   />
+                  {!loadedImages.has('/images/about-this-site/about-level-2.gif') && (
+                    <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
+                  )}
                 </div>
 
                 <p className={contentStyles.p}>
@@ -272,7 +294,12 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     width={1200}
                     height={800}
                     className="w-full h-auto rounded-lg"
+                    loading="lazy"
+                    onLoad={() => handleImageLoad('/images/about-this-site/about-level-3.gif')}
                   />
+                  {!loadedImages.has('/images/about-this-site/about-level-3.gif') && (
+                    <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
+                  )}
                 </div>
 
                 <p className={contentStyles.p}>
@@ -281,15 +308,18 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
 
                 {/* Level 4 */}
                 <div className="relative w-full mb-8">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                  <Image
+                    src="/images/about-this-site/about-level-4.gif"
+                    alt="Level 4"
+                    width={1200}
+                    height={800}
                     className="w-full h-auto rounded-lg"
-                  >
-                    <source src="/images/about-this-site/about-level-4.webm" type="video/webm" />
-                  </video>
+                    loading="lazy"
+                    onLoad={() => handleImageLoad('/images/about-this-site/about-level-4.gif')}
+                  />
+                  {!loadedImages.has('/images/about-this-site/about-level-4.gif') && (
+                    <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
+                  )}
                 </div>
 
                 <p className={contentStyles.p}>
@@ -312,7 +342,12 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     width={1200}
                     height={800}
                     className="w-full h-auto rounded-lg"
+                    loading="lazy"
+                    onLoad={() => handleImageLoad('/images/about-this-site/about-level-5.gif')}
                   />
+                  {!loadedImages.has('/images/about-this-site/about-level-5.gif') && (
+                    <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
+                  )}
                 </div>
 
                 <p className={contentStyles.p}>
@@ -331,7 +366,12 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     width={1200}
                     height={800}
                     className="w-full h-auto rounded-lg"
+                    loading="lazy"
+                    onLoad={() => handleImageLoad('/images/about-this-site/about-level-6.gif')}
                   />
+                  {!loadedImages.has('/images/about-this-site/about-level-6.gif') && (
+                    <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
+                  )}
                 </div>
 
                 <h2 className={contentStyles.h2}>
