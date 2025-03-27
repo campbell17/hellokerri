@@ -236,15 +236,13 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
 
                 {/* Level 1 */}
                 <div className="relative w-full mb-8">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                  <Image
+                    src="/images/about-this-site/about-level-1.gif"
+                    alt="Level 1"
+                    width={1200}
+                    height={800}
                     className="w-full h-auto rounded-lg"
-                  >
-                    <source src="/images/about-this-site/about-level-1.webm" type="video/webm" />
-                  </video>
+                  />
                 </div>
 
                 <p className={contentStyles.p}>
@@ -253,15 +251,13 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
 
                 {/* Level 2 */}
                 <div className="relative w-full mb-8">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                  <Image
+                    src="/images/about-this-site/about-level-2.gif"
+                    alt="Level 2"
+                    width={1200}
+                    height={800}
                     className="w-full h-auto rounded-lg"
-                  >
-                    <source src="/images/about-this-site/about-level-2.webm" type="video/webm" />
-                  </video>
+                  />
                 </div>
 
                 <p className={contentStyles.p}>
@@ -270,15 +266,13 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
 
                 {/* Level 3 */}
                 <div className="relative w-full mb-8">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                  <Image
+                    src="/images/about-this-site/about-level-3.gif"
+                    alt="Level 3"
+                    width={1200}
+                    height={800}
                     className="w-full h-auto rounded-lg"
-                  >
-                    <source src="/images/about-this-site/about-level-3.webm" type="video/webm" />
-                  </video>
+                  />
                 </div>
 
                 <p className={contentStyles.p}>
@@ -312,15 +306,13 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
 
                 {/* Level 5 */}
                 <div className="relative w-full mb-8">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                  <Image
+                    src="/images/about-this-site/about-level-5.gif"
+                    alt="Level 5"
+                    width={1200}
+                    height={800}
                     className="w-full h-auto rounded-lg"
-                  >
-                    <source src="/images/about-this-site/about-level-5.webm" type="video/webm" />
-                  </video>
+                  />
                 </div>
 
                 <p className={contentStyles.p}>
@@ -333,15 +325,13 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
 
                 {/* Level 6 */}
                 <div className="relative w-full mb-8">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                  <Image
+                    src="/images/about-this-site/about-level-6.gif"
+                    alt="Level 6"
+                    width={1200}
+                    height={800}
                     className="w-full h-auto rounded-lg"
-                  >
-                    <source src="/images/about-this-site/about-level-6.webm" type="video/webm" />
-                  </video>
+                  />
                 </div>
 
                 <h2 className={contentStyles.h2}>
