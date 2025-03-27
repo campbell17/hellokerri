@@ -91,25 +91,25 @@ I treated this as a loose guide to get me started knowing many or all of its pie
 
 I knew I wanted large tiles with exaggerated hover states to be the entry point to the content:
 
-![Level 1](/public/images/about-this-site/about-level-1.webm)
+![Level 1](/public/images/about-this-site/about-level-1.gif)
 
 I softened the corners and added a transition to give them a nice bounce when clicked. At this point I wasn't worried about the sizes just yet.
 
-![Level 2](/public/images/about-this-site/about-level-2.webm)
+![Level 2](/public/images/about-this-site/about-level-2.gif)
 
 Initially, I placed my photo on the corner of the first tile. I assumed that's where the "about me" content would go. I added a sidebar to hang the content and put enough lorem ipsum in there to see the scroll behavior. You'll notice a little timeline pip sliding between the tiles as you cliced through. As things fleshed out, however, it seemed more like a distraction, so I ended up scrapping it.
 
-![Level 3](/public/images/about-this-site/about-level-3.webm)
+![Level 3](/public/images/about-this-site/about-level-3.gif)
 
 I decided the odd placement of the photo probably wouldn't hold up as I added more, so I put it in the ubiquitous top-center. I also didn't like the way the sidebar slid over the main content. I wanted to be able to click through the tiles and have the siebar content hydrate with the corresponding text. As you can see, that decision opened up some crowding issues.
 
-![Level 5](/public/images/about-this-site/about-level-5.webm)
+![Level 5](/public/images/about-this-site/about-level-5.gif)
 
 At this point, I felt pretty good. I dug through everything looking for mistakes, typos, and awkward phrasing. I knew I needed to add more to the work section, but one of the things I struggle with is sifting through the years and years of artifacts and deciding which ones show well. I put some recent hits and some representitive pieces showing that I at least have some taste. But something else still felt lacking.
 
 I called up a friend and former colleague of mine to get his take and hopefully some perspective. As we talked through my career, I realized there wasn't a tl;dr anywhere. If someone only had 90 seconds to glean what this project was for, and why it mattered, they were going to leave unhappy. I made some quick notes, we finished the call, and I added a fourth section. I put it first in line. Gimme the short version.
 
-![Level 6](/public/images/about-this-site/about-level-6.webm)
+![Level 6](/public/images/about-this-site/about-level-6.gif)
 
 ## What's next?
 
