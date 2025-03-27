@@ -37,7 +37,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
             transition={{ duration: 0.15, ease: "easeOut" }}
             className="fixed inset-0 z-[80] flex items-center justify-center"
           >
-            <div className="relative w-full h-full md:w-[75vw] md:h-[75vh] md:max-h-[90vh] bg-gray-100/95 backdrop-blur-md md:rounded-lg shadow-xl overflow-hidden">
+            <div className="relative w-full h-full lg:w-[75vw] xl:w-[50vw] lg:h-[90vh] lg:max-h-[90vh] bg-gray-100/95 backdrop-blur-md lg:rounded-lg shadow-xl overflow-hidden">
               {/* Close Button */}
               <motion.button
                 initial={{ opacity: 0 }}
