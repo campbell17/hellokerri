@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { FC, useState } from 'react';
-import InfoModal from './InfoModal';
+import { FC } from 'react';
 
 interface Portrait {
   src: string;
@@ -17,6 +16,7 @@ interface SubItem {
 interface MastheadProps {
   onSubItemClick: (id: number) => void;
   isVertical?: boolean;
+  onInfoClick: () => void;
 }
 
 function StackedPortraits({ portraits }: { portraits: Portrait[] }) {
@@ -44,9 +44,7 @@ function StackedPortraits({ portraits }: { portraits: Portrait[] }) {
   );
 }
 
-const Masthead: FC<MastheadProps> = ({ onSubItemClick, isVertical = false }) => {
-  const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
-
+const Masthead: FC<MastheadProps> = ({ onSubItemClick, isVertical = false, onInfoClick }) => {
   const subItems: SubItem[] = [
     {
       id: 6,
@@ -74,17 +72,12 @@ const Masthead: FC<MastheadProps> = ({ onSubItemClick, isVertical = false }) => 
 
   return (
     <>
-      <InfoModal 
-        isOpen={isInfoModalOpen} 
-        onClose={() => setIsInfoModalOpen(false)} 
-      />
-
       {/* Info Icon - Fixed Position */}
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.15, delay: 0.15, ease: "easeOut" }}
-        onClick={() => setIsInfoModalOpen(true)}
+        onClick={onInfoClick}
         className="fixed top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors z-[60] w-10 h-10 flex items-center justify-center rounded-full bg-gray-900/50 hover:bg-gray-900/80 backdrop-blur-sm border border-white/10"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

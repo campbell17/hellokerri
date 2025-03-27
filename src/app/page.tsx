@@ -6,6 +6,7 @@ import Sidebar from '@/components/Sidebar';
 import VerticalLayout from '@/components/VerticalLayout';
 import Masthead from '@/components/Masthead';
 import Modal from '@/components/Modal';
+import InfoModal from '@/components/InfoModal';
 import { useSearchParams, useRouter } from 'next/navigation';
 
 const contentStyles = {
@@ -112,6 +113,7 @@ function HomeContent() {
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const [lightboxImageIndex, setLightboxImageIndex] = useState<number | null>(null);
   const [currentGallery, setCurrentGallery] = useState<number | null>(null);
+  const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -160,6 +162,12 @@ function HomeContent() {
           return;
         }
         
+        // Then check if info modal is open
+        if (isInfoModalOpen) {
+          setIsInfoModalOpen(false);
+          return;
+        }
+        
         // Finally, check if main sidebar is open
         if (selectedTile) {
           handleCloseSidebar();
@@ -169,7 +177,7 @@ function HomeContent() {
 
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
-  }, [handleCloseSidebar, handleCloseModal, selectedSubItem, selectedProject, selectedTile, lightboxImageIndex, setLightboxImageIndex, setCurrentGallery]);
+  }, [handleCloseSidebar, handleCloseModal, selectedSubItem, selectedProject, selectedTile, lightboxImageIndex, setLightboxImageIndex, setCurrentGallery, isInfoModalOpen]);
 
   const handleTileClick = (tile: number) => {
     if (selectedProject) {
@@ -204,7 +212,7 @@ function HomeContent() {
       <div className={`hidden lg:flex flex-col items-center justify-center p-12 transition-all duration-300 ease-in-out ${
         selectedTile ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}>
-        <Masthead onSubItemClick={handleSubItemClick} />
+        <Masthead onSubItemClick={handleSubItemClick} onInfoClick={() => setIsInfoModalOpen(true)} />
         <div className="mt-12">
           <TileContainer selectedTile={selectedTile} onTileClick={handleTileClick} />
         </div>
@@ -218,6 +226,7 @@ function HomeContent() {
           onSubItemClick={handleSubItemClick}
           selectedProject={selectedProject}
           setSelectedProject={setSelectedProject}
+          onInfoClick={() => setIsInfoModalOpen(true)}
         />
       </div>
 
@@ -231,6 +240,7 @@ function HomeContent() {
               onSubItemClick={handleSubItemClick}
               selectedProject={selectedProject}
               setSelectedProject={setSelectedProject}
+              onInfoClick={() => setIsInfoModalOpen(true)}
             />
           </div>
           <div className="w-full lg:w-1/2">
@@ -259,6 +269,12 @@ function HomeContent() {
           {...modalContent}
         />
       )}
+
+      {/* Info Modal */}
+      <InfoModal 
+        isOpen={isInfoModalOpen} 
+        onClose={() => setIsInfoModalOpen(false)} 
+      />
     </main>
   );
 }

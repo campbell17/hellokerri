@@ -25,7 +25,7 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose, title, modalPortraits, content
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="fixed inset-0 bg-gray-800 bg-opacity-90 z-50 flex items-center justify-center"
+          className="fixed inset-0 bg-gray-800 bg-opacity-90 z-[90] flex items-center justify-center"
         >
           <motion.div 
             initial={{ opacity: 0 }}
