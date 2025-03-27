@@ -16,7 +16,7 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 
 export const metadata = {
-  title: 'Hello Kerri',
+  title: "Hey! I'm Tim",
   description: "Let's embark on a quest...",
   icons: {
     icon: [
