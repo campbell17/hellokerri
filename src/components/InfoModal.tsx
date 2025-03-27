@@ -8,7 +8,7 @@ interface InfoModalProps {
 
 // Reuse the same content styles from Sidebar
 const contentStyles = {
-  h2: "text-2xl font-[900] text-gray-900 mt-8 mb-4",
+  h2: "text-2xl font-[900] text-gray-900 mb-4",
   h3: "text-xl font-[900] text-gray-800 mt-6 mb-4",
   p: "text-xl text-gray-600 leading-relaxed mb-4 font-[400] font-serif",
   a: "text-sky-600 hover:text-sky-800 transition-colors"
@@ -75,7 +75,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     <div>
                       <p className="text-gray-900">Project details and mobile improvements</p>
                       <ul className="text-sm text-gray-600 space-y-1">
-                        <li>• Added project detail sidebar with content support</li>
+                        <li>• Added project detail sidebar with content support (hidden until needed)</li>
                         <li>• Fixed keybind behavior for navigation</li>
                         <li>• Improved mobile responsiveness</li>
                         <li>• Segregated image galleries for better organization</li>
@@ -141,39 +141,23 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                         <li>• Added timeline component with animations</li>
                         <li>• Split out core components</li>
                         <li>• Added click actions and transitions</li>
-                        <li>• Set up Vercel deployment configuration</li>
                       </ul>
                     </div>
                   </div>
                 </div>
 
                 <h2 className={contentStyles.h2}>
-                  Todo
+                  Todos
                 </h2>
 
                 <div className="space-y-4 mb-8">
                   <div>
-                    <p className="text-gray-900">Work Section Improvements</p>
                     <ul className="text-sm text-gray-600 space-y-1">
-                      <li>☐ Add more project details and case studies</li>
-                      <li>☐ Implement project filtering by category</li>
-                      <li>☐ Add project tags and search functionality</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="text-gray-900">Performance Optimizations</p>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      <li>☐ Implement image lazy loading</li>
-                      <li>☐ Add loading states for modals</li>
-                      <li>☐ Optimize video loading and playback</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="text-gray-900">User Experience</p>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      <li>☐ Add keyboard shortcuts for navigation</li>
-                      <li>☐ Implement smooth scroll behavior</li>
-                      <li>☐ Add progress indicators for long content</li>
+                      <li>☐ Continue adding work examples</li>
+                      <li>☐ Ship nested sidebar for work that has its own section</li>
+                      <li>☐ ~ Add touch controls / swipe gestures</li>
+                      <li>☐ ~ Fix inconsistent avatar overlap</li>
+                      <li>☐ ~ Add styling for code blocks</li>
                     </ul>
                   </div>
                 </div>
