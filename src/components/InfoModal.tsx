@@ -57,6 +57,129 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                   Changelog
                 </h2>
 
+                <div className="space-y-6 mb-8">
+                  <div>
+                    <div className="text-sm text-gray-500 mb-2">2024-03-27</div>
+                    <div>
+                      <p className="text-gray-900">Added info section and improved responsive design</p>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Added info section with changelog and todo list</li>
+                        <li>• Improved responsive styles for about section</li>
+                        <li>• Added more breakpoints for better mobile experience</li>
+                        <li>• Adjusted mobile sizes for modals</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-500 mb-2">2024-03-26</div>
+                    <div>
+                      <p className="text-gray-900">Project details and mobile improvements</p>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Added project detail sidebar with content support</li>
+                        <li>• Fixed keybind behavior for navigation</li>
+                        <li>• Improved mobile responsiveness</li>
+                        <li>• Segregated image galleries for better organization</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-500 mb-2">2024-03-25</div>
+                    <div>
+                      <p className="text-gray-900">UI and navigation improvements</p>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Added URL parameters for deep linking</li>
+                        <li>• Improved animation smoothness</li>
+                        <li>• Added keyboard navigation support</li>
+                        <li>• Fixed text wrapping on mobile</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-500 mb-2">2024-03-24</div>
+                    <div>
+                      <p className="text-gray-900">Content and UI refinements</p>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Added context and content updates</li>
+                        <li>• Improved tile responsiveness and layout</li>
+                        <li>• Added letter animations and hover effects</li>
+                        <li>• Updated background and softened tile interactions</li>
+                        <li>• Fixed image voids and layout issues</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-500 mb-2">2024-03-23</div>
+                    <div>
+                      <p className="text-gray-900">Modal and layout improvements</p>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Added modal component with animations</li>
+                        <li>• Fixed sidebar and layout interactions</li>
+                        <li>• Improved font loading and styling</li>
+                        <li>• Added vertical layout for sidebar behavior</li>
+                        <li>• Fixed component opening and closing logic</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-500 mb-2">2024-03-22</div>
+                    <div>
+                      <p className="text-gray-900">Core UI components and animations</p>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Added masthead with animations</li>
+                        <li>• Implemented background image and transitions</li>
+                        <li>• Added hover effects and tile animations</li>
+                        <li>• Improved scroll behavior and transitions</li>
+                        <li>• Added sidebar with content placeholders</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-500 mb-2">2024-03-21</div>
+                    <div>
+                      <p className="text-gray-900">Initial project setup and animations</p>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Added timeline component with animations</li>
+                        <li>• Split out core components</li>
+                        <li>• Added click actions and transitions</li>
+                        <li>• Set up Vercel deployment configuration</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <h2 className={contentStyles.h2}>
+                  Todo
+                </h2>
+
+                <div className="space-y-4 mb-8">
+                  <div>
+                    <p className="text-gray-900">Work Section Improvements</p>
+                    <ul className="text-sm text-gray-600 space-y-1">
+                      <li>☐ Add more project details and case studies</li>
+                      <li>☐ Implement project filtering by category</li>
+                      <li>☐ Add project tags and search functionality</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-gray-900">Performance Optimizations</p>
+                    <ul className="text-sm text-gray-600 space-y-1">
+                      <li>☐ Implement image lazy loading</li>
+                      <li>☐ Add loading states for modals</li>
+                      <li>☐ Optimize video loading and playback</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-gray-900">User Experience</p>
+                    <ul className="text-sm text-gray-600 space-y-1">
+                      <li>☐ Add keyboard shortcuts for navigation</li>
+                      <li>☐ Implement smooth scroll behavior</li>
+                      <li>☐ Add progress indicators for long content</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <hr className="border-gray-300 my-8" />
+
                 <h1 className="text-4xl font-black text-gray-900 tracking-tight mb-4">
                   How this site came together
                 </h1>
