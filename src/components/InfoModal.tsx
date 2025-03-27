@@ -52,8 +52,12 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
               </motion.button>
 
               {/* Content */}
-              <div className="h-full overflow-y-auto p-6 md:p-12 flex flex-col gap-6">
-                <h1 className="text-4xl font-black text-gray-900 tracking-tight mb-8">
+              <div className="h-full overflow-y-auto p-6 md:p-12 flex flex-col gap-4">
+                <h2 className={contentStyles.h2}>
+                  Changelog
+                </h2>
+
+                <h1 className="text-4xl font-black text-gray-900 tracking-tight mb-4">
                   How this site came together
                 </h1>
 
@@ -66,23 +70,19 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                 </p>
 
                 <p className={contentStyles.p}>
-                  &quot;Show you can ship&quot;.
-                </p>
-
-                <p className={contentStyles.p}>
                   I drafted a few bullet points, notes, and ideas. Then the timid side of me peeked over my shoulder and added his own: &quot;Do none of these. Just update your site, stupid.&quot;
                 </p>
 
                 <p className={contentStyles.p}>
-                  I let a day pass. I slept on it. Looking over my notes the next day, it occurred to me there&apos;s no such thing as &quot;just an update&quot;. My personal site was full of signs of neglect after nearly 15 years of steady employment at the same company. I knew if I attempted an update I would spend too much time trying to resolve existing wounds whether they related to the core outcome or not.
+                  I let a day pass. I slept on it. Looking over my notes the next day, it occurred to me there&apos;s no such thing as &quot;just update your site.&quot; My personal site showed all the signs of neglect after spending 14 years at the same company. I had no incentive to update it, so I didn&apos;t. 
+                </p>  
+
+                <p className={contentStyles.p}>
+                  I knew if I attempted an update I would spend too much time trying to resolve existing wounds whether they related to the core outcome or not. And the core outcome was this: build something simple, interactive, and visually appealing that represented who I was, what I could do, and why I was applying. This set the foundation for every decision thereafter. Having this foundation was crucial in deciding what was a must-have vs. a ~nice-to-have.
                 </p>
 
                 <p className={contentStyles.p}>
-                  And the core outcome was this: build something simple, interactive, and visually appealing that represented who I was, what I could do, and why I was applying. This set the foundation for every decision thereafter. Having this foundation was crucial in deciding what was a must-have vs. a ~nice-to-have.
-                </p>
-
-                <p className={contentStyles.p}>
-                  Another critical element was to add a time constraint. I allowed myself 4 days to get the core shipped. This meant whatever it was, it had to be possible for <em>me</em> (not some hero version of me), and it had to be something I&apos;d be proud enough to send directly to the founders. If I winced when I sent the LinkedIn DMs, I failed.
+                  Another critical element was to add a time constraint. I allowed myself 4 days to get the core shipped. This meant whatever it was, it had to be possible for <em>me</em> (not some hero version of me), and it had to be something I&apos;d be proud enough to send directly to the founders. If I winced when I showed them, I failed.
                 </p>
 
                 <p className={contentStyles.p}>
@@ -90,7 +90,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                 </p>
 
                 {/* Fridge Kernel */}
-                <div className="relative w-full mb-8">
+                <div className="relative w-full">
                   <Image
                     src="/images/about-this-site/fridge-kernel.jpg"
                     alt="Fridge Kernel"
@@ -99,57 +99,133 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     className="w-full h-auto rounded-lg"
                   />
                 </div>
+                <p className="text-sm text-gray-500 text-center">Trust me, it made sense in my head.</p>
 
                 <p className={contentStyles.p}>
                   I treated this as a loose guide to get me started knowing many or all of its pieces could be replaced as I found more compelling ways to address the core purpose.
                 </p>
+  
+                <p className={contentStyles.p}>
+                  I knew I wanted large tiles with exaggerated hover states to be the entry point to the content:
+                </p>
 
-                <div className="space-y-8">
-                  {/* Level 0 */}
-                  <div className="relative w-full">
-                    <Image
-                      src="/images/about-this-site/about-level-0.jpg"
-                      alt="Level 0"
-                      width={1200}
-                      height={800}
-                      className="w-full h-auto rounded-lg"
-                    />
-                  </div>
-                  <p className="text-sm text-gray-500 text-center">Off to a great start.</p>
-                
-                  <p className={contentStyles.p}>
-                    I knew I wanted large tiles to be the entry point to the content:
-                  </p>
-
-                  {/* Level 1 */}
-                  <div className="relative w-full mb-8">
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-auto rounded-lg"
-                    >
-                      <source src="/images/about-this-site/about-level-1.webm" type="video/webm" />
-                      <Image
-                        src="/images/about-this-site/about-level-1.jpg"
-                        alt="Level 1"
-                        width={1200}
-                        height={800}
-                        className="w-full h-auto rounded-lg"
-                      />
-                    </video>
-                  </div>
-
-                  <p className={contentStyles.p}>
-                    The design is inspired by the work of 37signals, particularly their focus on simplicity and clarity. The site uses a minimal color palette and typography to create a clean, professional look.
-                  </p>
-
-
-                  <p className={contentStyles.p}>
-                    The site is built with performance in mind. Images are optimized using Next.js Image component, and animations are handled by Framer Motion for smooth transitions.
-                  </p>
+                {/* Level 1 */}
+                <div className="relative w-full mb-8">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto rounded-lg"
+                  >
+                    <source src="/images/about-this-site/about-level-1.webm" type="video/webm" />
+                  </video>
                 </div>
+
+                <p className={contentStyles.p}>
+                  I softened the corners and added a transition to give them a nice bounce when clicked. At this point I wasn&apos;t worried about the sizes just yet.
+                </p>
+
+                {/* Level 2 */}
+                <div className="relative w-full mb-8">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto rounded-lg"
+                  >
+                    <source src="/images/about-this-site/about-level-2.webm" type="video/webm" />
+                  </video>
+                </div>
+
+                <p className={contentStyles.p}>
+                  Initially, I placed my photo on the corner of the first tile. I assumed that&apos;s where the &quot;about me&quot; content would go. I added a sidebar to hang the content and put enough lorem ipsum in there to see the scroll behavior. You&apos;ll notice a little timeline pip sliding between the tiles as you cliced through. As things fleshed out, however, it seemed more like a distraction, so I ended up scrapping it.
+                </p>
+
+                {/* Level 3 */}
+                <div className="relative w-full mb-8">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto rounded-lg"
+                  >
+                    <source src="/images/about-this-site/about-level-3.webm" type="video/webm" />
+                  </video>
+                </div>
+
+                <p className={contentStyles.p}>
+                  I decided the odd placement of the photo probably wouldn&apos;t hold up as I added more, so I put it in the ubiquitous top-center. I also didn&apos;t like the way the sidebar slid over the main content. I wanted to be able to click through the tiles and have the siebar content hydrate with the corresponding text. As you can see, that decision opened up some crowding issues.
+                </p>
+
+                {/* Level 4 */}
+                <div className="relative w-full mb-8">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto rounded-lg"
+                  >
+                    <source src="/images/about-this-site/about-level-4.webm" type="video/webm" />
+                  </video>
+                </div>
+
+                <p className={contentStyles.p}>
+                  Once I got this far, I switched modes. Something slightly more compelling than lorem ipsum had to go on these pages. I opened the draft template I use to write essays, which is just a markdown file with some notes, and went section by section. Writing the content was invaluable, as it informed a handful of critical design decisions. First, there were too many sections. I knew I could hit all the beats without each one having its own page. I cut out the redundancies and renamed the sections, landing on My Story, My Work, and Why 37 Signals.
+                </p>
+
+                <p className={contentStyles.p}>
+                  Second, as I crystalized my thoughts, I was reminded what an incredible opportunity this was. I wanted to add something more - something to show my appreciation to the people responsible. I decided to write three letters. One to the Principal Designer, one to the founders, and one to the entire team. Whatever happened, I felt like they should know what it meant to me.
+                </p>
+
+                <p className={contentStyles.p}>
+                  I added three special buttons in the masthead, each opening its own modal with the contents of the letter. The knock-on effect of this decision was I knew I was going to have to change my approach on mobile. Instead of squishing the tiles into the remaining space and stacking everything when that got too tight, I stripped out the tiles entirely and simplified the main content. I decided to reuse this on desktop when the sidebar gets opened, which solved the odd squishing problem that never felt quite right.
+                </p>
+
+                {/* Level 5 */}
+                <div className="relative w-full mb-8">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto rounded-lg"
+                  >
+                    <source src="/images/about-this-site/about-level-5.webm" type="video/webm" />
+                  </video>
+                </div>
+
+                <p className={contentStyles.p}>
+                  At this point, I felt pretty good. I dug through everything looking for mistakes, typos, and awkward phrasing. I knew I needed to add more to the work section, but one of the things I struggle with is sifting through the years and years of artifacts and deciding which ones show well. I put some recent hits and some representitive pieces showing that I at least have some taste. But something else still felt lacking.
+                </p>
+
+                <p className={contentStyles.p}>
+                  I called up a friend and former colleague of mine to get his take and hopefully some perspective. As we talked through my career, I realized there wasn&apos;t a tl;dr anywhere. If someone only had 90 seconds to glean what this project was for, and why it mattered, they were going to leave unhappy. I made some quick notes, we finished the call, and I added a fourth section. I put it first in line. Gimme the short version.
+                </p>
+
+                {/* Level 6 */}
+                <div className="relative w-full mb-8">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto rounded-lg"
+                  >
+                    <source src="/images/about-this-site/about-level-6.webm" type="video/webm" />
+                  </video>
+                </div>
+
+                <h2 className={contentStyles.h2}>
+                  What&apos;s next?
+                </h2>
+
+                <p className={contentStyles.p}>
+                  I have a growing list of nice-to-haves, but adding more to the work section is critical. This will be my sole focus for now.
+                </p>
               </div>
             </div>
           </motion.div>
