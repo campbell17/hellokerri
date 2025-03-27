@@ -8,7 +8,6 @@ interface VerticalLayoutProps {
   onSubItemClick: (id: number) => void;
   selectedProject: string | null;
   setSelectedProject: (project: string | null) => void;
-  onInfoClick: () => void;
 }
 
 const subItems = tiles.map(tile => ({
@@ -24,8 +23,7 @@ export default function VerticalLayout({
   onTileClick, 
   onSubItemClick,
   selectedProject,
-  setSelectedProject,
-  onInfoClick
+  setSelectedProject
 }: VerticalLayoutProps) {
   const handleTileClick = (tileNumber: number) => {
     if (selectedProject) {

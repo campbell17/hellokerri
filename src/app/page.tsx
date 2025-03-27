@@ -8,6 +8,7 @@ import Masthead from '@/components/Masthead';
 import Modal from '@/components/Modal';
 import InfoModal from '@/components/InfoModal';
 import { useSearchParams, useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 const contentStyles = {
   p: "text-xl leading-relaxed md:text-2xl mb-8 md:leading-relaxed text-white font-serif"
@@ -212,7 +213,7 @@ function HomeContent() {
       <div className={`hidden lg:flex flex-col items-center justify-center p-12 transition-all duration-300 ease-in-out ${
         selectedTile ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}>
-        <Masthead onSubItemClick={handleSubItemClick} onInfoClick={() => setIsInfoModalOpen(true)} />
+        <Masthead onSubItemClick={handleSubItemClick} />
         <div className="mt-12">
           <TileContainer selectedTile={selectedTile} onTileClick={handleTileClick} />
         </div>
@@ -226,9 +227,20 @@ function HomeContent() {
           onSubItemClick={handleSubItemClick}
           selectedProject={selectedProject}
           setSelectedProject={setSelectedProject}
-          onInfoClick={() => setIsInfoModalOpen(true)}
         />
       </div>
+      {/* Info Icon - Fixed Position */}
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.15, delay: 0.15, ease: "easeOut" }}
+        onClick={() => setIsInfoModalOpen(true)}
+        className="fixed top-4 right-4 text-gray-500 hover:text-white transition-colors z-[0] w-10 h-10 flex items-center justify-center rounded-full bg-gray-900/50 hover:bg-gray-900/80 backdrop-blur-sm border border-white/10"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </motion.button>
 
       {/* Sidebar - different widths for mobile/desktop */}
       {selectedTile && (
@@ -240,7 +252,6 @@ function HomeContent() {
               onSubItemClick={handleSubItemClick}
               selectedProject={selectedProject}
               setSelectedProject={setSelectedProject}
-              onInfoClick={() => setIsInfoModalOpen(true)}
             />
           </div>
           <div className="w-full lg:w-1/2">
@@ -260,6 +271,7 @@ function HomeContent() {
           </div>
         </div>
       )}
+
 
       {/* Modal for subitem content */}
       {modalContent && (
