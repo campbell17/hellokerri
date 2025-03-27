@@ -8,6 +8,7 @@ interface InfoModalProps {
 
 // Reuse the same content styles from Sidebar
 const contentStyles = {
+  h1: "text-4xl font-black text-gray-900 tracking-tight mb-4",
   h2: "text-2xl font-[900] text-gray-900 mb-4",
   h3: "text-xl font-[900] text-gray-800 mt-6 mb-4",
   p: "text-xl text-gray-600 leading-relaxed mb-4 font-[400] font-serif",
@@ -53,6 +54,23 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
 
               {/* Content */}
               <div className="h-full overflow-y-auto p-6 md:p-12 flex flex-col gap-4">
+
+                <h1 className={contentStyles.h1}>
+                  What is this?
+                </h1>
+
+                <p className={contentStyles.p}>
+                  This website is my application for the Web App Designer position at 37 Signals.
+                </p>
+
+                <h1 className={contentStyles.h1}>
+                  Hello Kerri?
+                </h1>
+
+                <p className={contentStyles.p}>
+                  Whenever my wife does something she considers foolish, she chastises herself by saying &quot;Hello, Kerri.&quot; It&apos;s cute as hell, so I bought the domain and put it away for a rainy day.
+                </p>
+
                 <h2 className={contentStyles.h2}>
                   Changelog
                 </h2>
@@ -164,7 +182,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
 
                 <hr className="border-gray-300 my-8" />
 
-                <h1 className="text-4xl font-black text-gray-900 tracking-tight mb-4">
+                <h1 className={contentStyles.h1}>
                   How this site came together
                 </h1>
 
