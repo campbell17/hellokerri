@@ -84,7 +84,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
 
                 <div className="space-y-6 mb-8">
                   <div>
-                    <div className="text-sm text-gray-500 mb-2">2024-03-27</div>
+                    <div className="text-sm text-gray-500 mb-2">2025-03-27</div>
                     <div>
                       <p className="text-gray-900">Added info section and improved responsive design</p>
                       <ul className="text-sm text-gray-600 space-y-1">
@@ -96,7 +96,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     </div>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-500 mb-2">2024-03-26</div>
+                    <div className="text-sm text-gray-500 mb-2">2025-03-26</div>
                     <div>
                       <p className="text-gray-900">Project details and mobile improvements</p>
                       <ul className="text-sm text-gray-600 space-y-1">
@@ -108,7 +108,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     </div>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-500 mb-2">2024-03-25</div>
+                    <div className="text-sm text-gray-500 mb-2">2025-03-25</div>
                     <div>
                       <p className="text-gray-900">UI and navigation improvements</p>
                       <ul className="text-sm text-gray-600 space-y-1">
@@ -120,7 +120,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     </div>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-500 mb-2">2024-03-24</div>
+                    <div className="text-sm text-gray-500 mb-2">2025-03-24</div>
                     <div>
                       <p className="text-gray-900">Content and UI refinements</p>
                       <ul className="text-sm text-gray-600 space-y-1">
@@ -133,7 +133,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     </div>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-500 mb-2">2024-03-23</div>
+                    <div className="text-sm text-gray-500 mb-2">2025-03-23</div>
                     <div>
                       <p className="text-gray-900">Modal and layout improvements</p>
                       <ul className="text-sm text-gray-600 space-y-1">
@@ -146,7 +146,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     </div>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-500 mb-2">2024-03-22</div>
+                    <div className="text-sm text-gray-500 mb-2">2025-03-22</div>
                     <div>
                       <p className="text-gray-900">Core UI components and animations</p>
                       <ul className="text-sm text-gray-600 space-y-1">
@@ -159,7 +159,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     </div>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-500 mb-2">2024-03-21</div>
+                    <div className="text-sm text-gray-500 mb-2">2025-03-21</div>
                     <div>
                       <p className="text-gray-900">Initial project setup and animations</p>
                       <ul className="text-sm text-gray-600 space-y-1">
