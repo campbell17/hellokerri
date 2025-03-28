@@ -21,7 +21,9 @@ const contentStyles = {
   h2: "text-2xl font-[900] text-gray-900 mt-8 mb-4",
   h3: "text-xl font-[900] text-gray-800 mt-6 mb-4",
   p: "text-2xl text-gray-600 leading-relaxed mb-4 font-[400] font-serif",
-  a: "text-sky-600 hover:text-sky-800 transition-colors"
+  a: "text-sky-600 hover:text-sky-800 transition-colors",
+  gridContainer: "grid grid-cols-1 md:grid-cols-2 gap-6",
+  caption: "text-sm text-gray-500 mb-4",
 } as const;
 
 interface TileContent {
@@ -139,7 +141,7 @@ const tileContent: Record<number, TileContent> = {
           The following is a collection of some of my work, followed by a few of my favorites by other designers and builders.
         </p>
         <h2 className={contentStyles.h2}>Some of my work (I&apos;m adding/curating as we speak - pardon the dust):</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12">
+        <div className={`${contentStyles.gridContainer} pt-12`}>
           {workImages.slice(0, 18).map((image, index) => (
             <div 
               key={index} 
@@ -163,12 +165,12 @@ const tileContent: Record<number, TileContent> = {
                   </div>
                 )}
               </div>
-              <p className="text-sm text-gray-500 mb-4">{image.alt}</p>
+              <p className={contentStyles.caption}>{image.alt}</p>
             </div>
           ))}
         </div>
         <h2 className={contentStyles.h2}>Some of my favorite work by others:</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className={contentStyles.gridContainer}>
           {workImages.slice(18, 22).map((image, index) => (
             <div 
               key={index + 18} 
@@ -183,7 +185,7 @@ const tileContent: Record<number, TileContent> = {
                   className="transition-opacity hover:opacity-[60%]" 
                 />
               </div>
-              <p className="text-sm text-gray-500 mb-4">{image.alt}</p>
+              <p className={contentStyles.caption}>{image.alt}</p>
             </div>
           ))}
         </div>
@@ -376,22 +378,31 @@ interface ProjectDetails {
 }
 
 const projectDetails: Record<string, ProjectDetails> = {
+  "Fulcrum": {
+    title: "Fulcrum",
+    description: "What I've been up to for the last 5,323 days.",
+    images: [
+      // { src: "/images/work/by-project/fulcrum/iso-fulcrum-icon.png", alt: "Fulcrum Icon", caption: "Platform icon" },
+      { src: "/images/work/by-project/fulcrum/browser-fulcrum-2012.jpg", alt: "Fulcrum 2012 Browser View", caption: "Early browser interface" },
+      { src: "/images/work/by-project/fulcrum/browser-fulcrum-2014.jpg", alt: "Fulcrum 2014 Browser View", caption: "Updated browser interface" },
+      { src: "/images/work/by-project/fulcrum/browser-fulcrum-2014b.jpg", alt: "Fulcrum 2014 Browser View 2", caption: "Additional browser view" },
+      { src: "/images/work/by-project/fulcrum/browser-fulcrum-casestudy.jpg", alt: "Fulcrum Case Study", caption: "Case study presentation" },
+      { src: "/images/work/by-project/fulcrum/browser-fulcrum-v1-roles.jpg", alt: "Fulcrum V1 Roles", caption: "Role management interface" },
+      { src: "/images/work/by-project/fulcrum/full-fulcrum-handout.jpg", alt: "Fulcrum Handout", caption: "Marketing handout", fullWidth: true },
+      { src: "/images/work/by-project/fulcrum/full-fulcrum-tradeshow.jpg", alt: "Fulcrum Tradeshow", caption: "Tradeshow display", fullWidth: true },
+      { src: "/images/work/by-project/fulcrum/grid-fulcrum-buildericons-v2.jpg", alt: "Fulcrum Builder Icons", caption: "Builder icon set" },
+      { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-early-swag.jpg", alt: "Fulcrum Early Swag", caption: "Early promotional items" },
+      { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-office-1.jpg", alt: "Fulcrum Office 1", caption: "Office documentation" },
+      { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-office-2.jpg", alt: "Fulcrum Office 2", caption: "Additional office materials" },
+      { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-tradeshow.jpg", alt: "Fulcrum Tradeshow", caption: "Tradeshow materials" }
+    ]
+  },
   "Cercana Systems-temp": {
     title: "Cercana Systems",
     description: "A comprehensive branding project for Cercana Systems, including logo design, brand guidelines, and marketing materials. The project focused on creating a modern, professional identity that reflected their position in the technology sector.",
     images: [
       { src: "/images/work/branding/logo-cercana2.jpg", alt: "Cercana Systems Logo", caption: "Primary logo design" },
       { src: "/images/work/branding/logo-cercana-full.jpg", alt: "Cercana Systems Full Brand", caption: "Extended brand elements" },
-      // Add more images as needed
-    ]
-  },
-  "Fulcrum": {
-    title: "Fulcrum",
-    description: "A comprehensive branding project for Cercana Systems, including logo design, brand guidelines, and marketing materials. The project focused on creating a modern, professional identity that reflected their position in the technology sector.",
-    images: [
-      { src: "/images/work/branding/logo-cercana2.jpg", alt: "Cercana Systems Logo", caption: "Primary logo design" },
-      { src: "/images/work/branding/logo-cercana-full.jpg", alt: "Cercana Systems Full Brand", caption: "Extended brand elements" },
-      { src: "/images/work/web/fulcrum-social-opt.jpg", alt: "A shred of press", fullWidth: true },
       // Add more images as needed
     ]
   },
@@ -656,7 +667,7 @@ export default function Sidebar({
                 </p>
 
                 {/* Project Images */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className={contentStyles.gridContainer}>
                   {projectDetails[selectedProject].images.map((image, index) => (
                     <div 
                       key={index} 
@@ -675,7 +686,7 @@ export default function Sidebar({
                         />
                       </div>
                       {image.caption && (
-                        <p className="text-sm text-gray-500 mb-4">{image.caption}</p>
+                        <p className={contentStyles.caption}>{image.caption}</p>
                       )}
                     </div>
                   ))}
