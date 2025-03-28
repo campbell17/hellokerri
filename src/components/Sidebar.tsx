@@ -376,18 +376,17 @@ const projectDetails: Record<string, ProjectDetails> = {
     title: "Fulcrum",
     description: "What I've been up to for the last 5,323 days.",
     images: [
-      { src: "/images/work/by-project/fulcrum/browser-fulcrum-2012.jpg", alt: "Fulcrum 2012 Browser View", caption: "Early browser interface" },
-      { src: "/images/work/by-project/fulcrum/browser-fulcrum-2014.jpg", alt: "Fulcrum 2014 Browser View", caption: "Updated browser interface" },
-      { src: "/images/work/by-project/fulcrum/browser-fulcrum-2014b.jpg", alt: "Fulcrum 2014 Browser View 2", caption: "Additional browser view" },
-      { src: "/images/work/by-project/fulcrum/browser-fulcrum-casestudy.jpg", alt: "Fulcrum Case Study", caption: "Case study presentation" },
-      { src: "/images/work/by-project/fulcrum/browser-fulcrum-v1-roles.jpg", alt: "Fulcrum V1 Roles", caption: "Role management interface" },
-      { src: "/images/work/by-project/fulcrum/full-fulcrum-handout.jpg", alt: "Fulcrum Handout", caption: "Marketing handout", fullWidth: true },
-      { src: "/images/work/by-project/fulcrum/full-fulcrum-tradeshow.jpg", alt: "Fulcrum Tradeshow", caption: "Tradeshow display", fullWidth: true },
-      { src: "/images/work/by-project/fulcrum/grid-fulcrum-buildericons-v2.jpg", alt: "Fulcrum Builder Icons", caption: "Builder icon set" },
-      { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-early-swag.jpg", alt: "Fulcrum Early Swag", caption: "Early promotional items" },
-      { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-office-1.jpg", alt: "Fulcrum Office 1", caption: "Office documentation" },
-      { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-office-2.jpg", alt: "Fulcrum Office 2", caption: "Additional office materials" },
-      { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-tradeshow.jpg", alt: "Fulcrum Tradeshow", caption: "Tradeshow materials" }
+      { src: "/images/work/by-project/fulcrum/browser-fulcrum-2012.jpg", alt: "Fulcrum 2012 Browser View" },
+      { src: "/images/work/by-project/fulcrum/browser-fulcrum-2014.jpg", alt: "Fulcrum 2014 Browser View" },
+      { src: "/images/work/by-project/fulcrum/browser-fulcrum-2014b.jpg", alt: "Fulcrum 2014 Browser View 2" },
+      { src: "/images/work/by-project/fulcrum/browser-fulcrum-casestudy.jpg", alt: "Fulcrum Case Study" },
+      { src: "/images/work/by-project/fulcrum/browser-fulcrum-v1-roles.jpg", alt: "Fulcrum V1 Roles" },
+      { src: "/images/work/by-project/fulcrum/full-fulcrum-handout.jpg", alt: "Fulcrum Handout", fullWidth: true },
+      { src: "/images/work/by-project/fulcrum/full-fulcrum-tradeshow.jpg", alt: "Fulcrum Tradeshow", fullWidth: true },
+      { src: "/images/work/by-project/fulcrum/grid-fulcrum-buildericons-v2.jpg", alt: "Fulcrum Builder Icons" },
+      { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-early-swag.jpg", alt: "Fulcrum Early Swag" },
+      { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-office-1.jpg", alt: "Fulcrum Office 1" },
+      { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-office-2.jpg", alt: "Fulcrum Office 2" }
     ]
   },
   "Divide": {
