@@ -476,23 +476,6 @@ export default function Sidebar({
     }
   }, [selectedTile]);
 
-  // Handle keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-        e.preventDefault();
-        if (selectedProject) {
-          handleCloseProject();
-        } else {
-          onNextTile();
-        }
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedProject, onNextTile]);
-
   if (!selectedTile) return null;
 
   const handleImageClick = (index: number) => {
