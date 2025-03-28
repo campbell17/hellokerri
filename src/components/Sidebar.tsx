@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import React from 'react';
 import Lightbox from './Lightbox';
 
@@ -145,14 +145,21 @@ const tileContent: Record<number, TileContent> = {
               key={index} 
               className={`flex flex-col gap-2 ${image.fullWidth ? 'md:col-span-2' : ''}`}
             >
-              <div className="cursor-pointer" onClick={() => handleImageClick(index)}>
+              <div className="cursor-pointer relative group" onClick={() => handleImageClick(index)}>
                 <Image 
                   src={image.src}
                   alt={image.alt}
                   width={1000} 
                   height={1000}
-                  className="transition-opacity hover:opacity-[90%]" 
+                  className="transition-opacity hover:opacity-[60%]" 
                 />
+                {projectDetails[image.alt] && (
+                  <div className="absolute top-2 right-2 bg-black/50 backdrop-blur-sm rounded-full p-2 text-white/90">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                )}
               </div>
               <p className="text-sm text-gray-500 mb-4">{image.alt}</p>
             </div>
@@ -171,7 +178,7 @@ const tileContent: Record<number, TileContent> = {
                   alt={image.alt}
                   width={1000} 
                   height={1000}
-                  className="transition-opacity hover:opacity-[90%]" 
+                  className="transition-opacity hover:opacity-[60%]" 
                 />
               </div>
               <p className="text-sm text-gray-500 mb-4">{image.alt}</p>
@@ -412,6 +419,31 @@ export default function Sidebar({
   const content = selectedTile ? tileContent[selectedTile as keyof typeof tileContent] : null;
   const nextTileId = selectedTile ? (selectedTile === 4 ? 1 : selectedTile + 1) : null;
   const nextTileContent = nextTileId ? tileContent[nextTileId as keyof typeof tileContent] : null;
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  // Handle scroll for back-to-top button
+  useEffect(() => {
+    const handleScroll = () => {
+      const sidebar = document.querySelector('.sidebar-content');
+      if (sidebar) {
+        // Show button after scrolling down 3000px
+        setShowBackToTop(sidebar.scrollTop > 3000);
+      }
+    };
+
+    const sidebar = document.querySelector('.sidebar-content');
+    if (sidebar) {
+      sidebar.addEventListener('scroll', handleScroll);
+      return () => sidebar.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
+
+  const scrollToTop = () => {
+    const sidebar = document.querySelector('.sidebar-content');
+    if (sidebar) {
+      sidebar.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   // Reset scroll position after fade out
   useEffect(() => {
@@ -629,7 +661,7 @@ export default function Sidebar({
                       className={`flex flex-col gap-2 ${image.fullWidth ? 'md:col-span-2' : ''}`}
                     >
                       <div 
-                        className="cursor-pointer" 
+                        className="cursor-pointer relative group" 
                         onClick={() => handleProjectImageClick(selectedProject, index)}
                       >
                         <Image 
@@ -637,7 +669,7 @@ export default function Sidebar({
                           alt={image.alt}
                           width={1000} 
                           height={1000}
-                          className="transition-opacity hover:opacity-[90%]" 
+                          className="transition-all duration-200 group-hover:opacity-[60%]" 
                         />
                       </div>
                       {image.caption && (
@@ -649,6 +681,24 @@ export default function Sidebar({
               </div>
             </div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Back to Top Button */}
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.02 }}
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 text-white/60 hover:text-white transition-colors z-[50] w-10 h-10 flex items-center justify-center rounded-full bg-slate-500/50 hover:bg-slate-700/80 backdrop-blur-sm border border-white/10"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+          </motion.button>
         )}
       </AnimatePresence>
     </>
