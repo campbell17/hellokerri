@@ -476,6 +476,23 @@ export default function Sidebar({
     }
   }, [selectedTile]);
 
+  // Handle keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        if (selectedProject) {
+          handleCloseProject();
+        } else {
+          onNextTile();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedProject, onNextTile]);
+
   if (!selectedTile) return null;
 
   const handleImageClick = (index: number) => {
@@ -642,6 +659,10 @@ export default function Sidebar({
             exit={{ x: "100%" }}
             transition={{ duration: 0.15, ease: "easeOut" }}
             className="fixed right-0 top-0 h-full w-[90vw] lg:w-[70%] xl:w-[50%] bg-gray-100 shadow-xl z-[60]"
+            onKeyDown={(e) => {
+              // Prevent keyboard events from reaching the main sidebar
+              e.stopPropagation();
+            }}
           >
             <div className="h-full overflow-y-auto">
               <div className="p-12">
