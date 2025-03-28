@@ -157,9 +157,9 @@ const tileContent: Record<number, TileContent> = {
                 />
                 {projectDetails[image.alt] && (
                   <div className="absolute bottom-2 left-2">
-                    <div className="group-hover:backdrop-blur-sm rounded-full p-2 border-2 border-gray-300/90 text-gray-300/90 transition-all duration-200">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                    <div className="p-2 text-gray-300/90">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-8 w-8">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 8.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v8.25A2.25 2.25 0 0 0 6 16.5h2.25m8.25-8.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-7.5A2.25 2.25 0 0 1 8.25 18v-1.5m8.25-8.25h-6a2.25 2.25 0 0 0-2.25 2.25v6" />
                       </svg>
                     </div>
                   </div>
@@ -342,20 +342,14 @@ const tileContent: Record<number, TileContent> = {
 const workImages = [
   // Gallery 1: My Work
   { src: "/images/work/by-project/fulcrum/iso-fulcrum-icon.png", alt: "Fulcrum", gallery: 1 },
-  { src: "/images/work/branding/logo-cercana2.jpg", alt: "Cercana Systems", gallery: 1 },
+  { src: "/images/work/by-project/sni/iso-sni-icon.jpg", alt: "Spatial Networks", gallery: 1 },
+  { src: "/images/work/by-project/allinspections/iso-allinspections-icon.jpg", alt: "Allinspections", gallery: 1 },
+  { src: "/images/work/by-project/cercana/iso-cercana-icon.jpg", alt: "Cercana Systems", gallery: 1 },
+  { src: "/images/work/by-project/liminallab/iso-liminallab-icon.jpg", alt: "Liminal Lab", gallery: 1 },
+  { src: "/images/work/branding/logo-divide.jpg", alt: "Divide", gallery: 1 },
   { src: "/images/work/branding/logo-cercana-full.jpg", alt: "Cercana Systems", fullWidth: true, gallery: 1 },
-  { src: "/images/work/branding/logo-liminallab.jpg", alt: "Liminal Lab", fullWidth: true, gallery: 1 },
   { src: "/images/work/branding/logo-liminallab-full.jpg", alt: "Liminal Lab", fullWidth: true, gallery: 1 },
   { src: "/images/work/web/fulcrum-social-opt.jpg", alt: "A shred of press", fullWidth: true, gallery: 1 },
-  { src: "/images/work/branding/logo-divide.jpg", alt: "Divide", fullWidth: true, gallery: 1 },
-  { src: "/images/work/other/asset-divide1.webp", alt: "Divide", fullWidth: true, gallery: 1 },
-  { src: "/images/work/other/asset-divide2.webp", alt: "Divide", fullWidth: true, gallery: 1 },
-  { src: "/images/work/other/asset-divide3.webp", alt: "Divide", fullWidth: true, gallery: 1 },
-  { src: "/images/work/other/asset-divide4.webp", alt: "Divide", fullWidth: true, gallery: 1 },
-  { src: "/images/work/other/asset-divide5.webp", alt: "Divide", fullWidth: true, gallery: 1 },
-  { src: "/images/work/other/asset-divide6.webp", alt: "Divide", fullWidth: true, gallery: 1 },
-  { src: "/images/work/other/asset-divide7.webp", alt: "Divide", fullWidth: true, gallery: 1 },
-  { src: "/images/work/branding/logo-sni.jpg", alt: "Spatial Networks, Inc", fullWidth: true, gallery: 1 },
   { src: "/images/work/other/allinspections-ad2.png", alt: "Allinspections Ad", fullWidth: true, gallery: 1 },
   { src: "/images/work/other/allinspections-ad.jpg", alt: "Allinspections Ad", fullWidth: true, gallery: 1 },
   // Gallery 2: Others' Work
@@ -382,7 +376,6 @@ const projectDetails: Record<string, ProjectDetails> = {
     title: "Fulcrum",
     description: "What I've been up to for the last 5,323 days.",
     images: [
-      // { src: "/images/work/by-project/fulcrum/iso-fulcrum-icon.png", alt: "Fulcrum Icon", caption: "Platform icon" },
       { src: "/images/work/by-project/fulcrum/browser-fulcrum-2012.jpg", alt: "Fulcrum 2012 Browser View", caption: "Early browser interface" },
       { src: "/images/work/by-project/fulcrum/browser-fulcrum-2014.jpg", alt: "Fulcrum 2014 Browser View", caption: "Updated browser interface" },
       { src: "/images/work/by-project/fulcrum/browser-fulcrum-2014b.jpg", alt: "Fulcrum 2014 Browser View 2", caption: "Additional browser view" },
@@ -395,6 +388,19 @@ const projectDetails: Record<string, ProjectDetails> = {
       { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-office-1.jpg", alt: "Fulcrum Office 1", caption: "Office documentation" },
       { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-office-2.jpg", alt: "Fulcrum Office 2", caption: "Additional office materials" },
       { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-tradeshow.jpg", alt: "Fulcrum Tradeshow", caption: "Tradeshow materials" }
+    ]
+  },
+  "Divide": {
+    title: "Divide",
+    description: "A comprehensive branding and design project showcasing various assets and materials.",
+    images: [
+      { src: "/images/work/other/asset-divide1.webp", alt: "Divide Asset 1", caption: "Brand asset", fullWidth: true },
+      { src: "/images/work/other/asset-divide2.webp", alt: "Divide Asset 2", caption: "Brand asset", fullWidth: true },
+      { src: "/images/work/other/asset-divide3.webp", alt: "Divide Asset 3", caption: "Brand asset", fullWidth: true },
+      { src: "/images/work/other/asset-divide4.webp", alt: "Divide Asset 4", caption: "Brand asset", fullWidth: true },
+      { src: "/images/work/other/asset-divide5.webp", alt: "Divide Asset 5", caption: "Brand asset", fullWidth: true },
+      { src: "/images/work/other/asset-divide6.webp", alt: "Divide Asset 6", caption: "Brand asset", fullWidth: true },
+      { src: "/images/work/other/asset-divide7.webp", alt: "Divide Asset 7", caption: "Brand asset", fullWidth: true }
     ]
   },
   "Cercana Systems-temp": {
