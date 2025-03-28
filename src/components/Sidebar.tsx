@@ -142,12 +142,12 @@ const tileContent: Record<number, TileContent> = {
         </p>
         <h2 className={contentStyles.h2}>Some of my work (I&apos;m adding/curating as we speak - pardon the dust):</h2>
         <div className={`${contentStyles.gridContainer} pt-12`}>
-          {workImages.slice(0, 18).map((image, index) => (
+          {workImages.filter(img => img.gallery === 1).map((image, index) => (
             <div 
               key={index} 
               className={`flex flex-col gap-2 ${image.fullWidth ? 'md:col-span-2' : ''}`}
             >
-              <div className="cursor-pointer relative group" onClick={() => handleImageClick(index)}>
+              <div className="cursor-pointer relative group" onClick={() => handleImageClick(workImages.indexOf(image))}>
                 <Image 
                   src={image.src}
                   alt={image.alt}
@@ -171,12 +171,12 @@ const tileContent: Record<number, TileContent> = {
         </div>
         <h2 className={contentStyles.h2}>Some of my favorite work by others:</h2>
         <div className={contentStyles.gridContainer}>
-          {workImages.slice(18, 22).map((image, index) => (
+          {workImages.filter(img => img.gallery === 2).map((image, index) => (
             <div 
-              key={index + 18} 
+              key={index} 
               className={`flex flex-col gap-2 ${image.fullWidth ? 'md:col-span-2' : ''}`}
             >
-              <div className="cursor-pointer" onClick={() => handleImageClick(index + 18)}>
+              <div className="cursor-pointer" onClick={() => handleImageClick(workImages.indexOf(image))}>
                 <Image 
                   src={image.src}
                   alt={image.alt}
@@ -344,12 +344,11 @@ const workImages = [
   { src: "/images/work/by-project/fulcrum/iso-fulcrum-icon.png", alt: "Fulcrum", gallery: 1 },
   { src: "/images/work/by-project/sni/iso-sni-icon.jpg", alt: "Spatial Networks", gallery: 1 },
   { src: "/images/work/by-project/allinspections/iso-allinspections-icon.jpg", alt: "Allinspections", gallery: 1 },
-  { src: "/images/work/by-project/cercana/iso-cercana-icon.jpg", alt: "Cercana Systems", gallery: 1 },
-  { src: "/images/work/by-project/liminallab/iso-liminallab-icon.jpg", alt: "Liminal Lab", gallery: 1 },
   { src: "/images/work/branding/logo-divide.jpg", alt: "Divide", gallery: 1 },
-  { src: "/images/work/branding/logo-cercana-full.jpg", alt: "Cercana Systems", fullWidth: true, gallery: 1 },
-  { src: "/images/work/branding/logo-liminallab-full.jpg", alt: "Liminal Lab", fullWidth: true, gallery: 1 },
-  { src: "/images/work/web/fulcrum-social-opt.jpg", alt: "A shred of press", fullWidth: true, gallery: 1 },
+  { src: "/images/work/by-project/cercana/iso-cercana-icon.jpg", alt: "Cercana Systems mark", gallery: 1 },
+  { src: "/images/work/branding/logo-cercana-full.jpg", alt: "Cercana Systems", gallery: 1 },
+  { src: "/images/work/by-project/liminallab/iso-liminallab-icon.jpg", alt: "Liminal Lab mark", gallery: 1 },
+  { src: "/images/work/branding/logo-liminallab-full.jpg", alt: "Liminal Lab", gallery: 1 },  
   { src: "/images/work/other/allinspections-ad2.png", alt: "Allinspections Ad", fullWidth: true, gallery: 1 },
   { src: "/images/work/other/allinspections-ad.jpg", alt: "Allinspections Ad", fullWidth: true, gallery: 1 },
   // Gallery 2: Others' Work
@@ -386,15 +385,31 @@ const projectDetails: Record<string, ProjectDetails> = {
       { src: "/images/work/by-project/fulcrum/grid-fulcrum-buildericons-v2.jpg", alt: "Fulcrum Builder Icons" },
       { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-early-swag.jpg", alt: "Fulcrum Early Swag" },
       { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-office-1.jpg", alt: "Fulcrum Office 1" },
-      { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-office-2.jpg", alt: "Fulcrum Office 2" }
+      { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-office-2.jpg", alt: "Fulcrum Office 2" },
+      { src: "/images/work/web/fulcrum-social-opt.jpg", alt: "A shred of press", fullWidth: true, gallery: 1 },
+    ]
+  },
+  "Allinspections": {
+    title: "Allinspections",
+    description: "A mobile-first inspection app that helped streamline the inspection process for field workers.",
+    images: [
+      { src: "/images/work/other/allinspections-ad2.png", alt: "Allinspections Ad", fullWidth: true },
+      { src: "/images/work/other/allinspections-ad.jpg", alt: "Allinspections Ad", fullWidth: true }
+    ]
+  },
+  "Spatial Networks": {
+    title: "Spatial Networks",
+    description: "The parent company of Fulcrum, where I was responsible for all design aspects including branding, marketing materials, and trade show displays.",
+    images: [
+      { src: "/images/work/by-project/sni/iso-sni-icon.jpg", alt: "Spatial Networks Icon" }
     ]
   },
   "Divide": {
     title: "Divide",
     description: "A comprehensive branding and design project showcasing various assets and materials.",
     images: [
-      { src: "/images/work/other/asset-divide1.webp", alt: "Divide Asset 1", caption: "Brand asset", fullWidth: true },
-      { src: "/images/work/other/asset-divide2.webp", alt: "Divide Asset 2", caption: "Brand asset", fullWidth: true },
+      { src: "/images/work/other/asset-divide1.webp", alt: "Divide Asset 1", caption: "Brand asset" },
+      { src: "/images/work/other/asset-divide2.webp", alt: "Divide Asset 2", caption: "Brand asset" },
       { src: "/images/work/other/asset-divide3.webp", alt: "Divide Asset 3", caption: "Brand asset", fullWidth: true },
       { src: "/images/work/other/asset-divide4.webp", alt: "Divide Asset 4", caption: "Brand asset", fullWidth: true },
       { src: "/images/work/other/asset-divide5.webp", alt: "Divide Asset 5", caption: "Brand asset", fullWidth: true },
