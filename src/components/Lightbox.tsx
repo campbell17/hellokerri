@@ -57,6 +57,11 @@ export default function Lightbox({ isOpen, onClose, images, initialImageIndex }:
 
   if (!isOpen) return null;
 
+  // Add safety checks
+  if (!images || images.length === 0) return null;
+  const currentImage = images[currentIndex];
+  if (!currentImage) return null;
+
   return (
     <AnimatePresence>
       <motion.div
@@ -108,8 +113,8 @@ export default function Lightbox({ isOpen, onClose, images, initialImageIndex }:
         >
           <div className="relative w-full h-full max-w-[90vw] max-h-[90vh]">
             <Image
-              src={images[currentIndex].src}
-              alt={images[currentIndex].alt}
+              src={currentImage.src}
+              alt={currentImage.alt}
               fill
               className="object-contain"
               sizes="90vw"

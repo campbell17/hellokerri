@@ -12,8 +12,8 @@ interface SidebarProps {
   setSelectedProject: (project: string | null) => void;
   lightboxImageIndex: number | null;
   setLightboxImageIndex: (index: number | null) => void;
-  currentGallery: number | null;
-  setCurrentGallery: (gallery: number | null) => void;
+  currentGallery: number | string | null;
+  setCurrentGallery: (gallery: number | string | null) => void;
 }
 
 // Reusable content styles
@@ -325,11 +325,11 @@ const tileContent: Record<number, TileContent> = {
 
 const workImages = [
   // Gallery 1: My Work
+  { src: "/images/work/by-project/fulcrum/iso-fulcrum-icon.png", alt: "Fulcrum", fullWidth: true, gallery: 1 },
   { src: "/images/work/branding/logo-cercana2.jpg", alt: "Cercana Systems", fullWidth: true, gallery: 1 },
   { src: "/images/work/branding/logo-cercana-full.jpg", alt: "Cercana Systems", fullWidth: true, gallery: 1 },
   { src: "/images/work/branding/logo-liminallab.jpg", alt: "Liminal Lab", fullWidth: true, gallery: 1 },
   { src: "/images/work/branding/logo-liminallab-full.jpg", alt: "Liminal Lab", fullWidth: true, gallery: 1 },
-  { src: "/images/work/by-project/fulcrum/iso-fulcrum-icon.png", alt: "Fulcrum", fullWidth: true, gallery: 1 },
   { src: "/images/work/web/fulcrum-social-opt.jpg", alt: "A shred of press", fullWidth: true, gallery: 1 },
   { src: "/images/work/branding/logo-divide.jpg", alt: "Divide", fullWidth: true, gallery: 1 },
   { src: "/images/work/other/asset-divide1.webp", alt: "Divide", fullWidth: true, gallery: 1 },
@@ -356,6 +356,8 @@ interface ProjectDetails {
     src: string;
     alt: string;
     caption?: string;
+    fullWidth?: boolean;
+    gallery?: number;
   }>;
 }
 
@@ -375,6 +377,7 @@ const projectDetails: Record<string, ProjectDetails> = {
     images: [
       { src: "/images/work/branding/logo-cercana2.jpg", alt: "Cercana Systems Logo", caption: "Primary logo design" },
       { src: "/images/work/branding/logo-cercana-full.jpg", alt: "Cercana Systems Full Brand", caption: "Extended brand elements" },
+      { src: "/images/work/web/fulcrum-social-opt.jpg", alt: "A shred of press", fullWidth: true },
       // Add more images as needed
     ]
   },
@@ -422,7 +425,6 @@ export default function Sidebar({
 
   const handleImageClick = (index: number) => {
     const clickedImage = workImages[index];
-    // Check if we have project details for this image
     if (projectDetails[clickedImage.alt]) {
       setSelectedProject(clickedImage.alt);
     } else {
@@ -432,13 +434,26 @@ export default function Sidebar({
     }
   };
 
+  const handleProjectImageClick = (projectKey: string, index: number) => {
+    // Create a unique gallery ID for this project's images
+    const projectGalleryId = `project-${projectKey}`;
+    
+    // Set the current gallery to this project's unique ID
+    setCurrentGallery(projectGalleryId);
+    setLightboxImageIndex(index);
+  };
+
   const handleCloseProject = () => {
     setSelectedProject(null);
   };
 
   // Filter images for the current gallery
   const currentGalleryImages = currentGallery 
-    ? workImages.filter(img => img.gallery === currentGallery)
+    ? typeof currentGallery === 'string' && currentGallery.startsWith('project-')
+      // If it's a project gallery, get images from that project
+      ? projectDetails[currentGallery.replace('project-', '')]?.images || []
+      // Otherwise, get images from workImages
+      : workImages.filter(img => img.gallery === currentGallery)
     : [];
 
   return (
@@ -451,7 +466,9 @@ export default function Sidebar({
         }}
         images={currentGalleryImages}
         initialImageIndex={lightboxImageIndex !== null 
-          ? currentGalleryImages.findIndex(img => img === workImages[lightboxImageIndex])
+          ? typeof currentGallery === 'string' && currentGallery.startsWith('project-')
+            ? lightboxImageIndex  // For project images, use the index directly
+            : currentGalleryImages.findIndex(img => img === workImages[lightboxImageIndex])  // For work images, find the index in the filtered array
           : 0
         }
       />
@@ -602,17 +619,24 @@ export default function Sidebar({
                 {/* Project Images */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {projectDetails[selectedProject].images.map((image, index) => (
-                    <div key={index} className="flex flex-col gap-2">
-                      <div className="relative aspect-video">
-                        <Image
+                    <div 
+                      key={index} 
+                      className={`flex flex-col gap-2 ${!image.fullWidth ? 'lg:w-1/2' : 'w-full'}`}
+                    >
+                      <div 
+                        className="cursor-pointer" 
+                        onClick={() => handleProjectImageClick(selectedProject, index)}
+                      >
+                        <Image 
                           src={image.src}
                           alt={image.alt}
-                          fill
-                          className="object-cover rounded-lg"
+                          width={1000} 
+                          height={1000}
+                          className="transition-opacity hover:opacity-[90%]" 
                         />
                       </div>
                       {image.caption && (
-                        <p className="text-sm text-gray-500">{image.caption}</p>
+                        <p className="text-sm text-gray-500 mb-4">{image.caption}</p>
                       )}
                     </div>
                   ))}
