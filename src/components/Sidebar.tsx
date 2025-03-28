@@ -586,7 +586,7 @@ export default function Sidebar({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="fixed right-0 top-0 h-full w-[90vw] lg:w-[70%] xl:w-[50%] bg-white shadow-xl z-[60]"
+            className="fixed right-0 top-0 h-full w-[90vw] lg:w-[70%] xl:w-[50%] bg-gray-100 shadow-xl z-[60]"
           >
             <div className="h-full overflow-y-auto">
               <div className="p-12">
@@ -598,7 +598,7 @@ export default function Sidebar({
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.15, delay: 0.15, ease: "easeOut" }}
                     onClick={handleCloseProject}
-                    className="bg-gray-100/95 lg:bg-gray-100/80 fixed right-[90vw] lg:right-[70%] xl:right-[50%] top-0 h-full w-[10vw] lg:w-[7%] xl:w-[5%] transition-colors hover:bg-gray-100/95 flex items-center justify-center group back-button"
+                    className="bg-gray-200/95 lg:bg-gray-200/80 fixed right-[90vw] lg:right-[70%] xl:right-[50%] top-0 h-full w-[10vw] lg:w-[7%] xl:w-[5%] transition-colors hover:bg-gray-100/95 flex items-center justify-center group back-button"
                   >
                     <span className="writing-mode-vertical rotate-[-90deg] top-[5%] text-[1.5rem] font-[900] border-2 border-slate-300/20 bg-gray-100/95 text-gray-500 group-hover:text-black tracking-tight rounded-full px-4 py-2 transition-colors">
                       BACK
