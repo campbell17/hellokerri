@@ -139,11 +139,11 @@ const tileContent: Record<number, TileContent> = {
           The following is a collection of some of my work, followed by a few of my favorites by other designers and builders.
         </p>
         <h2 className={contentStyles.h2}>Some of my work (I&apos;m adding/curating as we speak - pardon the dust):</h2>
-        <div className="flex flex-col gap-8 pt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12">
           {workImages.slice(0, 18).map((image, index) => (
             <div 
               key={index} 
-              className={`flex flex-col gap-2 ${!image.fullWidth ? 'lg:w-1/2' : 'w-full'}`}
+              className={`flex flex-col gap-2 ${image.fullWidth ? 'md:col-span-2' : ''}`}
             >
               <div className="cursor-pointer" onClick={() => handleImageClick(index)}>
                 <Image 
@@ -159,20 +159,25 @@ const tileContent: Record<number, TileContent> = {
           ))}
         </div>
         <h2 className={contentStyles.h2}>Some of my favorite work by others:</h2>
-        {workImages.slice(18, 22).map((image, index) => (
-          <div key={index + 18} className="flex flex-col gap-2">
-            <div className="cursor-pointer" onClick={() => handleImageClick(index + 18)}>
-              <Image 
-                src={image.src}
-                alt={image.alt}
-                width={1000} 
-                height={1000}
-                className="transition-opacity" 
-              />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {workImages.slice(18, 22).map((image, index) => (
+            <div 
+              key={index + 18} 
+              className={`flex flex-col gap-2 ${image.fullWidth ? 'md:col-span-2' : ''}`}
+            >
+              <div className="cursor-pointer" onClick={() => handleImageClick(index + 18)}>
+                <Image 
+                  src={image.src}
+                  alt={image.alt}
+                  width={1000} 
+                  height={1000}
+                  className="transition-opacity hover:opacity-[90%]" 
+                />
+              </div>
+              <p className="text-sm text-gray-500 mb-4">{image.alt}</p>
             </div>
-            <p className="text-sm text-gray-500 mb-4">{image.alt}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </>
     )
   },
@@ -325,8 +330,8 @@ const tileContent: Record<number, TileContent> = {
 
 const workImages = [
   // Gallery 1: My Work
-  { src: "/images/work/by-project/fulcrum/iso-fulcrum-icon.png", alt: "Fulcrum", fullWidth: true, gallery: 1 },
-  { src: "/images/work/branding/logo-cercana2.jpg", alt: "Cercana Systems", fullWidth: true, gallery: 1 },
+  { src: "/images/work/by-project/fulcrum/iso-fulcrum-icon.png", alt: "Fulcrum", gallery: 1 },
+  { src: "/images/work/branding/logo-cercana2.jpg", alt: "Cercana Systems", gallery: 1 },
   { src: "/images/work/branding/logo-cercana-full.jpg", alt: "Cercana Systems", fullWidth: true, gallery: 1 },
   { src: "/images/work/branding/logo-liminallab.jpg", alt: "Liminal Lab", fullWidth: true, gallery: 1 },
   { src: "/images/work/branding/logo-liminallab-full.jpg", alt: "Liminal Lab", fullWidth: true, gallery: 1 },
@@ -621,7 +626,7 @@ export default function Sidebar({
                   {projectDetails[selectedProject].images.map((image, index) => (
                     <div 
                       key={index} 
-                      className={`flex flex-col gap-2 ${!image.fullWidth ? 'lg:w-1/2' : 'w-full'}`}
+                      className={`flex flex-col gap-2 ${image.fullWidth ? 'md:col-span-2' : ''}`}
                     >
                       <div 
                         className="cursor-pointer" 
