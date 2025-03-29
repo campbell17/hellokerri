@@ -140,7 +140,7 @@ const tileContent: Record<number, TileContent> = {
         <p className={contentStyles.p}>
           The following is a collection of some of my work, followed by a few of my favorites by other designers and builders.
         </p>
-        <h2 className={contentStyles.h2}>Some of my work (I&apos;m adding/curating as we speak - pardon the dust):</h2>
+        <h2 className={contentStyles.h2}>Some of my work (addition/curation ongoing):</h2>
         <div className={`${contentStyles.gridContainer}`}>
           {workImages.filter(img => img.gallery === 1).map((image, index) => (
             <div 
@@ -344,11 +344,11 @@ const workImages = [
   { src: "/images/work/by-project/fulcrum/iso-fulcrum-icon.png", alt: "Fulcrum", projectKey: "Fulcrum", gallery: 1 },
   { src: "/images/work/by-project/sni/iso-sni-icon.jpg", alt: "Spatial Networks", projectKey: "Spatial Networks", gallery: 1 },
   { src: "/images/work/by-project/allinspections/iso-allinspections-icon.jpg", alt: "Allinspections", projectKey: "Allinspections", gallery: 1 },
-  { src: "/images/work/branding/logo-divide.jpg", alt: "Divide", projectKey: "Divide", gallery: 1 },
+  { src: "/images/work/branding/logo-divide.jpg", alt: "Divide for PS4", projectKey: "Divide", gallery: 1 },
   { src: "/images/work/by-project/cercana/iso-cercana-icon.jpg", alt: "Cercana Systems mark", gallery: 1 },
-  { src: "/images/work/branding/logo-cercana-full.jpg", alt: "Cercana Systems", gallery: 1 },
+  { src: "/images/work/branding/logo-cercana-full.jpg", alt: "Cercana Systems Logo", gallery: 1 },
   { src: "/images/work/by-project/liminallab/iso-liminallab-icon.jpg", alt: "Liminal Lab mark", gallery: 1 },
-  { src: "/images/work/branding/logo-liminallab-full.jpg", alt: "Liminal Lab", gallery: 1 },
+  { src: "/images/work/branding/logo-liminallab-full.jpg", alt: "Liminal Lab Logo", gallery: 1 },
   // Gallery 2: Others' Work
   { src: "/images/work/others/stripe-press.jpg", alt: "For visual balance, color usage, and succulently 3D rendered books: Stripe Press", fullWidth: true, gallery: 2 },
   { src: "/images/work/others/maggie.jpg", alt: "For impeccable illustration, long-form idea cultivation, and writing that's tight as a drum: Maggie Appleton", fullWidth: true, gallery: 2 },
@@ -399,7 +399,12 @@ const projectDetails: Record<string, ProjectDetails> = {
     title: "Spatial Networks",
     description: "Our parent company and Fulcrum's first customer.",
     images: [
-      { src: "/images/work/by-project/sni/iso-sni-icon.jpg", alt: "Spatial Networks Icon" }
+      { src: "/images/work/by-project/sni/browser-sni-2.jpg", alt: "Spatial Networks site" },
+      { src: "/images/work/by-project/sni/browser-sni-3.jpg", alt: "Spatial Networks site" },
+      { src: "/images/work/by-project/sni/browser-sni-4.jpg", alt: "Spatial Networks site" },
+      { src: "/images/work/by-project/sni/browser-sni-5.jpg", alt: "Spatial Networks site" },
+      { src: "/images/work/by-project/sni/snapshot-sni-tradeshow-1.jpg", alt: "Spatial Networks tradeshow" },
+      { src: "/images/work/by-project/sni/full-sni-ad-1.jpg", alt: "Spatial Networks ad" },
     ]
   },
   "Allinspections": {
@@ -416,15 +421,15 @@ const projectDetails: Record<string, ProjectDetails> = {
   },
   "Divide": {
     title: "Divide",
-    description: "A comprehensive branding and design project showcasing various assets and materials.",
+    description: "Branding, UI, game menus, HUD, icons, AR assets, world-building design.",
     images: [
-      { src: "/images/work/other/asset-divide1.webp", alt: "Divide Asset 1", caption: "Brand asset" },
-      { src: "/images/work/other/asset-divide2.webp", alt: "Divide Asset 2", caption: "Brand asset" },
-      { src: "/images/work/other/asset-divide3.webp", alt: "Divide Asset 3", caption: "Brand asset", fullWidth: true },
-      { src: "/images/work/other/asset-divide4.webp", alt: "Divide Asset 4", caption: "Brand asset", fullWidth: true },
-      { src: "/images/work/other/asset-divide5.webp", alt: "Divide Asset 5", caption: "Brand asset", fullWidth: true },
-      { src: "/images/work/other/asset-divide6.webp", alt: "Divide Asset 6", caption: "Brand asset", fullWidth: true },
-      { src: "/images/work/other/asset-divide7.webp", alt: "Divide Asset 7", caption: "Brand asset", fullWidth: true }
+      { src: "/images/work/other/asset-divide1.webp", alt: "Divide Asset 1" },
+      { src: "/images/work/other/asset-divide2.webp", alt: "Divide Asset 2" },
+      { src: "/images/work/other/asset-divide3.webp", alt: "Divide Asset 3", fullWidth: true },
+      { src: "/images/work/other/asset-divide4.webp", alt: "Divide Asset 4", fullWidth: true },
+      { src: "/images/work/other/asset-divide5.webp", alt: "Divide Asset 5", fullWidth: true },
+      { src: "/images/work/other/asset-divide6.webp", alt: "Divide Asset 6", fullWidth: true },
+      { src: "/images/work/other/asset-divide7.webp", alt: "Divide Asset 7", fullWidth: true }
     ]
   },
 };
