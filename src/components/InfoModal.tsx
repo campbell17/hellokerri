@@ -305,6 +305,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     height={800}
                     className="w-full h-auto rounded-lg"
                     loading="lazy"
+                    unoptimized
                     onLoad={() => handleImageLoad('/images/about-this-site/about-level-1.gif')}
                   />
                   {!loadedImages.has('/images/about-this-site/about-level-1.gif') && (
@@ -325,6 +326,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     height={800}
                     className="w-full h-auto rounded-lg"
                     loading="lazy"
+                    unoptimized
                     onLoad={() => handleImageLoad('/images/about-this-site/about-level-2.gif')}
                   />
                   {!loadedImages.has('/images/about-this-site/about-level-2.gif') && (
@@ -345,6 +347,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     height={800}
                     className="w-full h-auto rounded-lg"
                     loading="lazy"
+                    unoptimized
                     onLoad={() => handleImageLoad('/images/about-this-site/about-level-3.gif')}
                   />
                   {!loadedImages.has('/images/about-this-site/about-level-3.gif') && (
@@ -365,6 +368,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     height={800}
                     className="w-full h-auto rounded-lg"
                     loading="lazy"
+                    unoptimized
                     onLoad={() => handleImageLoad('/images/about-this-site/about-level-4.gif')}
                   />
                   {!loadedImages.has('/images/about-this-site/about-level-4.gif') && (
@@ -393,6 +397,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     height={800}
                     className="w-full h-auto rounded-lg"
                     loading="lazy"
+                    unoptimized
                     onLoad={() => handleImageLoad('/images/about-this-site/about-level-5.gif')}
                   />
                   {!loadedImages.has('/images/about-this-site/about-level-5.gif') && (
@@ -417,6 +422,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                     height={800}
                     className="w-full h-auto rounded-lg"
                     loading="lazy"
+                    unoptimized
                     onLoad={() => handleImageLoad('/images/about-this-site/about-level-6.gif')}
                   />
                   {!loadedImages.has('/images/about-this-site/about-level-6.gif') && (
