@@ -371,13 +371,16 @@ interface ProjectDetails {
 const projectDetails: Record<string, ProjectDetails> = {
   "Fulcrum": {
     title: "Fulcrum",
-    // description: "What I've been up to for the last 5,323 days.",
+    description: "Here's a taste of some work I've done over the years at Fulcrum. More to come...",
     images: [
+      { src: "/images/work/by-project/fulcrum/browser-fulcrum-web-list.jpg", alt: "Fulcrum Web Apps List" },
+      { src: "/images/work/by-project/fulcrum/browser-fulcrum-web-dataviewer.jpg", alt: "Fulcrum Web Dataviewer" },
       { src: "/images/work/by-project/fulcrum/browser-fulcrum-2012.jpg", alt: "Fulcrum 2012 Browser View" },
       { src: "/images/work/by-project/fulcrum/browser-fulcrum-2014.jpg", alt: "Fulcrum 2014 Browser View" },
       { src: "/images/work/by-project/fulcrum/browser-fulcrum-2014b.jpg", alt: "Fulcrum 2014 Browser View 2" },
       { src: "/images/work/by-project/fulcrum/browser-fulcrum-casestudy.jpg", alt: "Fulcrum Case Study" },
-      // { src: "/images/work/by-project/fulcrum/browser-fulcrum-v1-roles.jpg", alt: "Fulcrum V1 Roles" },
+      { src: "/images/work/by-project/fulcrum/full-fulcrum-ad-2.jpg", alt: "Fulcrum Stormwater Ad" },
+      { src: "/images/work/by-project/fulcrum/full-fulcrum-book-cover.jpg", alt: "Fulcrum Damage Assessment Book Cover" },
       { src: "/images/work/by-project/fulcrum/full-fulcrum-handout.jpg", alt: "Fulcrum Handout", fullWidth: true },
       { src: "/images/work/by-project/fulcrum/full-fulcrum-tradeshow.jpg", alt: "Fulcrum Tradeshow", fullWidth: true },
       { src: "/images/work/by-project/fulcrum/grid-fulcrum-buildericons-v3.jpg", alt: "Fulcrum Builder Icons" },
@@ -392,19 +395,23 @@ const projectDetails: Record<string, ProjectDetails> = {
       { src: "/images/work/by-project/fulcrum/full-fulcrum-brochure-mini-2.jpg", alt: "Fulcrum Mini Brochure" },
     ]
   },
-  "Allinspections": {
-    title: "Allinspections",
-    description: "A mobile-first inspection app that helped streamline the inspection process for field workers.",
-    images: [
-      { src: "/images/work/by-project/allinspections/full-allinspections-brochure.jpg", alt: "Allinspections Ad" },
-      { src: "/images/work/by-project/allinspections/full-allinspections-double-ad.jpg", alt: "Allinspections Ad" },
-    ]
-  },
   "Spatial Networks": {
     title: "Spatial Networks",
-    description: "The parent company of Fulcrum, where I was responsible for all design aspects including branding, marketing materials, and trade show displays.",
+    description: "Our parent company and Fulcrum's first customer.",
     images: [
       { src: "/images/work/by-project/sni/iso-sni-icon.jpg", alt: "Spatial Networks Icon" }
+    ]
+  },
+  "Allinspections": {
+    title: "Allinspections",
+    description: "Precursor to Fulcrum and my first product at Spatial Networks.",
+    images: [
+      { src: "/images/work/by-project/allinspections/browser-allinspections-1.jpg", alt: "Allinspections Site" },
+      { src: "/images/work/by-project/allinspections/browser-allinspections-2.jpg", alt: "Allinspections Site" },
+      { src: "/images/work/by-project/allinspections/browser-allinspections-3.jpg", alt: "Allinspections Site" },
+      { src: "/images/work/by-project/allinspections/browser-allinspections-4.jpg", alt: "Allinspections Site" },
+      { src: "/images/work/by-project/allinspections/full-allinspections-brochure.jpg", alt: "Allinspections Ad", fullWidth: true },
+      { src: "/images/work/by-project/allinspections/full-allinspections-double-ad.jpg", alt: "Allinspections Ad", fullWidth: true },
     ]
   },
   "Divide": {
@@ -474,6 +481,19 @@ export default function Sidebar({
       return () => clearTimeout(timer);
     }
   }, [selectedTile]);
+
+  // Reset scroll position when changing projects
+  useEffect(() => {
+    if (selectedProject) {
+      const timer = setTimeout(() => {
+        const projectSidebar = document.querySelector('.project-sidebar');
+        if (projectSidebar) {
+          projectSidebar.scrollTop = 0;
+        }
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [selectedProject]);
 
   if (!selectedTile) return null;
 
@@ -646,7 +666,7 @@ export default function Sidebar({
               e.stopPropagation();
             }}
           >
-            <div className="h-full overflow-y-auto">
+            <div className="h-full overflow-y-auto project-sidebar">
               <div className="p-12">
                 {/* Close Button */}
                 <AnimatePresence>
