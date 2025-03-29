@@ -84,6 +84,18 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
 
                 <div className="space-y-6 mb-8">
                   <div>
+                    <div className="text-sm text-gray-500 mb-2">2025-03-28</div>
+                    <div>
+                      <p className="text-gray-900">My Work section enhancements</p>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Added project navigation with next buttons</li>
+                        <li>• Improved layout and transitions</li>
+                        <li>• Fixed project image grid layout</li>
+                        <li>• Added more work examples</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div>
                     <div className="text-sm text-gray-500 mb-2">2025-03-27</div>
                     <div>
                       <p className="text-gray-900">Added info section and improved responsive design</p>

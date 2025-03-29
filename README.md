@@ -8,6 +8,13 @@ Whenever my wife does something she considers foolish, she chastises herself by 
 
 ## Changelog
 
+### 2025-03-28
+**My Work section enhancements**
+- Added project navigation with next buttons
+- Improved layout and transitions
+- Fixed project image grid layout
+- Added more work examples
+
 ### 2024-03-27
 **Added info section and improved responsive design**
 - Added info section with changelog and todo list
