@@ -141,7 +141,7 @@ const tileContent: Record<number, TileContent> = {
           The following is a collection of some of my work, followed by a few of my favorites by other designers and builders.
         </p>
         <h2 className={contentStyles.h2}>Some of my work (I&apos;m adding/curating as we speak - pardon the dust):</h2>
-        <div className={`${contentStyles.gridContainer} pt-12`}>
+        <div className={`${contentStyles.gridContainer}`}>
           {workImages.filter(img => img.gallery === 1).map((image, index) => (
             <div 
               key={index} 
@@ -155,7 +155,7 @@ const tileContent: Record<number, TileContent> = {
                   height={1000}
                   className="transition-opacity hover:opacity-[60%]" 
                 />
-                {projectDetails[image.alt] && (
+                {projectDetails[image.projectKey || ''] && (
                   <div className="absolute bottom-2 left-2">
                     <div className="p-2 text-gray-300/90">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-8 w-8">
@@ -341,16 +341,14 @@ const tileContent: Record<number, TileContent> = {
 
 const workImages = [
   // Gallery 1: My Work
-  { src: "/images/work/by-project/fulcrum/iso-fulcrum-icon.png", alt: "Fulcrum", gallery: 1 },
-  { src: "/images/work/by-project/sni/iso-sni-icon.jpg", alt: "Spatial Networks", gallery: 1 },
-  { src: "/images/work/by-project/allinspections/iso-allinspections-icon.jpg", alt: "Allinspections", gallery: 1 },
-  { src: "/images/work/branding/logo-divide.jpg", alt: "Divide", gallery: 1 },
+  { src: "/images/work/by-project/fulcrum/iso-fulcrum-icon.png", alt: "Fulcrum", projectKey: "Fulcrum", gallery: 1 },
+  { src: "/images/work/by-project/sni/iso-sni-icon.jpg", alt: "Spatial Networks", projectKey: "Spatial Networks", gallery: 1 },
+  { src: "/images/work/by-project/allinspections/iso-allinspections-icon.jpg", alt: "Allinspections", projectKey: "Allinspections", gallery: 1 },
+  { src: "/images/work/branding/logo-divide.jpg", alt: "Divide", projectKey: "Divide", gallery: 1 },
   { src: "/images/work/by-project/cercana/iso-cercana-icon.jpg", alt: "Cercana Systems mark", gallery: 1 },
   { src: "/images/work/branding/logo-cercana-full.jpg", alt: "Cercana Systems", gallery: 1 },
   { src: "/images/work/by-project/liminallab/iso-liminallab-icon.jpg", alt: "Liminal Lab mark", gallery: 1 },
-  { src: "/images/work/branding/logo-liminallab-full.jpg", alt: "Liminal Lab", gallery: 1 },  
-  { src: "/images/work/other/allinspections-ad2.png", alt: "Allinspections Ad", fullWidth: true, gallery: 1 },
-  { src: "/images/work/other/allinspections-ad.jpg", alt: "Allinspections Ad", fullWidth: true, gallery: 1 },
+  { src: "/images/work/branding/logo-liminallab-full.jpg", alt: "Liminal Lab", gallery: 1 },
   // Gallery 2: Others' Work
   { src: "/images/work/others/stripe-press.jpg", alt: "For visual balance, color usage, and succulently 3D rendered books: Stripe Press", fullWidth: true, gallery: 2 },
   { src: "/images/work/others/maggie.jpg", alt: "For impeccable illustration, long-form idea cultivation, and writing that's tight as a drum: Maggie Appleton", fullWidth: true, gallery: 2 },
@@ -360,7 +358,7 @@ const workImages = [
 
 interface ProjectDetails {
   title: string;
-  description: string;
+  description?: string;
   images: Array<{
     src: string;
     alt: string;
@@ -373,7 +371,7 @@ interface ProjectDetails {
 const projectDetails: Record<string, ProjectDetails> = {
   "Fulcrum": {
     title: "Fulcrum",
-    description: "What I've been up to for the last 5,323 days.",
+    // description: "What I've been up to for the last 5,323 days.",
     images: [
       { src: "/images/work/by-project/fulcrum/browser-fulcrum-2012.jpg", alt: "Fulcrum 2012 Browser View" },
       { src: "/images/work/by-project/fulcrum/browser-fulcrum-2014.jpg", alt: "Fulcrum 2014 Browser View" },
@@ -382,7 +380,7 @@ const projectDetails: Record<string, ProjectDetails> = {
       { src: "/images/work/by-project/fulcrum/browser-fulcrum-v1-roles.jpg", alt: "Fulcrum V1 Roles" },
       { src: "/images/work/by-project/fulcrum/full-fulcrum-handout.jpg", alt: "Fulcrum Handout", fullWidth: true },
       { src: "/images/work/by-project/fulcrum/full-fulcrum-tradeshow.jpg", alt: "Fulcrum Tradeshow", fullWidth: true },
-      { src: "/images/work/by-project/fulcrum/grid-fulcrum-buildericons-v2.jpg", alt: "Fulcrum Builder Icons" },
+      { src: "/images/work/by-project/fulcrum/grid-fulcrum-buildericons-v3.jpg", alt: "Fulcrum Builder Icons" },
       { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-early-swag.jpg", alt: "Fulcrum Early Swag" },
       { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-office-1.jpg", alt: "Fulcrum Office 1" },
       { src: "/images/work/by-project/fulcrum/snapshot-fulcrum-cw-office-2.jpg", alt: "Fulcrum Office 2" },
@@ -393,8 +391,8 @@ const projectDetails: Record<string, ProjectDetails> = {
     title: "Allinspections",
     description: "A mobile-first inspection app that helped streamline the inspection process for field workers.",
     images: [
-      { src: "/images/work/other/allinspections-ad2.png", alt: "Allinspections Ad", fullWidth: true },
-      { src: "/images/work/other/allinspections-ad.jpg", alt: "Allinspections Ad", fullWidth: true }
+      { src: "/images/work/by-project/allinspections/full-allinspections-brochure.jpg", alt: "Allinspections Ad" },
+      { src: "/images/work/by-project/allinspections/full-allinspections-double-ad.jpg", alt: "Allinspections Ad" },
     ]
   },
   "Spatial Networks": {
@@ -495,8 +493,8 @@ export default function Sidebar({
 
   const handleImageClick = (index: number) => {
     const clickedImage = workImages[index];
-    if (projectDetails[clickedImage.alt]) {
-      setSelectedProject(clickedImage.alt);
+    if (clickedImage.projectKey && projectDetails[clickedImage.projectKey]) {
+      setSelectedProject(clickedImage.projectKey);
     } else {
       // If no project details, show lightbox
       setCurrentGallery(clickedImage.gallery);
@@ -686,9 +684,11 @@ export default function Sidebar({
                 </h2>
 
                 {/* Project Description */}
-                <p className="text-xl text-gray-600 mb-12">
-                  {projectDetails[selectedProject].description}
-                </p>
+                {projectDetails[selectedProject].description && (
+                  <p className="text-xl text-gray-600 mb-12">
+                    {projectDetails[selectedProject].description}
+                  </p>
+                )}
 
                 {/* Project Images */}
                 <div className={contentStyles.gridContainer}>
