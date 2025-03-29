@@ -67,11 +67,28 @@ Whenever my wife does something she considers foolish, she chastises herself by 
 - Added click actions and transitions
 
 ## Todos
-- [ ] Continue adding work examples
-- [x] Ship nested sidebar for work that has its own section
-- [ ] ~ Add touch controls / swipe gestures
-- [ ] ~ Fix inconsistent avatar overlap
-- [ ] ~ Add styling for code blocks
+- <svg class="w-4 h-4 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <circle cx="12" cy="12" r="10" stroke-width="2"/>
+  </svg> Close button for nested projects is too big on xs mobile
+- <svg class="w-4 h-4 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <circle cx="12" cy="12" r="10" stroke-width="2"/>
+  </svg> Replace low res Divide screenshots
+- <svg class="w-4 h-4 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <circle cx="12" cy="12" r="10" stroke-width="2"/>
+  </svg> Continue adding work examples
+- <svg class="w-4 h-4 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" fill="currentColor"/>
+    <path d="M8 12l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg> Ship nested sidebar for work that has its own section
+- <svg class="w-4 h-4 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <circle cx="12" cy="12" r="10" stroke-width="2"/>
+  </svg> ~ Add touch controls / swipe gestures
+- <svg class="w-4 h-4 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <circle cx="12" cy="12" r="10" stroke-width="2"/>
+  </svg> ~ Fix inconsistent avatar overlap
+- <svg class="w-4 h-4 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <circle cx="12" cy="12" r="10" stroke-width="2"/>
+  </svg> ~ Add styling for code blocks
 
 ---
 

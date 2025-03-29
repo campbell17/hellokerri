@@ -190,11 +190,49 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                 <div className="space-y-4 mb-8">
                   <div>
                     <ul className="text-sm text-gray-600 space-y-1">
-                      <li>☐ Continue adding work examples</li>
-                      <li className="line-through">[x] Ship nested sidebar for work that has its own section</li>
-                      <li>☐ ~ Add touch controls / swipe gestures</li>
-                      <li>☐ ~ Fix inconsistent avatar overlap</li>
-                      <li>☐ ~ Add styling for code blocks</li>
+                      <li className="flex items-center gap-2">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                        </svg>
+                        Close button for nested projects is too big on xs mobile
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                        </svg>
+                        Replace low res Divide screenshots
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                        </svg>
+                        Continue adding work examples
+                      </li>
+                      <li className="flex items-center gap-2 text-gray-400 line-through">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                          <circle cx="12" cy="12" r="10" fill="currentColor"/>
+                          <path d="M8 12l3 3 5-5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        Ship nested sidebar for work that has its own section
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                        </svg>
+                        ~ Add touch controls / swipe gestures
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                        </svg>
+                        ~ Fix inconsistent avatar overlap
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                        </svg>
+                        ~ Add styling for code blocks
+                      </li>
                     </ul>
                   </div>
                 </div>
