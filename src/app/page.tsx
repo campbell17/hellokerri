@@ -113,7 +113,7 @@ function HomeContent() {
   const [selectedSubItem, setSelectedSubItem] = useState<number | null>(null);
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const [lightboxImageIndex, setLightboxImageIndex] = useState<number | null>(null);
-  const [currentGallery, setCurrentGallery] = useState<number | null>(null);
+  const [currentGallery, setCurrentGallery] = useState<number | string | null>(null);
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const searchParams = useSearchParams();
   const router = useRouter();
