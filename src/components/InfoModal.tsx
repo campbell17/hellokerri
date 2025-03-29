@@ -191,7 +191,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                   <div>
                     <ul className="text-sm text-gray-600 space-y-1">
                       <li>☐ Continue adding work examples</li>
-                      <li>☐ Ship nested sidebar for work that has its own section</li>
+                      <li className="line-through">[x] Ship nested sidebar for work that has its own section</li>
                       <li>☐ ~ Add touch controls / swipe gestures</li>
                       <li>☐ ~ Fix inconsistent avatar overlap</li>
                       <li>☐ ~ Add styling for code blocks</li>

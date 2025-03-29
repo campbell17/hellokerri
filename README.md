@@ -67,11 +67,11 @@ Whenever my wife does something she considers foolish, she chastises herself by 
 - Added click actions and transitions
 
 ## Todos
-- ☐ Continue adding work examples
-- ☐ Ship nested sidebar for work that has its own section
-- ☐ ~ Add touch controls / swipe gestures
-- ☐ ~ Fix inconsistent avatar overlap
-- ☐ ~ Add styling for code blocks
+[ ] Continue adding work examples
+[x] Ship nested sidebar for work that has its own section
+[ ] ~ Add touch controls / swipe gestures
+[ ] ~ Fix inconsistent avatar overlap
+[ ] ~ Add styling for code blocks
 
 ---
 
