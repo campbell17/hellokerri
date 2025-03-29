@@ -684,42 +684,99 @@ export default function Sidebar({
                 </AnimatePresence>
 
                 {/* Project Title */}
-                <h2 className="text-3xl font-black text-gray-900 mb-6">
-                  {projectDetails[selectedProject].title}
-                </h2>
+                <AnimatePresence mode="wait">
+                  <motion.h2 
+                    key={selectedProject}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    className="text-3xl font-black text-gray-900 mb-6"
+                  >
+                    {projectDetails[selectedProject].title}
+                  </motion.h2>
+                </AnimatePresence>
 
                 {/* Project Description */}
-                {projectDetails[selectedProject].description && (
-                  <p className="text-xl text-gray-600 mb-12">
-                    {projectDetails[selectedProject].description}
-                  </p>
-                )}
+                <AnimatePresence mode="wait">
+                  {projectDetails[selectedProject].description && (
+                    <motion.p 
+                      key={`${selectedProject}-description`}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
+                      className="text-xl text-gray-600 mb-12"
+                    >
+                      {projectDetails[selectedProject].description}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
 
                 {/* Project Images */}
-                <div className={contentStyles.gridContainer}>
-                  {projectDetails[selectedProject].images.map((image, index) => (
-                    <div 
-                      key={index} 
-                      className={`flex flex-col gap-2 ${image.fullWidth ? 'md:col-span-2' : ''}`}
-                    >
+                <AnimatePresence mode="wait">
+                  <motion.div 
+                    key={`${selectedProject}-images`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    className={contentStyles.gridContainer}
+                  >
+                    {projectDetails[selectedProject].images.map((image, index) => (
                       <div 
-                        className="cursor-pointer relative group" 
-                        onClick={() => handleProjectImageClick(selectedProject, index)}
+                        key={index} 
+                        className={`flex flex-col gap-2 ${image.fullWidth ? 'md:col-span-2' : ''}`}
                       >
-                        <Image 
-                          src={image.src}
-                          alt={image.alt}
-                          width={1000} 
-                          height={1000}
-                          className="transition-all duration-200 group-hover:opacity-[60%]" 
-                        />
+                        <div 
+                          className="cursor-pointer relative group" 
+                          onClick={() => handleProjectImageClick(selectedProject, index)}
+                        >
+                          <Image 
+                            src={image.src}
+                            alt={image.alt}
+                            width={1000} 
+                            height={1000}
+                            className="transition-all duration-200 group-hover:opacity-[60%]" 
+                          />
+                        </div>
+                        {image.caption && (
+                          <p className={contentStyles.caption}>{image.caption}</p>
+                        )}
                       </div>
-                      {image.caption && (
-                        <p className={contentStyles.caption}>{image.caption}</p>
-                      )}
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Project Navigation */}
+                <AnimatePresence mode="wait">
+                  <motion.div 
+                    key={`${selectedProject}-navigation`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    className="mt-8"
+                  >
+                    {/* Next Project Button */}
+                    <motion.button
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.15, delay: 0.3, ease: "easeOut" }}
+                      onClick={() => {
+                        const projectKeys = Object.keys(projectDetails);
+                        const currentIndex = projectKeys.indexOf(selectedProject);
+                        const nextIndex = (currentIndex + 1) % projectKeys.length;
+                        setSelectedProject(projectKeys[nextIndex]);
+                      }}
+                      className="w-full bg-gray-900 text-white hover:text-white flex justify-center items-center gap-4 hover:bg-gray-800 p-8 rounded-full transition-all duration-150 ease-out"
+                    >
+                      <h2 className="text-xl font-black tracking-tight">
+                        Up Next: {projectDetails[Object.keys(projectDetails)[(Object.keys(projectDetails).indexOf(selectedProject) + 1) % Object.keys(projectDetails).length]].title}
+                      </h2>
+                    </motion.button>
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </div>
           </motion.div>
