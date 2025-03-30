@@ -665,7 +665,7 @@ export default function Sidebar({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="fixed right-0 top-0 h-full w-[90vw] lg:w-[70%] xl:w-[50%] bg-gray-100 shadow-xl z-[60]"
+            className="fixed right-0 top-0 h-full w-[85vw] lg:w-[70%] xl:w-[50%] bg-gray-100 shadow-xl z-[60]"
             onKeyDown={(e) => {
               // Prevent keyboard events from reaching the main sidebar
               e.stopPropagation();
@@ -681,10 +681,10 @@ export default function Sidebar({
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.15, delay: 0.15, ease: "easeOut" }}
                     onClick={handleCloseProject}
-                    className="bg-gray-200/95 lg:bg-gray-200/80 fixed right-[90vw] lg:right-[70%] xl:right-[50%] top-0 h-full w-[10vw] lg:w-[7%] xl:w-[5%] transition-colors hover:bg-gray-100/95 flex items-center justify-center group back-button"
+                    className="bg-gray-200/95 lg:bg-gray-200/80 fixed right-[85vw] lg:right-[70%] xl:right-[50%] top-0 h-full w-[15vw] lg:w-[7%] xl:w-[5%] transition-colors hover:bg-gray-100/95 flex items-center justify-center group back-button"
                   >
                     <span className="writing-mode-vertical rotate-[-90deg] text-[1.5rem] font-[900] border-2 border-slate-300/20 bg-gray-100/95 text-gray-500 group-hover:text-black tracking-tight rounded-full px-4 py-2 transition-colors whitespace-nowrap">
-                      My Work
+                      BACK
                     </span>
                   </motion.button>
                 </AnimatePresence>
@@ -801,7 +801,7 @@ export default function Sidebar({
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.02 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 text-white/60 hover:text-white transition-colors z-[50] w-10 h-10 flex items-center justify-center rounded-full bg-slate-500/50 hover:bg-slate-700/80 backdrop-blur-sm border border-white/10"
+            className="fixed bottom-4 right-4 text-white/60 hover:text-white transition-colors z-[50] w-10 h-10 flex items-center justify-center rounded-full bg-slate-500/50 hover:bg-slate-700/80 backdrop-blur-sm border border-white/10"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />

@@ -301,15 +301,14 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                   <Image
                     src="/images/about-this-site/about-level-1.gif"
                     alt="Level 1"
-                    width={1200}
-                    height={800}
+                    width={1000}
+                    height={1000}
                     className="w-full h-auto rounded-lg"
-                    loading="lazy"
                     unoptimized
                     onLoad={() => handleImageLoad('/images/about-this-site/about-level-1.gif')}
                   />
                   {!loadedImages.has('/images/about-this-site/about-level-1.gif') && (
-                    <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
+                    <div className="absolute inset-0 bg-gray-100 animate-pulse rounded-lg" />
                   )}
                 </div>
 
@@ -322,15 +321,14 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                   <Image
                     src="/images/about-this-site/about-level-2.gif"
                     alt="Level 2"
-                    width={1200}
-                    height={800}
+                    width={1000}
+                    height={1000}
                     className="w-full h-auto rounded-lg"
-                    loading="lazy"
                     unoptimized
                     onLoad={() => handleImageLoad('/images/about-this-site/about-level-2.gif')}
                   />
                   {!loadedImages.has('/images/about-this-site/about-level-2.gif') && (
-                    <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
+                    <div className="absolute inset-0 bg-gray-100 animate-pulse rounded-lg" />
                   )}
                 </div>
 
@@ -343,15 +341,14 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                   <Image
                     src="/images/about-this-site/about-level-3.gif"
                     alt="Level 3"
-                    width={1200}
-                    height={800}
+                    width={1000}
+                    height={1000}
                     className="w-full h-auto rounded-lg"
-                    loading="lazy"
                     unoptimized
                     onLoad={() => handleImageLoad('/images/about-this-site/about-level-3.gif')}
                   />
                   {!loadedImages.has('/images/about-this-site/about-level-3.gif') && (
-                    <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
+                    <div className="absolute inset-0 bg-gray-100 animate-pulse rounded-lg" />
                   )}
                 </div>
 
@@ -364,15 +361,14 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                   <Image
                     src="/images/about-this-site/about-level-4.gif"
                     alt="Level 4"
-                    width={1200}
-                    height={800}
+                    width={1000}
+                    height={1000}
                     className="w-full h-auto rounded-lg"
-                    loading="lazy"
                     unoptimized
                     onLoad={() => handleImageLoad('/images/about-this-site/about-level-4.gif')}
                   />
                   {!loadedImages.has('/images/about-this-site/about-level-4.gif') && (
-                    <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
+                    <div className="absolute inset-0 bg-gray-100 animate-pulse rounded-lg" />
                   )}
                 </div>
 
