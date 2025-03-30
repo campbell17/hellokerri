@@ -84,6 +84,17 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
 
                 <div className="space-y-6 mb-8">
                   <div>
+                    <div className="text-sm text-gray-500 mb-2">2025-03-29</div>
+                    <div>
+                      <p className="text-gray-900">Cleanup and tweaks</p>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Resized back button to prevent cutoff</li>
+                        <li>• Added unoptimized prop to gifs</li>
+                        <li>• Fixed changelog & todo formatting</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div>
                     <div className="text-sm text-gray-500 mb-2">2025-03-28</div>
                     <div>
                       <p className="text-gray-900">My Work section enhancements</p>
@@ -190,9 +201,10 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                 <div className="space-y-4 mb-8">
                   <div>
                     <ul className="text-sm text-gray-600 space-y-1">
-                      <li className="flex items-center gap-2">
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                      <li className="flex items-center gap-2 text-gray-400 line-through">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                          <circle cx="12" cy="12" r="10" fill="currentColor"/>
+                          <path d="M8 12l3 3 5-5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                         Close button for nested projects is too big on xs mobile
                       </li>
