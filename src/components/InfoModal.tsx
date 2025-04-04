@@ -86,7 +86,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                   <div>
                     <div className="text-sm text-gray-500 mb-2">2025-04-04</div>
                     <div>
-                      <p className="text-gray-900">Add Word</p>
+                      <p className="text-gray-900">Add Work</p>
                       <ul className="text-sm text-gray-600 space-y-1">
                         <li>• Recategorize images</li>
                         <li>• Add more examples to work section</li>
