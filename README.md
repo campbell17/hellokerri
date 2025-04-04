@@ -12,6 +12,7 @@ Whenever my wife does something she considers foolish, she chastises herself by 
 **Add Work**
 - Recategorize images
 - Add more examples to work section
+- Replace low res Divide screenshots
 
 ### 2025-03-29
 **Cleanup and tweaks**
@@ -79,7 +80,7 @@ Whenever my wife does something she considers foolish, she chastises herself by 
 
 ## Todos
 - [x] Close button for nested projects is too big on xs mobile
-- [ ] Replace low res Divide screenshots
+- [x] Replace low res Divide screenshots
 - [ ] Continue adding work examples
 - [x] Ship nested sidebar for work that has its own section
 - [ ] ~ Draggable width for Work sidebar
