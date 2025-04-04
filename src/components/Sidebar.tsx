@@ -345,10 +345,13 @@ const workImages = [
   { src: "/images/work/isolated/iso-sni-icon.jpg", alt: "Spatial Networks", projectKey: "Spatial Networks", gallery: 1 },
   { src: "/images/work/isolated/iso-allinspections-icon-alt.jpg", alt: "Allinspections", projectKey: "Allinspections", gallery: 1 },
   { src: "/images/work/isolated/iso-divide-logo.jpg", alt: "Divide for PS4", projectKey: "Divide", gallery: 1 },
-  { src: "/images/work/isolated/iso-cercana-icon.jpg", alt: "Cercana Systems mark", gallery: 1 },
-  { src: "/images/work/isolated/iso-cercana-logo.jpg", alt: "Cercana Systems Logo", gallery: 1 },
-  { src: "/images/work/isolated/iso-liminallab-icon.jpg", alt: "Liminal Lab mark", gallery: 1 },
-  { src: "/images/work/isolated/iso-liminallab-logo.jpg", alt: "Liminal Lab Logo", gallery: 1 },
+  { src: "/images/work/gridded/grid-icons-all.jpg", alt: "Branding", projectKey: "Branding", gallery: 1 },
+  // { src: "/images/work/isolated/iso-cercana-icon.jpg", alt: "Cercana Systems mark", gallery: 1 },
+  // { src: "/images/work/isolated/iso-cercana-logo.jpg", alt: "Cercana Systems Logo", gallery: 1 },
+  // { src: "/images/work/isolated/iso-liminallab-icon.jpg", alt: "Liminal Lab mark", gallery: 1 },
+  // { src: "/images/work/isolated/iso-liminallab-logo.jpg", alt: "Liminal Lab Logo", gallery: 1 },
+  // { src: "/images/work/isolated/iso-exploding-tuba-icon.jpg", alt: "Exploding Tuba Studios mark", gallery: 1 },
+  // { src: "/images/work/isolated/iso-exploding-tuba-logo.jpg", alt: "Exploding Tuba Studios Logo", gallery: 1 },
   // Gallery 2: Others' Work
   { src: "/images/work/others/stripe-press.jpg", alt: "For visual balance, color usage, and succulently 3D rendered books: Stripe Press", fullWidth: true, gallery: 2 },
   { src: "/images/work/others/maggie.jpg", alt: "For impeccable illustration, long-form idea cultivation, and writing that's tight as a drum: Maggie Appleton", fullWidth: true, gallery: 2 },
@@ -428,15 +431,18 @@ const projectDetails: Record<string, ProjectDetails> = {
       { src: "/images/work/browser/browser-sni-2013.jpg", alt: "Spatial Networks 2013 Site" },
       { src: "/images/work/browser/browser-sni-2017.jpg", alt: "Spatial Networks 2017 Site" },
       { src: "/images/work/browser/browser-sni-2019-1.jpg", alt: "Spatial Networks 2019 Site 1" },
-      { src: "/images/work/browser/browser-sni-2019-2.jpg", alt: "Spatial Networks 2019 Site 2" },
+      // { src: "/images/work/browser/browser-sni-2019-2.jpg", alt: "Spatial Networks 2019 Site 2" },
       { src: "/images/work/browser/browser-sni-2019-3.jpg", alt: "Spatial Networks 2019 Site 3" },
       { src: "/images/work/browser/browser-sni-2019-4.jpg", alt: "Spatial Networks 2019 Site 4" },
       { src: "/images/work/browser/browser-sni-2019-5.jpg", alt: "Spatial Networks 2019 Site 5" },
       { src: "/images/work/browser/browser-sni-foresight-1.jpg", alt: "Spatial Networks Foresight" },
+      { src: "/images/work/isolated/iso-sni-icon-fall.jpg", alt: "Spatial Networks Icon fall" },
+      { src: "/images/work/isolated/iso-sni-icon-fall-tshirt.jpg", alt: "Spatial Networks Icon fall tshirt" },
       { src: "/images/work/full/full-sni-ad-1.jpg", alt: "Spatial Networks Ad 1" },
       { src: "/images/work/full/full-sni-ad-2.jpg", alt: "Spatial Networks Ad 2" },
-      { src: "/images/work/full/full-sni-flyer-1.jpg", alt: "Spatial Networks Flyer" },
-      // { src: "/images/work/snapshots/snapshot-sni-tradeshow-1.jpg", alt: "Spatial Networks Tradeshow", fullWidth: true }
+      // { src: "/images/work/full/full-sni-flyer-1.jpg", alt: "Spatial Networks Flyer" },
+      { src: "/images/work/isolated/iso-sni-tradeshow-booth.jpg", alt: "Spatial Networks Tradeshow booth" },
+      { src: "/images/work/snapshots/snapshot-sni-tradeshow-1.jpg", alt: "Spatial Networks Tradeshow" },
     ]
   },
   "Allinspections": {
@@ -476,6 +482,9 @@ const projectDetails: Record<string, ProjectDetails> = {
       { src: "/images/work/isolated/iso-divide-vestige-sticker.jpg", alt: "Divide Vestige Sticker" },
       { src: "/images/work/full/full-divide-ingame-world-1.jpg", alt: "Divide In-Game World 1", fullWidth: true },
       { src: "/images/work/full/full-divide-ingame-world-2.jpg", alt: "Divide In-Game World 2", fullWidth: true },
+      { src: "/images/work/full/full-divide-ingame-world-3.jpg", alt: "Divide In-Game World 3", fullWidth: true },
+      { src: "/images/work/full/full-divide-ps4.jpg", alt: "Divide PS4" },
+      { src: "/images/work/gridded/grid-divide-icons.jpg", alt: "Divide Icons" },
       { src: "/images/work/full/full-divide-ingame-UI-1.jpg", alt: "Divide In-Game UI 1", fullWidth: true },
       { src: "/images/work/full/full-divide-ingame-UI-2.jpg", alt: "Divide In-Game UI 2", fullWidth: true },
       { src: "/images/work/full/full-divide-ingame-codex-1.jpg", alt: "Divide In-Game Codex 1", fullWidth: true },
@@ -490,8 +499,31 @@ const projectDetails: Record<string, ProjectDetails> = {
       { src: "/images/work/snapshots/snapshot-divide-recording-1.jpg", alt: "Divide Recording Session" }
     ]
   },
+  "Branding": {
+    title: "Branding",
+    description: "Various logos and identity work.",
+    images: [
+      { src: "/images/work/isolated/iso-allinspections-icon.jpg", alt: "Allinspections Icon" },
+      { src: "/images/work/isolated/iso-allinspections-logo.jpg", alt: "Allinspections Logo" },
+      { src: "/images/work/isolated/iso-sni-icon.jpg", alt: "Spatial Networks Icon" },
+      { src: "/images/work/isolated/iso-sni-logo.jpg", alt: "Spatial Networks Logo" },
+      { src: "/images/work/isolated/iso-foresight-icon.jpg", alt: "Foresight Icon" },
+      { src: "/images/work/isolated/iso-foresight-logo.jpg", alt: "Foresight Logo" },
+      { src: "/images/work/isolated/iso-fulcrum-icon.jpg", alt: "Fulcrum Icon" },
+      { src: "/images/work/isolated/iso-fulcrum-logo.jpg", alt: "Fulcrum Logo" },
+      { src: "/images/work/isolated/iso-fulcrum-icon-og.jpg", alt: "Fulcrum Icon OG" },
+      { src: "/images/work/isolated/iso-fulcrum-logo-og.jpg", alt: "Fulcrum Logo OG" },
+      { src: "/images/work/isolated/iso-fulcrum-logo-live.jpg", alt: "Fulcrum Logo Live" },
+      { src: "/images/work/isolated/iso-divide-logo.jpg", alt: "Divide Logo" },
+      { src: "/images/work/isolated/iso-liminallab-icon.jpg", alt: "Liminal Lab mark" },
+      { src: "/images/work/isolated/iso-liminallab-logo.jpg", alt: "Liminal Lab Logo" },
+      { src: "/images/work/isolated/iso-cercana-icon.jpg", alt: "Cercana Systems mark" },
+      { src: "/images/work/isolated/iso-cercana-logo.jpg", alt: "Cercana Systems Logo" },
+      { src: "/images/work/isolated/iso-exploding-tuba-icon.jpg", alt: "Exploding Tuba Studios mark" },
+      { src: "/images/work/isolated/iso-exploding-tuba-logo.jpg", alt: "Exploding Tuba Studios Logo" },      
+    ]
+  },
 };
-
 export default function Sidebar({ 
   selectedTile, 
   onClose, 
