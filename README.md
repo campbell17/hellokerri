@@ -13,6 +13,7 @@ Whenever my wife does something she considers foolish, she chastises herself by 
 - Recategorize images
 - Add more examples to work section
 - Replace low res Divide screenshots
+- Add new Personal work section
 
 ### 2025-03-29
 **Cleanup and tweaks**

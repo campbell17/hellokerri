@@ -336,7 +336,7 @@ const tileContent: Record<number, TileContent> = {
         </p>
       </>
     )
-  }
+  },
 };
 
 const workImages = [
@@ -346,6 +346,7 @@ const workImages = [
   { src: "/images/work/isolated/iso-allinspections-icon-alt.jpg", alt: "Allinspections", projectKey: "Allinspections", gallery: 1 },
   { src: "/images/work/isolated/iso-divide-logo.jpg", alt: "Divide for PS4", projectKey: "Divide", gallery: 1 },
   { src: "/images/work/gridded/grid-icons-all.jpg", alt: "Branding", projectKey: "Branding", gallery: 1 },
+  { src: "/images/work/full/full-personal-painting-1.jpg", alt: "Personal/Misc", projectKey: "Personal", gallery: 1 },
   // { src: "/images/work/isolated/iso-cercana-icon.jpg", alt: "Cercana Systems mark", gallery: 1 },
   // { src: "/images/work/isolated/iso-cercana-logo.jpg", alt: "Cercana Systems Logo", gallery: 1 },
   // { src: "/images/work/isolated/iso-liminallab-icon.jpg", alt: "Liminal Lab mark", gallery: 1 },
@@ -521,6 +522,47 @@ const projectDetails: Record<string, ProjectDetails> = {
       { src: "/images/work/isolated/iso-cercana-logo.jpg", alt: "Cercana Systems Logo" },
       { src: "/images/work/isolated/iso-exploding-tuba-icon.jpg", alt: "Exploding Tuba Studios mark" },
       { src: "/images/work/isolated/iso-exploding-tuba-logo.jpg", alt: "Exploding Tuba Studios Logo" },      
+    ]
+  },
+  "Personal": {
+    title: "Personal",
+    description: "Drawing, painting, photography, creative side projects, and the like.",
+    images: [
+      { src: "/images/work/full/full-personal-painting-1.jpg", alt: "Painting 1" },
+      { src: "/images/work/full/full-personal-painting-2.jpg", alt: "Painting 2" },
+      { src: "/images/work/full/full-personal-painting-3.jpg", alt: "Painting 3" },
+      { src: "/images/work/full/full-personal-painting-4.jpg", alt: "Painting 4" },
+      { src: "/images/work/full/full-personal-drawing-1.jpg", alt: "Drawing 1" },
+      { src: "/images/work/full/full-personal-drawing-2.jpg", alt: "Drawing 2" },
+      { src: "/images/work/full/full-personal-drawing-3.jpg", alt: "Drawing 3" },
+      { src: "/images/work/full/full-personal-drawing-4.jpg", alt: "Drawing 4" },
+      { src: "/images/work/full/full-personal-photo-12.png", alt: "Photo 12" },
+      { src: "/images/work/full/full-personal-photo-13.png", alt: "Photo 13" },
+      { src: "/images/work/full/full-personal-photo-16.jpg", alt: "Photo 16" },
+      { src: "/images/work/full/full-personal-photo-19.png", alt: "Photo 19" },
+      { src: "/images/work/full/full-personal-photo-21.jpg", alt: "Photo 21" },
+      { src: "/images/work/full/full-personal-photo-22.jpg", alt: "Photo 22" },
+      { src: "/images/work/full/full-personal-photo-23.png", alt: "Photo 23" },
+      { src: "/images/work/full/full-personal-photo-25.jpg", alt: "Photo 25" },
+      // { src: "/images/work/full/full-personal-photo-30.jpg", alt: "Photo 30" },
+      { src: "/images/work/full/full-personal-photo-31.jpg", alt: "Photo 31" },
+      { src: "/images/work/full/full-personal-photo-32.png", alt: "Photo 32" },
+      { src: "/images/work/full/full-personal-photo-33.png", alt: "Photo 33" },
+      { src: "/images/work/full/full-personal-photo-35.jpg", alt: "Photo 35" },
+      { src: "/images/work/full/full-personal-photo-36.png", alt: "Photo 36" },
+      { src: "/images/work/full/full-personal-photo-41.png", alt: "Photo 41" },
+      { src: "/images/work/full/full-personal-photo-42.png", alt: "Photo 42" },
+      { src: "/images/work/full/full-personal-photo-44.png", alt: "Photo 44" },
+      { src: "/images/work/full/full-personal-photo-45.png", alt: "Photo 45" },
+      { src: "/images/work/full/full-personal-photo-46.png", alt: "Photo 46" },
+      { src: "/images/work/full/full-personal-photo-47.png", alt: "Photo 47" },
+      { src: "/images/work/full/full-personal-photo-51.png", alt: "Photo 51" },
+      { src: "/images/work/full/full-personal-photo-54.jpg", alt: "Photo 54" },
+      { src: "/images/work/full/full-personal-photo-58.png", alt: "Photo 58" },
+      { src: "/images/work/full/full-personal-photo-59.png", alt: "Photo 59" },
+      { src: "/images/work/full/full-personal-photo-64.png", alt: "Photo 64" },
+      { src: "/images/work/isolated/iso-personal-murphys-garage.jpg", alt: "Murphy's Garage sticker" },
+      { src: "/images/work/isolated/iso-personal-helmet-concept.jpg", alt: "Helmet design concept" },
     ]
   },
 };

@@ -91,6 +91,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                         <li>• Recategorize images</li>
                         <li>• Add more examples to work section</li>
                         <li>• Replace low res Divide screenshots</li>
+                        <li>• Add new Personal work section</li>
                       </ul>
                     </div>
                   </div>
