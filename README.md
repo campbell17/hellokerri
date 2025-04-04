@@ -8,6 +8,11 @@ Whenever my wife does something she considers foolish, she chastises herself by 
 
 ## Changelog
 
+### 2025-04-04
+**Add Work**
+- Recategorize images
+- Add more examples to work section
+
 ### 2025-03-29
 **Cleanup and tweaks**
 - Resized back button to prevent cutoff
@@ -77,6 +82,7 @@ Whenever my wife does something she considers foolish, she chastises herself by 
 - [ ] Replace low res Divide screenshots
 - [ ] Continue adding work examples
 - [x] Ship nested sidebar for work that has its own section
+- [ ] ~ Draggable width for Work sidebar
 - [ ] ~ Add touch controls / swipe gestures
 - [ ] ~ Fix inconsistent avatar overlap
 - [ ] ~ Add styling for code blocks

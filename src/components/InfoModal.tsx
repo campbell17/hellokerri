@@ -84,6 +84,16 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
 
                 <div className="space-y-6 mb-8">
                   <div>
+                    <div className="text-sm text-gray-500 mb-2">2025-04-04</div>
+                    <div>
+                      <p className="text-gray-900">Add Word</p>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Recategorize images</li>
+                        <li>• Add more examples to work section</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div>
                     <div className="text-sm text-gray-500 mb-2">2025-03-29</div>
                     <div>
                       <p className="text-gray-900">Cleanup and tweaks</p>
@@ -226,6 +236,12 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
                           <path d="M8 12l3 3 5-5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                         Ship nested sidebar for work that has its own section
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                        </svg>
+                        ~ Draggable width for Work sidebar
                       </li>
                       <li className="flex items-center gap-2">
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
