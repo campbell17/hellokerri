@@ -8,7 +8,7 @@ import Masthead from '@/components/Masthead';
 import Modal from '@/components/Modal';
 import InfoModal from '@/components/InfoModal';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 const contentStyles = {
   p: "text-xl leading-relaxed md:text-2xl mb-8 md:leading-relaxed text-white font-serif"
@@ -187,13 +187,6 @@ function HomeContent() {
     setSelectedTile(tile === selectedTile ? null : tile);
   };
 
-  const handleNextTile = () => {
-    if (selectedTile) {
-      const nextTile = (selectedTile % 4) + 1;
-      setSelectedTile(nextTile);
-    }
-  };
-
   const handleSubItemClick = (item: number) => {
     setSelectedSubItem(item);
     // Add the letter parameter to URL when opening modal
@@ -229,7 +222,7 @@ function HomeContent() {
           setSelectedProject={setSelectedProject}
         />
       </div>
-      {/* Info Icon - Fixed Position */}
+      {/* Info Icon - Fixed Position
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -240,7 +233,7 @@ function HomeContent() {
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-      </motion.button>
+      </motion.button> */}
 
       {/* Sidebar - different widths for mobile/desktop */}
       {selectedTile && (
@@ -257,9 +250,9 @@ function HomeContent() {
           <div className="w-full lg:w-1/2">
             <Suspense>
               <Sidebar 
-                selectedTile={selectedTile} 
+                selectedTile={selectedTile}
                 onClose={handleCloseSidebar}
-                onNextTile={handleNextTile}
+                onTileClick={handleTileClick}
                 selectedProject={selectedProject}
                 setSelectedProject={setSelectedProject}
                 lightboxImageIndex={lightboxImageIndex}

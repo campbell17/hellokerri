@@ -21,11 +21,6 @@ export const tiles: TileConfig[] = [
     id: 3,
     title: "My Work",
     backgroundImage: "/images/my-work2.png"
-  },
-  {
-    id: 4,
-    title: "Why 37 Signals?",
-    backgroundImage: "/images/why37signals3.jpg"
   }
 ];
 
@@ -91,7 +86,7 @@ export default function TileContainer({ selectedTile, onTileClick }: TileContain
             key={tile.id}
             config={tile}
             isFirst={tile.id === 1}
-            isLast={tile.id === 4}
+            isLast={tile.id === 3}
             isSelected={tile.id === selectedTile}
             onClick={() => onTileClick(tile.id)}
             initialDelay={tile.id * 0.1}

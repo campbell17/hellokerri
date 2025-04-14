@@ -7,7 +7,7 @@ import Lightbox from './Lightbox';
 interface SidebarProps {
   selectedTile: number | null;
   onClose: () => void;
-  onNextTile: () => void;
+  onTileClick: (tile: number) => void;
   selectedProject: string | null;
   setSelectedProject: (project: string | null) => void;
   lightboxImageIndex: number | null;
@@ -169,171 +169,6 @@ const tileContent: Record<number, TileContent> = {
             </div>
           ))}
         </div>
-        <h2 className={contentStyles.h2}>Some of my favorite work by others:</h2>
-        <div className={contentStyles.gridContainer}>
-          {workImages.filter(img => img.gallery === 2).map((image, index) => (
-            <div 
-              key={index} 
-              className={`flex flex-col gap-2 ${image.fullWidth ? 'md:col-span-2' : ''}`}
-            >
-              <div className="cursor-pointer" onClick={() => handleImageClick(workImages.indexOf(image))}>
-                <Image 
-                  src={image.src}
-                  alt={image.alt}
-                  width={1000} 
-                  height={1000}
-                  className="transition-opacity hover:opacity-[60%]" 
-                />
-              </div>
-              <p className={contentStyles.caption}>{image.alt}</p>
-            </div>
-          ))}
-        </div>
-      </>
-    )
-  },
-  4: {
-    title: "Why 37 Signals? Why Now?",
-    image: null,
-    content: (
-      <>
-        <Image src="/images/carpe-diem.png" alt="Branding" width={1000} height={1000} />
-        <p className={contentStyles.p}>
-          Software company culture is often misrepresented. People think culture can be manufactured with the right perks or free lunches or weekly challenges in Slack. &quot;What&apos;s your favorite summer song? The one with the most heart reactions wins an Amazon gift card!&quot;
-        </p>
-
-        <p className={contentStyles.p}>
-          These companies are unserious.
-        </p>
-
-        <p className={contentStyles.p}>
-          It&apos;s not all their fault. It takes bravery to break out of the inertia of the status quo, and it&apos;s been said that most people don&apos;t want to succeed - they want to avoid failure. And when you fill your company with people like that, that&apos;s the culture that will emerge. People start turning a blind eye to obvious problems. Stagnation sets in, leading to major celebrations for effort instead of outcome because the outcomes are fewer and farther between.
-        </p>
-
-        <p className={contentStyles.p}>
-          It&apos;s no wonder it&apos;s impossible to tell what a company is like until you work there.
-        </p>
-
-        <p className={contentStyles.p}>
-          But I don&apos;t want to know about your flag football league. I want to know how you work. Does the way you translate ideas into something a person can click in a web browser make sense?
-        </p>
-
-        <p className={contentStyles.p}>
-          Which leads me to why I&apos;m applying to work at 37 Signals.
-        </p>
-
-        <p className={contentStyles.p}>
-          Over the years as the public faces of the company, Jason, David, and Ryan were always fearless pillars of transparency to me, which by itself was enough to know I wanted to be a part of whatever they were doing. Intellectual honesty like that is unconscionably rare. But when I read Shape Up in 2019, something else happened. A part of my brain I didn&apos;t know existed woke up. I felt like my eyes had been closed this whole time and now I could see what we were up against. I knew 37 Signals was lean by design, so the odds of a design position opening up at the right time were slim. So if I couldn&apos;t work <em>at</em> 37 Signals, at least we could work <em>like</em> 37 Signals. I read it on Saturday, wrote the pitch to implement it on Sunday, and presented it to product leadership on Monday. If I had anything to do with it, this was the only way I wanted to work.
-        </p>
-
-        <p className={contentStyles.p}>
-          As for the position you&apos;re hiring for now, a Web App Product Designer: this was the most on-the-nose job description I&apos;ve ever read. While my design career covers the entire range of roles, the last half-decade was exclusively dedicated to enhancing and improving our web app. My energy comes from seeing the feature spun up on a git branch, not in Figma. My most rewarding recent work, and the thing that kept me going through some difficult changes, was working hand-in-hand with 1 developer, workshopping ideas about our feature, and finding the best way to ship something under the constraints we were given.
-        </p>
-
-        <p className={contentStyles.p}>
-          Also, as if it wasn&apos;t obvious already, I love to write.
-        </p>
-
-        <p className={contentStyles.p}>
-          I have a story to tell about the arc of my 14 year-long stint with Fulcrum, but that&apos;s best shared in person over a meal. In my mind I had a plan. End my career here. But if the opportunity ever arose to work at 37 Signals...end my career there instead.
-        </p>
-
-        <p className={contentStyles.p}>
-          I&apos;ve got a few decades of great work left.
-        </p>
-
-        <p className={contentStyles.p}>
-          Let&apos;s do it together.
-        </p>
-
-      </>
-    )
-  },
-  5: {
-    title: "Why Design?",
-    image: "/images/tim-hat-forest.png",
-    content: (
-      <>
-        <h2 className={contentStyles.h2}>Technical Expertise</h2>
-        <p className={contentStyles.p}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-
-        <h2 className={contentStyles.h2}>Programming Languages</h2>
-        <p className={contentStyles.p}>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-
-        <h2 className={contentStyles.h2}>Frameworks & Tools</h2>
-        <p className={contentStyles.p}>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-        </p>
-      </>
-    )
-  },
-  6: {
-    title: "Why the Web?",
-    image: "/images/tim-hat-forest.png",
-    content: (
-      <>
-        <h2 className={contentStyles.h2}>Get in Touch</h2>
-        <p className={contentStyles.p}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-
-        <h2 className={contentStyles.h2}>Social Media</h2>
-        <p className={contentStyles.p}>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-
-        <h2 className={contentStyles.h2}>Professional Networks</h2>
-        <p className={contentStyles.p}>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-        </p>
-      </>
-    )
-  },
-  7: {
-    title: "Experience",
-    image: "/images/tim-hat-forest.png",
-    content: (
-      <>
-        <h2 className={contentStyles.h2}>Professional Journey</h2>
-        <p className={contentStyles.p}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-
-        <h2 className={contentStyles.h2}>Key Achievements</h2>
-        <p className={contentStyles.p}>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </p>
-
-        <h2 className={contentStyles.h2}>Skills & Expertise</h2>
-        <p className={contentStyles.p}>
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-      </>
-    )
-  },
-  8: {
-    title: "Projects",
-    image: "/images/tim-hat-forest.png",
-    content: (
-      <>
-        <h2 className={contentStyles.h2}>Featured Work</h2>
-        <p className={contentStyles.p}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-
-        <h2 className={contentStyles.h2}>Open Source</h2>
-        <p className={contentStyles.p}>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </p>
-
-        <h2 className={contentStyles.h2}>Side Projects</h2>
-        <p className={contentStyles.p}>
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
       </>
     )
   },
@@ -353,11 +188,6 @@ const workImages = [
   // { src: "/images/work/isolated/iso-liminallab-logo.jpg", alt: "Liminal Lab Logo", gallery: 1 },
   // { src: "/images/work/isolated/iso-exploding-tuba-icon.jpg", alt: "Exploding Tuba Studios mark", gallery: 1 },
   // { src: "/images/work/isolated/iso-exploding-tuba-logo.jpg", alt: "Exploding Tuba Studios Logo", gallery: 1 },
-  // Gallery 2: Others' Work
-  { src: "/images/work/others/stripe-press.jpg", alt: "For visual balance, color usage, and succulently 3D rendered books: Stripe Press", fullWidth: true, gallery: 2 },
-  { src: "/images/work/others/maggie.jpg", alt: "For impeccable illustration, long-form idea cultivation, and writing that's tight as a drum: Maggie Appleton", fullWidth: true, gallery: 2 },
-  { src: "/images/work/others/ddc.jpg", alt: "For the three E's of design (Energy, Enthusiasm, and Effort) and a staggering preponderance of work: Aaron Draplin", fullWidth: true, gallery: 2 },
-  { src: "/images/work/others/levelsio.jpg", alt: "For \"You can just build things\": Levels.io", fullWidth: true, gallery: 2 },
 ];
 
 interface ProjectDetails {
@@ -569,7 +399,7 @@ const projectDetails: Record<string, ProjectDetails> = {
 export default function Sidebar({ 
   selectedTile, 
   onClose, 
-  onNextTile,
+  onTileClick,
   selectedProject,
   setSelectedProject,
   lightboxImageIndex,
@@ -578,8 +408,30 @@ export default function Sidebar({
   setCurrentGallery
 }: SidebarProps) {
   const content = selectedTile ? tileContent[selectedTile as keyof typeof tileContent] : null;
-  const nextTileId = selectedTile ? (selectedTile === 4 ? 1 : selectedTile + 1) : null;
+  const nextTileId = selectedTile ? (selectedTile === 3 ? 1 : selectedTile + 1) : null;
   const nextTileContent = nextTileId ? tileContent[nextTileId as keyof typeof tileContent] : null;
+
+  console.log('Navigation State:', {
+    selectedTile,
+    nextTileId,
+    selectedProject,
+    currentTitle: content?.title,
+    nextTitle: nextTileContent?.title
+  });
+
+  // Navigation button click handler
+  const handleNavigation = () => {
+    if (selectedProject) {
+      setSelectedProject(null);
+    } else if (selectedTile === 3) {
+      // If we're on the last tile (My Work), explicitly go to tile 1
+      onTileClick(1);
+    } else if (nextTileId) {
+      // Otherwise use the calculated nextTileId
+      onTileClick(nextTileId);
+    }
+  };
+
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   // Handle scroll for back-to-top button
@@ -769,16 +621,15 @@ export default function Sidebar({
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.15, delay: 0.3, ease: "easeOut" }}
-                      onClick={() => {
-                        if (selectedProject) {
-                          setSelectedProject(null);
-                        }
-                        onNextTile();
-                      }}
+                      onClick={handleNavigation}
                       className="w-full bg-gray-900 text-white hover:text-white flex justify-center items-center gap-4 hover:bg-gray-800 p-8 rounded-full transition-all duration-150 ease-out"
                     >
                       <h2 className="text-xl font-black tracking-tight">
-                        {nextTileId === 1 ? `back to ${nextTileContent?.title}` : nextTileContent?.title}
+                        {selectedProject && projectDetails[selectedProject]
+                          ? "Back to work" 
+                          : selectedTile === 3 
+                            ? "Back to short version" 
+                            : nextTileContent?.title}
                       </h2>
                     </motion.button>
                   </div>
