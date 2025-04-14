@@ -47,7 +47,7 @@ const tileContent: Record<number, TileContent> = {
             This included web app, mobile Apps, branding, marketing website, print materials.
           </li>
           <li className={contentStyles.p}>
-            I&apos;m used to working with Rails, HTML, CSS, as well as React. They didn&apos;t ask me to learn how to code. I did it to speed us up. 
+            I&apos;m used to working with Rails, HTML, CSS, as well as JS/React. They didn&apos;t ask me to learn how to code. I did it to speed us up. 
           </li>
           <li className={contentStyles.p}>
             In addition to working on Fulcrum, I was also solely responsible for designing and shipping the branding, website, and print / trade show materials for our parent company, Spatial Networks.
@@ -73,11 +73,11 @@ const tileContent: Record<number, TileContent> = {
     content: (
       <>
         <p className={contentStyles.p}>
-          Fourteen years and seven months ago, I joined Spatial Networks as their 12th employee and first design hire. They needed... everything. My title was UI Designer, but I did it all, online and in print. But we&apos;ll come back to that.
+          Fourteen years ago, a geospatial technology company named Spatial Networks hired me as their 12th employee and first designer. They needed... everything. My title was UI Designer, but I did it all, online and in print. But we&apos;ll come back to that.
         </p>
 
         <p className={contentStyles.p}>
-          Before that, I founded a design agency called Whiteshark Creations with a colleague, though I realized agency life wasn&apos;t my calling and I signed over my portion the business soon after.
+          Before that, I founded a design agency called Whiteshark Creations with an engineering colleague. We worked with some great clients in our first year, but I realized agency life wasn&apos;t my calling and I left for other design pursuits.
         </p>
 
         <p className={contentStyles.p}>
@@ -93,7 +93,7 @@ const tileContent: Record<number, TileContent> = {
         </p>
 
         <p className={contentStyles.p}>
-          But what I loved most was working on the web apps and the marketing websites. Since we were so small, everyone had to be trusted to make what they were doing count without much (or any) oversight. I was shocked at how much creative freedom I was given. This was the first time I was encouraged to just build. Everyone who needed to see it before it went live took their peek, gave it a nod, maybe asked for a minor tweak, then simply said &quot;Looks sweet, man. Ship it&quot;.
+          But what I loved most was working on the web apps and the marketing websites. Since we were so small, everyone had to be trusted to make what they were doing count without much (or any) oversight. This was the first time I was encouraged to simply address the customer problem and build. There was no time for hand-wringing. 
         </p>
 
         <p className={contentStyles.p}>
@@ -105,7 +105,7 @@ const tileContent: Record<number, TileContent> = {
         </p>
 
         <p className={contentStyles.p}>
-          Since then, we grew every month, steady as a rock. We found product market fit. Our founders understood the importance of keeping the team tight. People who didn&apos;t perform didn&apos;t last. I was responsible for the marketing website, the web app, and the mobile app design, all while continuing to support the corporate design materials and marketing for our parent company. It&apos;s wild to compare how we operate now with what we achieved back then with so little, but what I learned about simply putting your head down and shipping was invaluable.
+          Since then, we grew every month, steady as a rock. We found product market fit. Our founders understood the importance of keeping the team tight. People who didn&apos;t perform didn&apos;t last. I was responsible the strategy and design for the marketing website, the web app, and the mobile app, all while continuing to support the corporate design materials and marketing for our parent company. It&apos;s wild to compare how we operate now with what we achieved back then with so little, but what I learned about the importance of shipping fast to keep the feedback loop tight was invaluable.
 
         </p>
 
@@ -117,30 +117,11 @@ const tileContent: Record<number, TileContent> = {
     image: null,
     content: (handleImageClick: (index: number) => void) => (
       <>
-        <p className={contentStyles.p}>
-          I knew I wanted to be a designer when I realized I wasn&apos;t afraid to get paid.
-        </p>
+        {/* <h2 className={contentStyles.h2}>Some of my work (addition/curation ongoing):</h2> */}
+        {/* <p className={contentStyles.p}>
+          A sample of my work. More to come...
+        </p> */}
 
-        <p className={contentStyles.p}>
-          I&apos;ll explain...
-        </p>
-
-        <p className={contentStyles.p}>
-          I went to art school where I majored in illustration and photography. Needless to say, after graduation I worked in sporting goods fitting people for running shoes (I was damn good, by the way). I never dug into how to make money with my art because I never felt comfortable with the idea of something so subjective being scrutinized in that way. Like how people who know they&apos;re about to get ripped off scrutinize the gleam in their car salesman&apos;s eye. 
-        </p>
-
-        <p className={contentStyles.p}>
-          But I was always technically sharp and to me, design was more technical. If someone needed a logo, no problem. Logos cost this much. I fell in love with design because it was the perfect combination of drawing a sublime portrait and troubleshooting my neighbor&apos;s Dell. It always starts with logos, flyers, posters, brochures... so many brochures. In the beginning it was mostly print. When I started, web design was still young. But I kept my eye on it and dabbled where I could and eventually, it&apos;s all I did.
-        </p>
-
-        <p className={contentStyles.p}>
-          If design called to my logical side, the web called to my preternatural lust for improvement. When I sent that file entitled &quot;business-card-CEO-front_FINAL-FINAL2.pdf&quot; to the printer for that run of 10,000, the mouse-up event on the send button to his hotmail.com business address was what the racing instructors used to call a Pampers™ moment. On the web, however, I could fix a typo faster than that same PDF would load in Adobe Acrobat. I&apos;m not condoning sloppiness, of course. Diapers are expensive.
-        </p>
-
-        <p className={contentStyles.p}>
-          The following is a collection of some of my work, followed by a few of my favorites by other designers and builders.
-        </p>
-        <h2 className={contentStyles.h2}>Some of my work (addition/curation ongoing):</h2>
         <div className={`${contentStyles.gridContainer}`}>
           {workImages.filter(img => img.gallery === 1).map((image, index) => (
             <div 
@@ -169,6 +150,25 @@ const tileContent: Record<number, TileContent> = {
             </div>
           ))}
         </div>
+        <p className={contentStyles.p}>
+          I knew I wanted to be a designer when I realized I wasn&apos;t afraid to get paid.
+        </p>
+
+        <p className={contentStyles.p}>
+          I&apos;ll explain...
+        </p>
+
+        <p className={contentStyles.p}>
+          I went to art school where I majored in illustration and photography. Needless to say, after graduation I worked in sporting goods fitting people for running shoes (I was damn good, by the way). I never dug into how to make money with my art because I never felt comfortable with the idea of something so subjective being scrutinized in that way. Like how people who know they&apos;re about to get ripped off scrutinize the gleam in their car salesman&apos;s eye. 
+        </p>
+
+        <p className={contentStyles.p}>
+          But I was always technically sharp and to me, design was more technical. If someone needed a logo, no problem. Logos cost this much. I fell in love with design because it was the perfect combination of drawing a sublime portrait and troubleshooting my neighbor&apos;s Dell. It always starts with logos, flyers, posters, brochures... so many brochures. In the beginning it was mostly print. When I started, web design was still young. But I kept my eye on it and dabbled where I could and eventually, it&apos;s all I did.
+        </p>
+
+        <p className={contentStyles.p}>
+          If design called to my logical side, the web called to my preternatural lust for improvement. When I sent that file entitled &quot;business-card-CEO-front_FINAL-FINAL2.pdf&quot; to the printer for that run of 10,000, the mouse-up event on the send button to his hotmail.com business address was what the racing instructors used to call a Pampers™ moment. On the web, however, I could fix a typo faster than that same PDF would load in Adobe Acrobat. I&apos;m not condoning sloppiness, of course. Diapers are expensive.
+        </p>
       </>
     )
   },
