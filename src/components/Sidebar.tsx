@@ -174,20 +174,27 @@ const tileContent: Record<number, TileContent> = {
   },
 };
 
-const workImages = [
+interface WorkImage {
+  src: string;
+  alt: string;
+  projectKey?: string;
+  gallery: number;
+  fullWidth?: boolean;
+}
+
+const workImages: WorkImage[] = [
   // Gallery 1: My Work
-  { src: "/images/work/isolated/iso-fulcrum-icon.png", alt: "Fulcrum", projectKey: "Fulcrum", gallery: 1 },
-  { src: "/images/work/isolated/iso-sni-icon.jpg", alt: "Spatial Networks", projectKey: "Spatial Networks", gallery: 1 },
-  { src: "/images/work/isolated/iso-allinspections-icon-alt.jpg", alt: "Allinspections", projectKey: "Allinspections", gallery: 1 },
-  { src: "/images/work/isolated/iso-divide-logo.jpg", alt: "Divide for PS4", projectKey: "Divide", gallery: 1 },
-  { src: "/images/work/gridded/grid-icons-all.jpg", alt: "Branding", projectKey: "Branding", gallery: 1 },
-  { src: "/images/work/full/full-personal-painting-1.jpg", alt: "Personal/Misc", projectKey: "Personal", gallery: 1 },
-  // { src: "/images/work/isolated/iso-cercana-icon.jpg", alt: "Cercana Systems mark", gallery: 1 },
-  // { src: "/images/work/isolated/iso-cercana-logo.jpg", alt: "Cercana Systems Logo", gallery: 1 },
-  // { src: "/images/work/isolated/iso-liminallab-icon.jpg", alt: "Liminal Lab mark", gallery: 1 },
-  // { src: "/images/work/isolated/iso-liminallab-logo.jpg", alt: "Liminal Lab Logo", gallery: 1 },
-  // { src: "/images/work/isolated/iso-exploding-tuba-icon.jpg", alt: "Exploding Tuba Studios mark", gallery: 1 },
-  // { src: "/images/work/isolated/iso-exploding-tuba-logo.jpg", alt: "Exploding Tuba Studios Logo", gallery: 1 },
+  { src: "/images/work/isolated/iso-fulcrum-icon.png", alt: "Fulcrum", projectKey: "Fulcrum", gallery: 1, fullWidth: false },
+  { src: "/images/work/isolated/iso-sni-icon.jpg", alt: "Spatial Networks", projectKey: "Spatial Networks", gallery: 1, fullWidth: false },
+  { src: "/images/work/isolated/iso-allinspections-icon-alt.jpg", alt: "Allinspections", projectKey: "Allinspections", gallery: 1, fullWidth: false },
+  { src: "/images/work/isolated/iso-divide-logo.jpg", alt: "Divide for PS4", projectKey: "Divide", gallery: 1, fullWidth: false },
+  { src: "/images/work/gridded/grid-icons-all.jpg", alt: "Branding", projectKey: "Branding", gallery: 1, fullWidth: false },
+  { src: "/images/work/full/full-personal-painting-1.jpg", alt: "Personal/Misc", projectKey: "Personal", gallery: 1, fullWidth: false },
+  // Gallery 2: Others' Work
+  { src: "/images/work/others/stripe-press.jpg", alt: "For visual balance, color usage, and succulently 3D rendered books: Stripe Press", fullWidth: true, gallery: 2 },
+  { src: "/images/work/others/maggie.jpg", alt: "For impeccable illustration, long-form idea cultivation, and writing that's tight as a drum: Maggie Appleton", fullWidth: true, gallery: 2 },
+  { src: "/images/work/others/ddc.jpg", alt: "For the three E's of design (Energy, Enthusiasm, and Effort) and a staggering preponderance of work: Aaron Draplin", fullWidth: true, gallery: 2 },
+  { src: "/images/work/others/levelsio.jpg", alt: "For \"You can just build things\": Levels.io", fullWidth: true, gallery: 2 },
 ];
 
 interface ProjectDetails {
