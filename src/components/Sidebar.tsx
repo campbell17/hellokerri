@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import React from 'react';
 import Lightbox from './Lightbox';
+import Link from 'next/link';
 
 interface SidebarProps {
   selectedTile: number | null;
@@ -150,6 +151,13 @@ const tileContent: Record<number, TileContent> = {
             </div>
           ))}
         </div>
+        <p className={contentStyles.p}>I went to art school where I majored in illustration and photography.</p>
+        <p className={contentStyles.p}>After graduation I worked in sporting goods. A great start, I know.</p>
+        <p className={contentStyles.p}>I spent my days fitting people for running shoes (I was damn good, by the way) and my nights working on my design portfolio. Despite the BFA(popover) in my posession and my love for making beautiful images, I never felt comfortable pursuing how to make money with my art. The idea of something so personal and subjective being scrutinized by someone else never squared with me.</p>
+        <p className={contentStyles.p}>But I was always technically sharp, and to me design was more technical. If someone needed a logo, no problem. &ldquo;Logos cost this much&rdquo;. I fell in love with design because it was the perfect combination of drawing a sublime portrait and troubleshooting my neighbor&apos;s Dell. </p>
+        <p className={contentStyles.p}>Design careers of the early 2000&apos;s always kicked off with logos, flyers, posters, and brochures... so many brochures. In the beginning it was mostly print, with some corporate Powerpoint decks(popover/footnote) thrown in. When I started, web design was still young. But I kept my eye on it and dabbled where I could and eventually, it&apos;s all I did.</p>
+        <p className={contentStyles.p}>If design called to my logical side, the web as a medium called to my preternatural lust for improvement. When I sent that file entitled &quot;business-card-CEO-front_FINAL-FINAL2.pdf&quot; to the printer for that run of 10,000, the click-event on the send button in Outlook was (popover: what the racing instructors used to call) a Pampers™ moment. On the web, however, I could fix a typo faster than that same PDF would load in Adobe Acrobat. I&apos;m not condoning sloppiness, of course. Diapers are expensive.</p>            
+
         <p className={contentStyles.p}>
           I knew I wanted to be a designer when I realized I wasn&apos;t afraid to get paid.
         </p>
